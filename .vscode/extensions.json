@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "Nuxtr.nuxtr-vscode",
+    "bradlc.vscode-tailwindcss",
+    "Gruntfuggly.todo-tree",
+    "lokalise.i18n-ally",
+    "donjayamanne.githistory",
+    "dbaeumer.vscode-eslint",
+    "naumovs.color-highlight",
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "PKief.material-icon-theme"
+  ]
+}
