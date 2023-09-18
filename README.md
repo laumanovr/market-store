@@ -68,6 +68,5 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
  * [] - vitest
  * [] - i18n
  * [] - robots
- * [] - storybook
  * [] - partytown?
  * [] - vueuse
