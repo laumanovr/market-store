@@ -12,7 +12,9 @@
           </p>
         </div>
       </div>
-      <div class="home-banner"><img :src="homeBanner" alt="Home banner" /></div>
+      <div class="home-banner">
+        <img src="~/assets/images/home-banner.png" alt="Home banner" />
+      </div>
     </div>
     <div class="links">
       <div class="link">
@@ -25,13 +27,4 @@
   </div>
 </template>
 
-<script lang="ts">
-import homeBanner from "../public/images/home-banner.png";
-export default {
-  data() {
-    return {
-      homeBanner,
-    };
-  },
-};
-</script>
+<script lang="ts"></script>
