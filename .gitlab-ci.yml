@@ -3,7 +3,7 @@ stages:
   - deploy
   - notify
 
-build_marketplace_front_main:
+build_marketplace_front_test:
  stage: build
  before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
@@ -15,7 +15,7 @@ build_marketplace_front_main:
  only:
   - test
 
-deploy_marketplace_front_main:
+deploy_marketplace_front_test:
   stage: deploy
   before_script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
@@ -25,7 +25,6 @@ deploy_marketplace_front_main:
     - touch ~/.ssh/id_rsa
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config'
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    - cat ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
   script:
     - ssh -i ~/.ssh/id_rsa -p 22 gitlab-runner@192.168.111.103 "docker ps"
