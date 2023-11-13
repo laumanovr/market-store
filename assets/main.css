@@ -79,7 +79,6 @@ body {
 }
 
 .links .link a:hover {
-
   color: #000;
 }
 
@@ -90,4 +89,12 @@ body {
 
 .header .header-data .header-description p {
   font-weight: 500;
+}
+
+.home-info {
+  color: grey;
+  padding-bottom: 20px;
+}
+.home-info > :not(:last-child) {
+  margin-bottom: 8px;
 }

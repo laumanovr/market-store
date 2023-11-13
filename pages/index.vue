@@ -16,15 +16,24 @@
         <img src="~/assets/images/home-banner.png" alt="Home banner" />
       </div>
     </div>
+    <div class="home-info">
+      <div>ОсОО «ОГОГО»</div>
+      <div>+996 500 852007</div>
+      <div>kachikeev@ogogo.kg</div>
+    </div>
     <div class="links">
       <div class="link">
-        <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
+        <NuxtLink to="/privacy-policy">Политика конфиденциальности</NuxtLink>
       </div>
       <div class="link">
-        <NuxtLink to="/terms-conditions">Terms Conditions</NuxtLink>
+        <NuxtLink to="/terms-conditions">Пользовательское соглашение</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts" setup>
+useHead({
+  title: "Главная | ogogo.kg",
+});
+</script>
