@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="home-info">
-      <div>ОсОО «ОГОГО»</div>
+      <div>LLC OGOGO</div>
       <div>+996 500 852007</div>
       <div>kachikeev@ogogo.kg</div>
     </div>
