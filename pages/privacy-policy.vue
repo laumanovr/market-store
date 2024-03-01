@@ -1,10 +1,12 @@
 <template>
   <div class="layout">
-    <NuxtLink to="/" class="link">Назад</NuxtLink>
+    <NuxtLink :to="localePath('/')" class="link">{{
+      $t("label-8a57f167-1684-44e7-a316-3386f45ba042")
+    }}</NuxtLink>
     <div class="header">
       <div class="header-data">
         <div class="header-title">
-          <h1>Политика конфиденциальности</h1>
+          <h1>{{ $t("label-97e88d2a-3135-4c02-8236-a0fbf4b06cf5") }}</h1>
         </div>
         <div class="header-description">
           <p>12.10.23</p>
@@ -20,10 +22,25 @@
 </template>
 
 <script lang="ts" setup>
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
+const router = useRouter();
+
 useHead({
-  title: "Политика конфиденциальности | ogogo.kg",
+  title: t("label-97e88d2a-3135-4c02-8236-a0fbf4b06cf5") + " | ogogo.kg",
 });
-const { data } = await useAsyncData("", () =>
-  queryContent("privacy-policy").findOne(),
+
+const { data } = await useAsyncData("", () => {
+  if (locale.value === "en") {
+    return queryContent("privacy-policy.en").findOne();
+  }
+  return queryContent("privacy-policy").findOne();
+});
+
+watch(
+  () => locale.value,
+  (value) => {
+    router.replace(localePath("privacy-policy", value));
+  }
 );
 </script>

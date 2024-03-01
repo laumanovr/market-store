@@ -33,7 +33,7 @@ body {
 
 
 .layout {
-  padding: 80px 160px;
+  padding: 40px 160px 80px 160px;
 }
 
 .home {
@@ -95,6 +95,27 @@ body {
   color: grey;
   padding-bottom: 20px;
 }
-.home-info > :not(:last-child) {
+
+.home-info> :not(:last-child) {
   margin-bottom: 8px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.main-header .lang {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  color: #7B818C;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.lang:focus {
+  outline: none;
 }

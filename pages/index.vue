@@ -1,14 +1,13 @@
 <template>
-  <div class="layout">
+  <div>
     <div class="home">
       <div class="home-data">
         <div class="home-title">
-          <h1>Ogogo – Ваша площадка для <br />вау-покупок</h1>
+          <h1>{{ $t("label-ca682b89-9225-4285-89a4-79e7ff78faea") }}</h1>
         </div>
         <div class="home-text">
           <p>
-            Скоро наш новый сервис станет доступным для вас! Следите за нашими
-            обновлениями и готовьтесь к захватывающим покупкам в рассрочку!
+            {{ $t("label-1308ae68-8618-44af-a8d0-e5d3157e2efa") }}
           </p>
         </div>
       </div>
@@ -23,17 +22,24 @@
     </div>
     <div class="links">
       <div class="link">
-        <NuxtLink to="/privacy-policy">Политика конфиденциальности</NuxtLink>
+        <NuxtLink :to="localePath('/privacy-policy')">{{
+          $t("label-97e88d2a-3135-4c02-8236-a0fbf4b06cf5")
+        }}</NuxtLink>
       </div>
       <div class="link">
-        <NuxtLink to="/terms-conditions">Пользовательское соглашение</NuxtLink>
+        <NuxtLink :to="localePath('/terms-conditions')">{{
+          $t("label-c475f5ba-f9e1-4d94-aca1-d41d7d90849f")
+        }}</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+const localePath = useLocalePath();
+
+const { t } = useI18n();
 useHead({
-  title: "Главная | ogogo.kg",
+  title: t("label-5977768a-1889-4ee3-9a99-d69bf76ae42a") + " | ogogo.kg",
 });
 </script>
