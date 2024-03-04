@@ -5,28 +5,28 @@ title: "terms-conditions"
 ### **Chapter 1. Terms and definitions.**
 
 1. For the purpose of proper interpretation of the terms of the user agreement, the following terms are used in the following meaning:
-       * **Owner of the Trading Platform** – Limited Liability Company “OGOGO” registered in the State Register of Legal Entities dated October 09, 2023, Registration number 223021-3301-LLC, OKPO code 32201071, INN 00910202310316, located at the address: Kyrgyz Republic, Bishkek city, 12-mkr, 57/2, apt. 17, which is the sole copyright holder of the Trading Platform software.
-       * **User Agreement** - a public offer of the Owner of the Trading Platform, addressed to a potential User, to conclude an agreement with him and/or with the Partners (Sellers) of the Owner of the Trading Platform on the existing conditions contained in this User Agreement, including all its annexes.
-       * **Marketplace** - a mobile application and Website which is a personal non-property intellectual property right of the Owner of the Marketplace - https://ogogo.kg/ intended for the sale of Products of Partners (Sellers) by placing Publications and/or advertisements, and in other ways in accordance with functionality of the software https://ogogo.kg/.
-       * **Software -** is a set of software and documentary tools of the Trading Platform, data processing systems using computer technology, developed and owned by the Owner of the Trading Platform.
-       * **Source code -** the text of the Software in any programming language.
-       * **Partner (Seller)** - an individual entrepreneur or legal entity that has entered into a partnership agreement with the Owner of the Marketplace, carries out its activities in the sale (sale) of goods and offers the User (Buyer) to enter into a purchase and sale agreement by placing Goods on the Marketplace - Online trading.
-       * **Potential user (Potential buyer)** - any individual and/or legal entity with full legal capacity.
-       * **User (Buyer)** – a potential user (Potential Buyer) who has entered into a User Agreement with the Owner of the Trading Platform on the terms and conditions contained in this User Agreement.
-       * **Parties** – User (Buyer), Partner (Seller), Owner of the Trading Platform.
-       * **Services** – The trading platform is provided to the User (Buyer) on the terms of the right of use and only on the terms provided for in this User Agreement and other regulatory legal acts of the copyright holder.
-       * **Technical support** – an employee of the Owner of the Trading Platform who provides communication on issues related to the Trading Platform between the User (Buyer) and the Partner (Seller).
-       * **Product** - is the subject of a purchase and sale agreement concluded between the User (Buyer) and the Partner (Seller). All relationships related to the purchase and sale of Goods arise between them. The Partner (Seller) is the owner of the Goods being sold.
-       * **Digital goods -** intangible goods that exist only in digital form and are sold on the Marketplace.
-       * **Acceptance** - full and unconditional acceptance by the Potential User (Potential Buyer) of the terms of this User Agreement.
-       * **Account** - a set of data about the user stored in a computer system, necessary for his identification (authentication) and providing access to his personal data and settings.
-       * **Personal Account** is a page (section) that is available only to the User (Buyer) who has registered in accordance with the terms of this User Agreement, thereby confirming his identity.
-       * **Online trading** – carrying out trade and purchasing activities via the Internet. The concept of online trading includes: Transfer of information, products or services through online resources; Providing services electronically; Organizing online using regular trading methods.
-       * **Order** – the implementation by the User (Buyer) of his own free will of actions aimed at concluding a purchase and sale agreement with the Partner (Seller) on the terms determined by the functionality of the Trading Platform.
-       * **Delivery** – the process of transporting goods from the original location (Partner’s (Seller’s) warehouse) to a predetermined destination specified by the User (Buyer) when placing an Order.
-       * **Parcel** – Goods sent using the service - Delivery.
-       * **Warranty card** is a document certified by the Partner (Seller) confirming warranty obligations.
-       * **Warranty period** - obligations to ensure the quality of the product during the period of time specified in the Warranty Card.
+* **Owner of the Trading Platform** – Limited Liability Company “OGOGO” registered in the State Register of Legal Entities dated October 09, 2023, Registration number 223021-3301-LLC, OKPO code 32201071, INN 00910202310316, located at the address: Kyrgyz Republic, Bishkek city, 12-mkr, 57/2, apt. 17, which is the sole copyright holder of the Trading Platform software.
+* **User Agreement** - a public offer of the Owner of the Trading Platform, addressed to a potential User, to conclude an agreement with him and/or with the Partners (Sellers) of the Owner of the Trading Platform on the existing conditions contained in this User Agreement, including all its annexes.
+* **Marketplace** - a mobile application and Website which is a personal non-property intellectual property right of the Owner of the Marketplace - https://ogogo.kg/ intended for the sale of Products of Partners (Sellers) by placing Publications and/or advertisements, and in other ways in accordance with functionality of the software https://ogogo.kg/.
+* **Software -** is a set of software and documentary tools of the Trading Platform, data processing systems using computer technology, developed and owned by the Owner of the Trading Platform.
+* **Source code -** the text of the Software in any programming language.
+* **Partner (Seller)** - an individual entrepreneur or legal entity that has entered into a partnership agreement with the Owner of the Marketplace, carries out its activities in the sale (sale) of goods and offers the User (Buyer) to enter into a purchase and sale agreement by placing Goods on the Marketplace - Online trading.
+* **Potential user (Potential buyer)** - any individual and/or legal entity with full legal capacity.
+* **User (Buyer)** – a potential user (Potential Buyer) who has entered into a User Agreement with the Owner of the Trading Platform on the terms and conditions contained in this User Agreement.
+* **Parties** – User (Buyer), Partner (Seller), Owner of the Trading Platform.
+* **Services** – The trading platform is provided to the User (Buyer) on the terms of the right of use and only on the terms provided for in this User Agreement and other regulatory legal acts of the copyright holder.
+* **Technical support** – an employee of the Owner of the Trading Platform who provides communication on issues related to the Trading Platform between the User (Buyer) and the Partner (Seller).
+* **Product** - is the subject of a purchase and sale agreement concluded between the User (Buyer) and the Partner (Seller). All relationships related to the purchase and sale of Goods arise between them. The Partner (Seller) is the owner of the Goods being sold.
+* **Digital goods -** intangible goods that exist only in digital form and are sold on the Marketplace.
+* **Acceptance** - full and unconditional acceptance by the Potential User (Potential Buyer) of the terms of this User Agreement.
+* **Account** - a set of data about the user stored in a computer system, necessary for his identification (authentication) and providing access to his personal data and settings.
+* **Personal Account** is a page (section) that is available only to the User (Buyer) who has registered in accordance with the terms of this User Agreement, thereby confirming his identity.
+* **Online trading** – carrying out trade and purchasing activities via the Internet. The concept of online trading includes: Transfer of information, products or services through online resources; Providing services electronically; Organizing online using regular trading methods.
+* **Order** – the implementation by the User (Buyer) of his own free will of actions aimed at concluding a purchase and sale agreement with the Partner (Seller) on the terms determined by the functionality of the Trading Platform.
+* **Delivery** – the process of transporting goods from the original location (Partner’s (Seller’s) warehouse) to a predetermined destination specified by the User (Buyer) when placing an Order.
+* **Parcel** – Goods sent using the service - Delivery.
+* **Warranty card** is a document certified by the Partner (Seller) confirming warranty obligations.
+* **Warranty period** - obligations to ensure the quality of the product during the period of time specified in the Warranty Card.
 
 ### **Chapter 2. General provisions, subject of the agreement.**
 
@@ -268,7 +268,7 @@ title: "terms-conditions"
        The security of personal data processed by the Operator is ensured by implementing legal, organizational and technical measures necessary to fully comply with the requirements of current legislation in the field of personal data protection.
 - 10.1. The operator ensures the safety of personal data and takes all possible measures to prevent access to personal data by unauthorized persons.
 - 10.2. The User’s personal data will never, under any circumstances, be transferred to third parties, except in cases related to the implementation of current legislation or in the event that the subject of personal data gives consent to the Operator to transfer data to a third party to fulfill obligations under a civil law contract.
-- 10.3. The period for processing personal data is determined by the achievement of the purposes for which the personal data were collected, unless a different period is provided for by the contract or current legislation. The User may at any time withdraw his consent to the processing of personal data by sending a notification to the Operator via email to the Operator's email address https://ogogo.kg/with the mark “Withdrawal of consent to the processing of personal data.”
+- 10.3. The period for processing personal data is determined by the achievement of the purposes for which the personal data were collected, unless a different period is provided for by the contract or current legislation. The User may at any time withdraw his consent to the processing of personal data by sending a notification to the Operator via email to the Operator's email address https://ogogo.kg/ with the mark “Withdrawal of consent to the processing of personal data.”
 - 10.4. All information that is collected by third-party services, including payment systems, communications and other service providers, is stored and processed by these persons (Operators) in accordance with their User Agreement and Privacy Policy. The subject of personal data and/or the User is obliged to independently familiarize himself with the specified documents in a timely manner. The operator is not responsible for the actions of third parties, including the service providers specified in this paragraph.
 - 10.5. Prohibitions established by the subject of personal data on the transfer (except for providing access), as well as on processing or conditions for processing (except for gaining access) of personal data permitted for distribution, do not apply in cases of processing personal data in state, public and other public interests determined by law Kyrgyz Republic.
 - 10.6. When processing personal data, the operator ensures the confidentiality of personal data.
