@@ -21,4 +21,17 @@ function onLocaleUpdate(event: Event) {
   const value = target.value;
   router.replace(switchLocalePath(value));
 }
+
+useHead({
+  script: [
+    {
+      async: true,
+      src: "https://www.googletagmanager.com/gtag/js?id=G-Y134PJRWPV",
+    },
+    {
+      innerHTML:
+        "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-Y134PJRWPV');",
+    },
+  ],
+});
 </script>
