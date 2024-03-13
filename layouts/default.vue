@@ -1,12 +1,12 @@
 <template>
   <div class="layout">
-    <div class="main-header">
+    <!-- <div class="main-header">
       🌐
       <select class="lang" :value="locale" @input="onLocaleUpdate">
         <option value="ru" :selected="'ru' === locale">Рус</option>
         <option value="en" :selected="'en' === locale">Eng</option>
       </select>
-    </div>
+    </div> -->
     <slot></slot>
   </div>
 </template>
