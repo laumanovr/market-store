@@ -7,7 +7,7 @@
     <SInput isSearchable placeHolder="Поиск" width="100%" />
     <div class="menu-items">
       <div class="menu-item">
-        <SIconRender name="BoxIcon" />
+        <SIconRender name="FavoriteIcon" color="gray" />
         <span>Избранное</span>
       </div>
       <div class="menu-item">
@@ -15,12 +15,12 @@
         <span>Заказы</span>
       </div>
       <div class="menu-item">
-        <SIconRender name="BoxIcon" />
+        <SIconRender name="CartIcon" color="gray" />
         <span>Корзина</span>
       </div>
       <div class="menu-item">
         <img src="../../assets/images/empty-ava.svg" alt="ava" />
-        <span>John</span>
+        <span>Иван</span>
       </div>
     </div>
   </div>
