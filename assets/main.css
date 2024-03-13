@@ -1,3 +1,5 @@
+@import "@tumarsoft/ogogo-ui/styles";
+
 html {
   font-family: "Montserrat", sans-serif;
 }
@@ -33,7 +35,10 @@ body {
 
 
 .layout {
-  padding: 40px 160px 80px 160px;
+  /* padding: 40px 160px 80px 160px; */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
 }
 
 .home {
