@@ -33,7 +33,6 @@
           <span>Выйти</span>
         </div>
       </div>
-
       <div class="profile-data">
         <div class="content-block" v-if="tab === 'general'">
           <div class="photo d-flex items-center mb-40">
@@ -60,7 +59,6 @@
             Сохранить
           </SButton>
         </div>
-
         <div class="content-block" v-if="tab === 'password'">
           <div class="data-title mb-20">Изменить пароль</div>
           <div class="mb-16">
@@ -74,7 +72,6 @@
           </div>
           <SButton color="violet" size="medium">Изменить</SButton>
         </div>
-
         <div class="content-block" v-if="tab === 'session'">
           <div class="data-title mb-20">Последняя сессия</div>
           <div class="session-block">
