@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.9.0",
-    "@tumarsoft/ogogo-ui": "^0.1.14"
+    "@tumarsoft/ogogo-ui": "^0.1.15"
   }
 }
