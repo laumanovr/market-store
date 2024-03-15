@@ -2,6 +2,7 @@
   <div class="product-card">
     <div class="product-image">
       <img src="../../assets/images/iphone-img.jpg" alt="img" />
+      <SIconRender name="FavoriteIcon" color="gray" />
     </div>
     <div class="product-info">
       <div class="product-price">105 990</div>
@@ -22,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { SButton } from "@tumarsoft/ogogo-ui";
+import { SButton, SIconRender } from "@tumarsoft/ogogo-ui";
 </script>
 
 <style lang="scss">
@@ -30,10 +31,16 @@ import { SButton } from "@tumarsoft/ogogo-ui";
 .product-card {
   width: 240px;
   .product-image {
+    position: relative;
     img {
       width: 100%;
       height: 240px;
       object-fit: cover;
+    }
+    .favorite {
+      position: absolute;
+      top: 16px;
+      right: 16px;
     }
   }
   .product-info {
