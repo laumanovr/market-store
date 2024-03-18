@@ -17,9 +17,11 @@
           />
           <span :class="{ active: tab === 'password' }">Пароль</span>
         </div>
-        <div class="tab">
+        <div class="tab" @click="changeTab('notification')">
           <SIconRender name="WhatsAppIcon" />
-          <span :class="{ active: tab === 'help' }">Настройки уведомлений</span>
+          <span :class="{ active: tab === 'notification' }"
+            >Настройки уведомлений</span
+          >
         </div>
         <div class="tab" @click="changeTab('session')">
           <SIconRender
@@ -59,6 +61,7 @@
             Сохранить
           </SButton>
         </div>
+
         <div class="content-block" v-if="tab === 'password'">
           <div class="data-title mb-20">Изменить пароль</div>
           <div class="mb-16">
@@ -72,6 +75,29 @@
           </div>
           <SButton color="violet" size="medium">Изменить</SButton>
         </div>
+
+        <div class="content-block" v-if="tab === 'notification'">
+          <div class="data-title">Получать на:</div>
+          <div class="data-block">
+            <div>
+              <div class="data-label">Почта</div>
+              <div class="data-info">ivanov1122@mail.com</div>
+            </div>
+            <SSwitch />
+          </div>
+          <div class="data-block">
+            <div>
+              <div class="data-label">Номер</div>
+              <div class="data-info">+996 777 123456</div>
+            </div>
+            <SSwitch />
+          </div>
+          <div class="data-title">Типы уведомлении</div>
+          <SCheckbox>Ответы магазинов на отзывы</SCheckbox>
+          <SCheckbox>Рассылки о скидках и акциях</SCheckbox>
+          <SCheckbox>Статусы заказов</SCheckbox>
+        </div>
+
         <div class="content-block" v-if="tab === 'session'">
           <div class="data-title mb-20">Последняя сессия</div>
           <div class="session-block">
@@ -88,7 +114,14 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted } from "vue";
-import { SButton, SInput, SSelect, SIconRender } from "@tumarsoft/ogogo-ui";
+import {
+  SButton,
+  SInput,
+  SSelect,
+  SIconRender,
+  SCheckbox,
+  SSwitch,
+} from "@tumarsoft/ogogo-ui";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -177,6 +210,9 @@ const logout = () => {
       font-size: 16px;
     }
     .data-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-top: 16px;
     }
     .data-label {
