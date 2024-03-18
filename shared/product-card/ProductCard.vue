@@ -1,21 +1,21 @@
 <template>
   <div class="product-card">
     <div class="product-image">
-      <img src="../../assets/images/iphone-img.jpg" alt="img" />
+      <img :src="props.productImageUrl" alt="img" />
       <SIconRender name="FavoriteIcon" color="gray" />
     </div>
     <div class="product-info">
-      <div class="product-price">105 990</div>
+      <div class="product-price">{{ props.price }}</div>
       <div class="product-name">
-        Смартфон Apple iPhone 15 Pro 256Gb Natural Titanium 2 SIM HK/CN
+        {{ props.productName }}
       </div>
       <div class="product-rating">
         <img src="../../assets/images/star.svg" alt="" />
-        <span>4.6 (356)</span>
+        <span>{{ props.rating }}</span>
       </div>
       <div class="product-brand">
-        <img src="../../assets/images/shop-logo.png" alt="" />
-        <span>Мой телефон</span>
+        <img :src="props.brandIconUrl" alt="" />
+        <span>{{ props.brandName }}</span>
       </div>
       <SButton color="violet" class="w-100">В корзину</SButton>
     </div>
@@ -24,6 +24,27 @@
 
 <script lang="ts" setup>
 import { SButton, SIconRender } from "@tumarsoft/ogogo-ui";
+
+const props = defineProps({
+  productImageUrl: {
+    type: String,
+  },
+  price: {
+    type: [Number, String],
+  },
+  productName: {
+    type: String,
+  },
+  rating: {
+    type: [Number, String],
+  },
+  brandIconUrl: {
+    type: String,
+  },
+  brandName: {
+    type: String,
+  },
+});
 </script>
 
 <style lang="scss">
