@@ -3,7 +3,14 @@
     <Header />
     <Profile />
     <hr />
-    <ProductCard />
+    <ProductCard
+      productImageUrl="_nuxt/assets/images/iphone-img.jpg"
+      price="105 990"
+      productName="Смартфон Apple iPhone 15 Pro 256Gb Natural Titanium 2 SIM HK/CN"
+      rating="4.6 (356)"
+      brandIconUrl="_nuxt/assets/images/shop-logo.png"
+      brandName="Мой телефон"
+    />
   </div>
 </template>
 
