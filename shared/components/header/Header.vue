@@ -13,8 +13,10 @@
         </NuxtLink>
       </div>
       <div class="menu-item">
-        <SIconRender name="BoxIcon" />
-        <span>Заказы</span>
+        <NuxtLink to="/orders">
+          <SIconRender name="BoxIcon" />
+          <span>Заказы</span>
+        </NuxtLink>
       </div>
       <div class="menu-item">
         <NuxtLink to="/cart">
