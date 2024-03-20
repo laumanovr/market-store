@@ -1,6 +1,6 @@
 <template>
   <div class="profile-content">
-    <h2 class="head-title">Личный кабинет</h2>
+    <div class="head-title">Личный кабинет</div>
     <div class="profile-info-block">
       <div class="profile-tabs">
         <div class="tab" @click="changeTab('general')">
