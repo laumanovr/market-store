@@ -1,2 +1,3 @@
 import Orders from "./ui/Orders.vue";
-export { Orders };
+import OrderDetail from "./ui/OrderDetail.vue";
+export { Orders, OrderDetail };
