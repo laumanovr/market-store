@@ -19,9 +19,9 @@
         </div>
         <div class="tab" @click="changeTab('notification')">
           <SIconRender name="WhatsAppIcon" />
-          <span :class="{ active: tab === 'notification' }"
-            >Настройки уведомлений</span
-          >
+          <span :class="{ active: tab === 'notification' }">
+            Настройки уведомлений
+          </span>
         </div>
         <div class="tab" @click="changeTab('session')">
           <SIconRender
@@ -37,10 +37,10 @@
       </div>
       <div class="profile-data">
         <div class="content-block" v-if="tab === 'general'">
-          <div class="photo d-flex items-center mb-40">
+          <div class="photo items-center">
             <img :src="profileImageUrl" alt="" />
-            <div class="photo-action ml-24">
-              <div class="hint gray mb-12">
+            <div class="photo-action">
+              <div class="hint gray">
                 Формат: jpg, png. Максимальный размер файла: 2Mb. <br />
                 Рекомендованный размер 200х200px.
               </div>
@@ -50,27 +50,25 @@
               </label>
             </div>
           </div>
-          <div class="data-title mb-8">Общие данные</div>
-          <div class="mb-16"><SInput label="Имя" width="100%" /></div>
-          <div><SInput label="Фамилия" width="100%" /></div>
-          <div><SSelect label="Пол" class="w-100" /></div>
+          <div class="data-title">Общие данные</div>
+          <div class="field"><SInput label="Имя" width="100%" /></div>
+          <div class="field"><SInput label="Фамилия" width="100%" /></div>
+          <div class="field"><SSelect label="Пол" class="w-100" /></div>
           <div class="data-title">Учетные данные</div>
-          <div><SInput label="Телефон" width="100%" /></div>
-          <div><SInput label="Почта" width="100%" /></div>
-          <SButton color="violet" size="large" class="mt-20">
-            Сохранить
-          </SButton>
+          <div class="field"><SInput label="Телефон" width="100%" /></div>
+          <div class="field"><SInput label="Почта" width="100%" /></div>
+          <SButton color="violet" size="large" class=""> Сохранить </SButton>
         </div>
 
         <div class="content-block" v-if="tab === 'password'">
-          <div class="data-title mb-20">Изменить пароль</div>
-          <div class="mb-16">
+          <div class="data-title">Изменить пароль</div>
+          <div class="field password">
             <SInput label="Старый пароль" width="100%" />
           </div>
-          <div class="mb-16">
+          <div class="field password">
             <SInput label="Новый пароль" width="100%" />
           </div>
-          <div class="mb-40">
+          <div class="field password">
             <SInput label="Еще раз новый пароль" width="100%" />
           </div>
           <SButton color="violet" size="medium">Изменить</SButton>
@@ -93,9 +91,11 @@
             <SSwitch />
           </div>
           <div class="data-title">Типы уведомлении</div>
-          <SCheckbox>Ответы магазинов на отзывы</SCheckbox>
-          <SCheckbox>Рассылки о скидках и акциях</SCheckbox>
-          <SCheckbox>Статусы заказов</SCheckbox>
+          <div class="notify-checks">
+            <SCheckbox>Ответы магазинов на отзывы</SCheckbox>
+            <SCheckbox>Рассылки о скидках и акциях</SCheckbox>
+            <SCheckbox>Статусы заказов</SCheckbox>
+          </div>
         </div>
 
         <div class="content-block" v-if="tab === 'session'">
@@ -208,6 +208,7 @@ const logout = () => {
     .data-title {
       font-weight: 600;
       font-size: 16px;
+      margin: 24px 0 12px;
     }
     .data-block {
       display: flex;
@@ -217,17 +218,18 @@ const logout = () => {
     }
     .data-label {
       font-weight: 500;
-      font-size: 12px;
+      font-size: 14px;
       color: $gray-500;
       margin-bottom: 4px;
     }
     .data-info {
-      font-weight: 600;
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 16px;
     }
     .hint {
       font-weight: 500;
       font-size: 14px;
+      margin-bottom: 12px;
       &.gray {
         color: $gray-500;
       }
@@ -238,10 +240,30 @@ const logout = () => {
       border-radius: 8px;
     }
     .photo {
+      display: flex;
+      align-items: center;
       img {
         width: 96px;
         height: 96px;
         object-fit: cover;
+      }
+      .photo-action {
+        margin-left: 24px;
+      }
+    }
+    .field {
+      margin-top: 12px;
+      &.password {
+        margin-top: 16px;
+      }
+    }
+    .button {
+      margin-top: 24px;
+    }
+    .notify-checks {
+      margin-top: 24px;
+      .checkbox-container {
+        margin-top: 15px;
       }
     }
   }
