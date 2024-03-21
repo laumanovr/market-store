@@ -86,7 +86,7 @@ const openOrderDetail = (id: number) => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~/assets/style/colors.scss";
 .orders-container {
   .order-item {
