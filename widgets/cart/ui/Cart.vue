@@ -15,7 +15,7 @@
 import { SButton } from "@tumarsoft/ogogo-ui";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .cart-container {
   .cart-empty {
     display: flex;
