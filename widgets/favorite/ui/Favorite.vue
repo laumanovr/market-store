@@ -20,7 +20,7 @@
 import ProductCard from "~/shared/components/product-card/ProductCard.vue";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .favorite-container {
   .favorite-products {
     display: flex;
