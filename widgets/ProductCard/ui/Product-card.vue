@@ -99,7 +99,7 @@
                       Коротко о товаре
                   </div>
                   <div class="description-product__list">
-                      <BrieflyInfo :items="productBrieflyInfo"/>
+                      <BrieflyInfo :items="productBrieflyInfo" @handlerLink="openCardDetail"/>
                   </div>
               </div>
           </div>
@@ -119,6 +119,12 @@ import { StateProduct } from '~/features/stateProduct'
 import { BrieflyInfo } from '~/widgets/brieflyInfo'
 import { Basket } from '~/features/basket'
 import Carousel from '~/shared/components/carousel/carousel.vue'
+
+const router = useRouter();
+
+const openCardDetail = () => {
+  router.push(`/product-card/detail`);
+};
 
 const mainFoto = ref('')
 const openModel = ref(false)
@@ -293,6 +299,8 @@ const handlerStateActive = (item:{id: number; text: string; isActive?: boolean})
 const handlerOpenCarousel = ():void => {
   openModel.value = !openModel.value
 }
+
+
 
 </script>
 

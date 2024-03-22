@@ -25,9 +25,10 @@ import { ButtonDetailed } from '~/shared/components/button-detailed';
     }
 
     const { items } = defineProps<Props>()
+    const emit = defineEmits(['handlerLink'])
 
     const handlerLink = ():void => {
-        alert('Страница: Все характеристики и описание')
+        emit('handlerLink')
     }
 
 </script>
