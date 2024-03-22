@@ -36,6 +36,7 @@ const { items } = defineProps<Props>()
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
 .my-breadcrumbs {
     ul {
         list-style-type: none;
@@ -44,18 +45,18 @@ const { items } = defineProps<Props>()
         justify-content: flex-start;
         padding: 0;
         li {
-            background: var(--gray-150);
+            background: $gray-150;
             margin-right: 8px;
             border-radius: 4px;
             padding: 4px 8px;
-            color: var(--black);
+            color: $black;
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.048px;
             white-space: nowrap;
             .bc-link {
                 text-decoration: none;
-                color: var(--black);
+                color: $black;
             }
             .bc-separator {
                 margin-left: 8px;

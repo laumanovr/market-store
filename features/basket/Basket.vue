@@ -75,13 +75,14 @@ const removeProduct = ():void => {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
     .basket {
         width: 100%;
         display: flex;
         flex-direction: column;
         padding: 24px;
         border-radius: 16px;
-        background: var(--white);
+        background: $white;
         box-shadow: 0px 12px 32px 0px rgba(40, 43, 48, 0.15);
         &__price{
             display: flex;
@@ -91,7 +92,7 @@ const removeProduct = ():void => {
         }
         &__previous-price {
             text-decoration: line-through;
-            color: var(--red-600);
+            color: $red-600;
             font-size: 14px;
             font-weight: 500;
             margin: 8px 0 12px 0;
@@ -108,7 +109,7 @@ const removeProduct = ():void => {
             font-weight: 700;
             line-height: 32px;
             letter-spacing: 0.24px;
-            color: var(--black);
+            color: $black;
         }
     }
     .price-basket__discount {
@@ -140,7 +141,7 @@ const removeProduct = ():void => {
             font-size: 12px;
             font-weight: 500;
             line-height: 16px;
-            color: var(--gray-500);
+            color: $gray-500;
             letter-spacing: 0.048px;
         }
         &__model {
@@ -148,9 +149,9 @@ const removeProduct = ():void => {
             align-items: center;
             text-align: center;
             padding: 0px 2.667px;
-            background: var(--gray-150);
+            background: $gray-150;
             border-radius: 4px;
-            color: var(--gray-400);
+            color: $gray-400;
             font-size: 10px;
         }
         &__model svg {

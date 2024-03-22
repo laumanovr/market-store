@@ -28,6 +28,7 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
 </template>
 
 <style scoped lang="scss">
+@import "~/assets/style/colors.scss";
 .button {
   display: flex;
   align-items: center;
@@ -44,9 +45,13 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
   }
 }
 
-.button.color_primary { background: var(--gray-150); }
+.button.color_primary { 
+  background: $gray-150;
+}
 
-.button.color_primary .button__text { color: var(--black); }
+.button.color_primary .button__text {
+  color: $black;
+}
 
 .button.decoration_none {
   background-color: unset;

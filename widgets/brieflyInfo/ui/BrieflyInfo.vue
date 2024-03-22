@@ -33,6 +33,7 @@ import { ButtonDetailed } from '~/shared/components/button-detailed';
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
     .info-briefly {
         &__list {
             display: flex;
@@ -46,10 +47,10 @@ import { ButtonDetailed } from '~/shared/components/button-detailed';
             margin-bottom: 16px;  
         }
         &__title {
-            color: var(--gray-500)
+            color: $gray-500;
         }
         &__text {
-            color: var(--black)
+            color: $black;
         }
     }
 </style>

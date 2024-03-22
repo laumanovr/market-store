@@ -45,6 +45,7 @@ const handlerExamplePhoto = (item:{id: number; url: string; isActive?: boolean})
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
     .example-photo {
         max-width: 56px;
         
@@ -70,7 +71,7 @@ const handlerExamplePhoto = (item:{id: number; url: string; isActive?: boolean})
             text-align: center;
             margin-top: 35px;
             cursor: pointer;
-            color: var(--violet-600);
+            color: $violet-600;
             font-weight: 500;
             font-size: 12px;
         }

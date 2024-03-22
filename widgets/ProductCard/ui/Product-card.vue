@@ -297,6 +297,7 @@ const handlerOpenCarousel = ():void => {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
 .product-card {
   width: 100%;
   display: flex;
@@ -366,7 +367,7 @@ const handlerOpenCarousel = ():void => {
       height: 15px;
   }
   &__number {
-      color: var(--black);
+      color: $black;
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-style: normal;
@@ -408,7 +409,7 @@ const handlerOpenCarousel = ():void => {
 }
 
 .total-grade, .review-grade, .spase-grade {
-  color: var(--gray-500);
+  color: $gray-500;
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -427,7 +428,7 @@ const handlerOpenCarousel = ():void => {
       list-style: none;
   }
   &__link {
-      color: var(--gray-500)
+      color: $gray-500;
   }
 }
 
@@ -439,7 +440,7 @@ const handlerOpenCarousel = ():void => {
       margin: 0;
   }
   &__link {
-      color: var(--gray-500)
+      color: $gray-500;
   }
   &__info {
       margin: 12px 0 40px 0;
@@ -457,7 +458,7 @@ const handlerOpenCarousel = ():void => {
 }
 
 .isActive {
-  background: var(--gray-150);
+  background: $gray-150;
   border-radius: 20px;
   color: black;
 }

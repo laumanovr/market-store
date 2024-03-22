@@ -23,6 +23,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/colors.scss";
     .btn-detailed {
         height: 34px;
         display: flex;
@@ -31,7 +32,7 @@
             & .btn {
             border: none;
             outline: none;
-            color: var(--violet-600);
+            color: $violet-600;
             background-color: transparent;
             padding: 0;
             font-size: 14px;
