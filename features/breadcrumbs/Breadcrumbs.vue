@@ -1,14 +1,3 @@
-<script lang="ts" setup>
-interface Props {
-    items: {
-        name: string,
-        link: string
-    }[]
-}
-
-const { items } = defineProps<Props>()
-</script>
-
 <template>
     <section class="breadcrumbs">
         <nav v-if="items && items.length"
@@ -35,6 +24,17 @@ const { items } = defineProps<Props>()
     </section>
 </template>
 
+<script lang="ts" setup>
+interface Props {
+    items: {
+        name: string,
+        link: string
+    }[]
+}
+
+const { items } = defineProps<Props>()
+</script>
+
 <style lang="scss" scoped>
 .my-breadcrumbs {
     ul {
@@ -48,12 +48,14 @@ const { items } = defineProps<Props>()
             margin-right: 8px;
             border-radius: 4px;
             padding: 4px 8px;
+            color: var(--black);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.048px;
+            white-space: nowrap;
             .bc-link {
-                color: var(--black);
-                font-size: 12px;
-                font-weight: 500;
-                letter-spacing: 0.048px;
                 text-decoration: none;
+                color: var(--black);
             }
             .bc-separator {
                 margin-left: 8px;
