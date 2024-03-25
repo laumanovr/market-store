@@ -2,7 +2,7 @@
   <div class="cart-container">
     <h2 class="head-title">Корзина</h2>
     <template v-if="hasOrders">
-      <div class="cart-order-container">
+      <div class="cart-order-container" v-for="i in 2" :key="i">
         <div class="cart-head-title">
           <span>Заказ из магазина</span>
           <div class="order-brand">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="order-actions">
                   <SIconRender name="FavoriteIcon" />
-                  <!-- <SIconRender name="TrashIcon" /> -->
+                  <SIconRender name="TrashIcon" />
                 </div>
               </div>
               <div class="cart-price-count">
@@ -51,15 +51,19 @@
             </div>
             <div class="price-info">
               <span class="label">Сумма скидки</span>
-              <span class="sum">-15 972 сом</span>
+              <span class="sum discount">-15 972 сом</span>
             </div>
             <div class="price-info">
               <div class="price-total-block">
                 <span>Итого:</span><span>150 480 сом</span>
               </div>
             </div>
-            <SButton color="violet" size="large">Перейти к оформлению</SButton>
-            <SButton color="gray" size="large">Оформить кредит</SButton>
+            <SButton color="violet" size="large" class="w-100">
+              Перейти к оформлению
+            </SButton>
+            <SButton color="gray" size="large" class="w-100">
+              Оформить кредит
+            </SButton>
           </div>
         </div>
       </div>
@@ -131,13 +135,11 @@ const hasOrders = ref(true);
     .cart-order-item {
       display: flex;
       margin-bottom: 30px;
-      background: greenyellow;
     }
     .order-image {
       width: 120px;
       height: 120px;
       object-fit: cover;
-      border: 1px solid;
     }
     .cart-order-info {
       margin-left: 12px;
@@ -154,6 +156,9 @@ const hasOrders = ref(true);
     }
 
     .order-actions {
+      svg {
+        margin-right: 12px;
+      }
     }
 
     .cart-order-items {
@@ -201,15 +206,30 @@ const hasOrders = ref(true);
     .price-info {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 8px;
       .label {
+        font-weight: 500;
+        font-size: 14px;
+        color: $gray-500;
       }
       .sum {
+        font-weight: 500;
+        font-size: 14px;
+        &.discount {
+          color: $red-600;
+        }
       }
       .price-total-block {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 25px;
       }
+    }
+    .button {
+      margin-bottom: 8px;
     }
   }
 }
