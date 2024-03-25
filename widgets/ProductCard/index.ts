@@ -1,2 +1,3 @@
 import ProductCard from "./ui/Product-card.vue";
-export { ProductCard };
+import DetailCard from "./ui/Detail-card.vue";
+export { ProductCard, DetailCard };
