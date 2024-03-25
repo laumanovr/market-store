@@ -32,15 +32,14 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
 .button {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
   border: none;
   border-radius: 8px;
-  width: 100%;
   text-align: center;
-  cursor: auto;
+  white-space: nowrap;
+  padding: 0;
+  cursor: pointer;
   &__text{
-    width: 50px;
     text-align: center;
   }
 }

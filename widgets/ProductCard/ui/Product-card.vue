@@ -8,6 +8,10 @@
           </div>
       <section class="breadcrumbs">
           <Breadcrumbs :items="BreadcrumbsItems"/>
+          <toFavorites
+                @onFavorites="onFavorites"
+                @onShare="onShare"
+            />
       </section>
       <section v-show="!openModel" class="product-card">
           <div class="product-card__example-photo" >
@@ -119,6 +123,15 @@ import { StateProduct } from '~/features/stateProduct'
 import { BrieflyInfo } from '~/widgets/brieflyInfo'
 import { Basket } from '~/features/basket'
 import Carousel from '~/shared/components/carousel/carousel.vue'
+import { toFavorites } from '~/widgets/toFavotites'
+
+const onFavorites = () => {
+    alert('onFavorites')
+}
+
+const onShare = () => {
+    alert('onShare')
+}
 
 const router = useRouter();
 
@@ -472,5 +485,11 @@ const handlerOpenCarousel = ():void => {
 }
 .product-card__basket{
   width: 360px;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>
