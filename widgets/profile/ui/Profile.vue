@@ -18,7 +18,7 @@
           <span :class="{ active: tab === 'password' }">Пароль</span>
         </div>
         <div class="tab" @click="changeTab('notification')">
-          <SIconRender name="WhatsAppIcon" />
+          <SIconRender name="BellIcon" />
           <span :class="{ active: tab === 'notification' }">
             Настройки уведомлений
           </span>
