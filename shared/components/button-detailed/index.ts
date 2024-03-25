@@ -1,1 +1,0 @@
-export {default as ButtonDetailed} from './ButtonDetailed.vue'

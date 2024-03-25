@@ -9,7 +9,7 @@ interface Props {
 
 const props = defineProps<Props>();
 const {
-  color = 'gray',
+  color = 'gray' | 'violet',
   decoration = 'default',
   disabled = false,
 } = props;
@@ -50,6 +50,14 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
 
 .button.color_primary .button__text {
   color: $black;
+}
+
+.button.color_violet { 
+  background: $violet-600;
+}
+
+.button.color_violet .button__text {
+  color: $violet-600;
 }
 
 .button.decoration_none {
