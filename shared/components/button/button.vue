@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useSlots } from 'vue';
-
 interface Props {
   color?: 'gray';
   decoration?: 'default' | 'outline' | 'none';
