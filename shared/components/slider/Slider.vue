@@ -138,7 +138,7 @@ const nextSlide = ():void => {
     }
 
     .v-enter-active {
-        transition: opacity 2s ease;
+        transition: opacity 0.2s ease;
     }
 
     .v-leave-active {
