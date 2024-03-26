@@ -82,7 +82,7 @@
               </div>
           </div>
           <div class="product-card__basket">
-              <Basket/>
+              <Basket size="default"/>
           </div>
       </section>
   </div>
@@ -343,6 +343,9 @@ const handlerOpenCarousel = ():void => {
   }
   &__photo {
       margin: 12px 0 24px 0;
+  }
+  &__grade {
+    margin-top: 12px;
   }
 }
 

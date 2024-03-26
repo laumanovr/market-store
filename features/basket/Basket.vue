@@ -1,11 +1,13 @@
 <template>
-    <div class="basket">
-        <div class="basket__price price-basket">
-            <div class="price-basket__value">{{ item.price }} сом</div>
+    <div :class="['basket', `basket_${size}`]">
+        <div :class="[`cont_${size}`]">
+            <div class="basket__price price-basket">
+            <div :class="['price-basket__value', `price-basket__value_${size}`]">{{ item.price }} сом</div>
             <div v-if="item.discount" class="price-basket__discount"><SBadge :content="`-${item.discount}%`" color="red" is-rounded/></div>
         </div>
-        <div v-if="item.previousPrice" class="basket__previous-price">{{ item.previousPrice }} сом</div>
-        <div class="basket__shop shop-info">
+        <div v-if="item.previousPrice" :class="['basket__previous-price', `basket__previous-price_${size}`]">{{ item.previousPrice }} сом</div>
+        </div>
+        <div v-if="size == 'default'" class="basket__shop shop-info">
             <div class="shop-info__logo">
                 <img :src="item.logo" alt="">
             </div>
@@ -25,22 +27,22 @@
                 •••
             </div>
         </div>
-        <div class="basket__btn">
+        <div :class="['basket__btn', `basket__btn_${size}`] ">
             <Button color="gray" v-if="addedProduct">
                 <template v-slot:leftIcon>
-                    <svg @click="removeProduct" style="cursor: pointer" width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg @click="removeProduct" style="height: 20px; cursor: pointer" width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1.00006H15" stroke="#141619" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </template>
                     {{ addedProduct }}
                 <template v-slot:rightIcon>
-                    <svg @click="addingProduct" style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <svg class="btn__adding" @click="addingProduct" style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M8 1V15" stroke="#141619" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M1 8.00006H15" stroke="#141619" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </template>
             </Button>
-            <SButton color="violet" class="w-100" @click="addingProduct">В корзину</SButton>
+            <SButton v-if="!addedProduct && size == 'small' || size == 'default'" color="violet" class="w-100" @click="addingProduct">В корзину</SButton>
         </div>
     </div>
 </template>
@@ -50,6 +52,15 @@
 import { ref } from 'vue'
 import { SButton, SBadge } from "@tumarsoft/ogogo-ui";
 import Button from '~/shared/components/button/button.vue';
+
+interface Props {
+    size?: 'default';
+}
+
+const props = defineProps<Props>();
+const {
+    size = 'small' | 'default'
+} = props;
 
 const item:{text:string; price: string; logo: string; name: string; rating: number; discount: number; previousPrice: string} = {
     text: '',
@@ -96,20 +107,45 @@ const removeProduct = ():void => {
             font-size: 14px;
             font-weight: 500;
             margin: 8px 0 12px 0;
+            &_small {
+                margin: 0;
+            }
         }
         &__btn {
             display: flex;
             grid-gap: 10px;
+            &:deep(.button) {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            &_small {
+                height: 52px;
+                width: 131px;
+            }
+            &_small:deep(.button) {
+                height: 100%;
+            }
         }
     }
+    .basket.basket_small {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        box-shadow: none;
+    }
+
     .price-basket {
         &__value {
             font-size: 24px;
-            font-style: normal;
             font-weight: 700;
             line-height: 32px;
             letter-spacing: 0.24px;
             color: $black;
+            &_small {
+                font-size: 20px;
+            }
         }
     }
     .price-basket__discount {
@@ -175,6 +211,9 @@ const removeProduct = ():void => {
     }
     .btn-adding svg{
         cursor: pointer;
+    }
+    .cont_small {
+        margin-right: 24px;
     }
 </style>
 
