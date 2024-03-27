@@ -23,16 +23,10 @@
 
       </div>
         <button class="btn__left btn" @click="prevSlide">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white"/>
-                <path d="M28 15L19.2101 23.5098C19.1435 23.5742 19.0907 23.6506 19.0546 23.7347C19.0186 23.8188 19 23.9089 19 24C19 24.0911 19.0186 24.1812 19.0546 24.2653C19.0907 24.3494 19.1435 24.4258 19.2101 24.4902L28 33" stroke="#141619" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <BaseIcon name="arrowRoundLeft" viewBox="0 0 48 48"/>
         </button>
         <button class="btn__right btn" @click="nextSlide">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white"/>
-                <path d="M19 15L27.7899 23.5098C27.8565 23.5742 27.9093 23.6506 27.9454 23.7347C27.9814 23.8188 28 23.9089 28 24C28 24.0911 27.9814 24.1812 27.9454 24.2653C27.9093 24.3494 27.8565 24.4258 27.7899 24.4902L19 33" stroke="#141619" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <BaseIcon name="arrowRoundRight" viewBox="0 0 48 48"/>
         </button>
     </div>
   </template>
@@ -40,6 +34,7 @@
   <script setup lang="ts">
 import { ref,onMounted } from 'vue'
 import { SButton } from "@tumarsoft/ogogo-ui";
+import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
 
 const props = defineProps(['sliderItems']);
 
