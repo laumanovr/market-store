@@ -1,6 +1,9 @@
 <template>
   <div class="main">
     <div class="main__container">
+      <button @click="isVoiceModalOpenLogin = true">Вход</button>
+      <button @click="isVoiceModalOpenRecovery = true">Восстановление</button>
+      <button @click="isVoiceModalOpenReg = true">Регистрация</button>
       <div class="main__content">
         <div class="main__slider">
           <Slider :sliderItems='sliderItems'/>
@@ -87,15 +90,32 @@
         </div>
       </div>
     </div>
+    <teleport to="body">
+      <TheModalLogin v-if="isVoiceModalOpenLogin" @close="isVoiceModalOpenLogin = false"/>
+    </teleport>
+    <teleport to="body">
+      <TheModalRecovery v-if="isVoiceModalOpenRecovery" @close="isVoiceModalOpenRecovery = false"/>
+    </teleport>
+    <teleport to="body">
+      <TheModalRegistration v-if="isVoiceModalOpenReg" @close="isVoiceModalOpenReg = false"/>
+    </teleport>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 import Slider from '~/shared/components/slider/Slider.vue'
 import { Promotions } from '~/widgets/promotions'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 import Button from '~/shared/components/button/button.vue';
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
+import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
+import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery.vue'
+import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration.vue'
+
+const isVoiceModalOpenLogin = ref(false)
+const isVoiceModalOpenReg = ref(false)
+const isVoiceModalOpenRecovery = ref(false)
 
 const sliderItems = ref<{ id: number; name: string; img: string; }[]>([
   {
@@ -177,6 +197,16 @@ const sliderItems = ref<{ id: number; name: string; img: string; }[]>([
       font-weight: 600;
       letter-spacing: 0.056px;
     }
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
   }
 </style>
   

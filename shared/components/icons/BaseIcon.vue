@@ -16,10 +16,9 @@ import icons from './icons'
 interface Props {
     name: keyof typeof icons;
     viewBox?: string;
-    stroke?: string;
 }
 
-const { name, viewBox, stroke } = defineProps<Props>()
+const { name, viewBox } = defineProps<Props>()
 
 const path = ref(icons[name])
 </script>
