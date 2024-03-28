@@ -54,7 +54,7 @@ const { text, withBackButton } = defineProps<Props>()
   &__title h4 {
     text-align: center;
     margin: 0 0 3px 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.28px;
   }

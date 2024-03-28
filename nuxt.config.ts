@@ -15,4 +15,7 @@ export default defineNuxtConfig({
     defaultLocale: "ru",
     locales: ["ru", "en"],
   },
+  plugins: [
+    { src: '~/plugins/maska', mode: 'client' }
+  ]
 });

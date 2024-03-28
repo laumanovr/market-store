@@ -75,7 +75,7 @@ const close = () => {
     align-items: flex-start;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 450px;
     &__content {
       position: relative;
       background-color: $white;
@@ -84,8 +84,8 @@ const close = () => {
       flex-direction: column;
       border-radius: 16px;
       box-shadow: 0px 12px 32px 0px rgba(40, 43, 48, 0.15);
-      padding: 20px;
-      width: 400px;
+      padding: 24px;
+      width: 450px;
     }
     &__footer {
       display: flex;

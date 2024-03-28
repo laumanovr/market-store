@@ -110,8 +110,8 @@ import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 import Button from '~/shared/components/button/button.vue';
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
 import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
-import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery.vue'
-import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration.vue'
+import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
+import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
 
 const isVoiceModalOpenLogin = ref(false)
 const isVoiceModalOpenReg = ref(false)

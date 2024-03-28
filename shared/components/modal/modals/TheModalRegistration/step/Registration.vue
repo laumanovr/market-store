@@ -1,13 +1,13 @@
 <template>
-    <BaseModal text="Регистрация">
       <div class="modal">
         <div class="modal__content">
           <div class="modal__phone phone-field">
-            <div class="phone-field__code">
-              <SSelect :items="items" v-bind="args" showValue="name" getValue="id" placeHolder="+996"/>
-            </div>
             <div class="phone-field__number">
-              <SInput width="100%" placeHolder="Введите номер"/>
+              <SInput
+                width="100%"
+                placeHolder="+996"
+                v-maska:[options]
+                />
             </div>
           </div>
           <div class="modal__agreement">
@@ -17,40 +17,23 @@
                 </SCheckbox>
             </div>
           </div>
-          <div class="modal__next-btn">
-            <SButton color="violet" size="large">
-                Продолжить
-            </SButton>
-          </div>
-          <div class="modal__login">
-            <SButton color="gray" size="large">
-                Войти
-            </SButton>
-          </div>
         </div>
       </div>
-    </BaseModal>
   </template>
   
   <script setup lang="ts">
-  import BaseModal from '../BaseModal.vue'
-  import {
-    SButton,
-    SInput,
-    SSelect,
-    SCheckbox
-  } from "@tumarsoft/ogogo-ui";
+  import { SInput, SCheckbox } from "@tumarsoft/ogogo-ui";
   
-  const items = [{ name: "+996", id: "Bishkek" }]
+  const options = reactive({
+    mask: "+996 ### ### ###",
+    eager: true,
+  });
   </script>
   
   
   <style lang="scss" scoped>
   @import "~/assets/style/colors.scss";
   .phone-field {
-    display: grid;
-    grid-template-columns: 0.45fr 1fr;
-    grid-gap: 8px;
     margin-top: 20px;
     &__code:deep(input){
       width: 100%;

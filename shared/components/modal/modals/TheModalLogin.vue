@@ -3,16 +3,22 @@
     <div class="modal">
       <div class="modal__content">
         <div class="modal__phone phone-field">
-          <div class="phone-field__code">
-            <SSelect :items="items" v-bind="args" showValue="name" getValue="id" placeHolder="+996"/>
-          </div>
           <div class="phone-field__number">
-            <SInput width="100%" placeHolder="Введите номер"/>
+            <SInput width="100%" placeHolder="+996" v-maska:[options]/>
           </div>
         </div>
-        <div class="modal__password">
-          <SInput label="Пароль" width="100%" placeHolder="Пароль"/>
-        </div>
+        <SForm ref="form">
+          <div :class="['modal__password', {'modal-validate':validateWarning}]">
+            <SInput
+              label="Пароль"
+              placeHolder="Пароль"
+              width="100%"
+              v-model="formObj.password"
+              :rules="myRule"
+              type="password"
+            />
+          </div>
+        </SForm>
         <div class="modal__reset-password">
           <span>Забыли пароль?</span>
         </div>
@@ -33,22 +39,41 @@
 
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
+
+const options = reactive({
+  mask: "+996 ### ### ###",
+  eager: true,
+});
+
 import {
   SButton,
   SInput,
-  SSelect
+  SForm
 } from "@tumarsoft/ogogo-ui";
 
-const items = [{ name: "+996", id: "Bishkek" }]
+const validateWarning = ref(true)
+
+const form = ref()
+const formObj = reactive({
+          password: "",
+          passwordRestart: ""
+        })
+const myRule = reactive([
+          {
+            validate: (value:string) => value.length >= 8,
+            message: "Min. length is 8 characters",
+          },
+        ])
+
+//   const onSubmit = () => {
+//    console.log(form.value.validateForm());
+//   }
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/style/colors.scss";
 .phone-field {
   display: grid;
-  grid-template-columns: 0.45fr 1fr;
-  grid-gap: 8px;
   margin-top: 20px;
   &__code:deep(input){
     width: 100%;
@@ -87,5 +112,10 @@ const items = [{ name: "+996", id: "Bishkek" }]
   &__registration:deep(.button) {
     width: 100%;
   }
+}
+
+.modal-validate:deep(.input-container .input-label)::after {
+  content: " *";
+  color: red;
 }
 </style>
