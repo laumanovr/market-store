@@ -7,6 +7,7 @@
                 width="100%"
                 placeHolder="+996"
                 v-maska:[options]
+                @input="updateNumber"
                 />
             </div>
           </div>
@@ -23,7 +24,14 @@
   
   <script setup lang="ts">
   import { SInput, SCheckbox } from "@tumarsoft/ogogo-ui";
-  
+  import { reactive } from 'vue'
+
+  const emit = defineEmits(['number'])
+
+  const updateNumber = (e:string):void => {
+    emit('number', e.target.value.replace(/[+ ]/g, ''))
+  }
+
   const options = reactive({
     mask: "+996 ### ### ###",
     eager: true,

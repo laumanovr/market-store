@@ -4,7 +4,13 @@
       <div class="modal__content">
         <div class="modal__phone phone-field">
           <div class="phone-field__number">
-            <SInput width="100%" placeHolder="+996" v-maska:[options]/>
+            <SInput
+              width="100%"
+              placeHolder="+996"
+              v-model="number"
+              v-maska:[options]
+
+            />
           </div>
         </div>
         <SForm ref="form">
@@ -23,7 +29,7 @@
           <span>Забыли пароль?</span>
         </div>
         <div class="modal__login">
-          <SButton color="violet" size="large" class="">
+          <SButton color="violet" size="large" :disabled="numberModified.length !== 12">
             Войти
           </SButton>
         </div>
@@ -39,21 +45,21 @@
 
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
-
-const options = reactive({
-  mask: "+996 ### ### ###",
-  eager: true,
-});
-
 import {
   SButton,
   SInput,
   SForm
 } from "@tumarsoft/ogogo-ui";
+import { computed, ref } from 'vue'
 
+const number = ref('')
 const validateWarning = ref(true)
-
 const form = ref()
+
+const options = reactive({
+  mask: "+996 ### ### ###",
+  eager: true,
+});
 const formObj = reactive({
           password: "",
           passwordRestart: ""
@@ -65,6 +71,9 @@ const myRule = reactive([
           },
         ])
 
+const numberModified = computed(() => {
+  return number.value.replace(/[+ ]/g, '')
+})
 //   const onSubmit = () => {
 //    console.log(form.value.validateForm());
 //   }

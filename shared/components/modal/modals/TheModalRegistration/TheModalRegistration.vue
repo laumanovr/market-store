@@ -1,6 +1,6 @@
 <template>
     <BaseModal text="Регистрация">
-      <Registration v-if="step == 0"/>
+      <Registration v-if="step == 0" @number="handlerNumber"/>
       <ReceivingMessage v-else-if="step == 1"/>
       <PasswordConfirmation v-else-if="step == 2"/>
       <div class="modal__next-btn">
@@ -8,6 +8,7 @@
           color="violet"
           size="large"
           @click="handlerStep"
+          :disabled="number.length !== 12"
         >
             Продолжить
         </SButton>
@@ -23,6 +24,7 @@
     </BaseModal>
   </template>
 <script setup lang="ts">
+import { ref } from 'vue'
 import BaseModal from '../../BaseModal.vue'
 import PasswordConfirmation from '../TheModalRecovery/step/PasswordConfirmation.vue';
 import ReceivingMessage from '../TheModalRecovery/step/ReceivingMessage.vue';
@@ -30,6 +32,11 @@ import Registration from './step/Registration.vue';
 import { SButton } from "@tumarsoft/ogogo-ui";
 
 const step = ref(0)
+const number = ref('')
+
+const handlerNumber = (e:string):void => {
+  number.value = e
+}
 
 const handlerStep = ():void => {
   if(step.value < 2) {

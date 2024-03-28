@@ -29,10 +29,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import {
-  SInput,
-  SForm,
-} from "@tumarsoft/ogogo-ui";
+import { SInput, SForm } from "@tumarsoft/ogogo-ui";
 
 const validateWarning = ref(true)
 
