@@ -30,9 +30,31 @@
         <span :class="{ active: isActive(MenuItems.Cart) }">Корзина</span>
       </div>
       <div class="menu-item" @click="menuItemChange(MenuItems.Profile)">
-        <img src="~/assets/images/empty-ava.svg" alt="ava" />
+        <BaseIcon name="emptyAva" viewBox="0 0 22 22" height="24" class="icon-ava"/>
         <span :class="{ active: isActive(MenuItems.Profile) }">Иван</span>
       </div>
+      <div class="menu-item" @click="isVoiceModalOpenLogin = true">
+        <BaseIcon name="emptyAva" viewBox="0 0 22 22" height="24" class="icon-svg"/>
+        <span>Войти</span>
+      </div>
+      <teleport to="body">
+        <TheModalLogin
+          v-if="isVoiceModalOpenLogin"
+          @close="isVoiceModalOpenLogin = false"
+          @onResetPassword="onResetPassword"
+          @onRegistration="onRegistration"
+        />
+      </teleport>
+      <teleport to="body">
+        <TheModalRecovery
+          v-if="isVoiceModalOpenRecovery"
+          @close="isVoiceModalOpenRecovery = false"
+          @onBack="onBack"
+        />
+      </teleport>
+      <teleport to="body">
+        <TheModalRegistration v-if="isVoiceModalOpenReg" @close="isVoiceModalOpenReg = false"/>
+      </teleport>
     </div>
   </div>
 </template>
@@ -40,7 +62,14 @@
 <script lang="ts" setup>
 import { SIconRender, SInput, SSwitchButton } from "@tumarsoft/ogogo-ui";
 import { MenuItems } from "~/shared/utils/enums";
+import BaseIcon from "../icons/BaseIcon.vue";
+import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
+import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
+import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
 
+const isVoiceModalOpenLogin = ref(false)
+const isVoiceModalOpenReg = ref(false)
+const isVoiceModalOpenRecovery = ref(false)
 const router = useRouter();
 const route = useRoute();
 const activeTab = ref("");
@@ -59,10 +88,29 @@ const menuItemChange = (value: string) => {
 const isActive = (value: string) => {
   return activeTab.value === value;
 };
+
+const onResetPassword = ():void => {
+  isVoiceModalOpenLogin.value = false
+  isVoiceModalOpenRecovery.value = true
+}
+
+const onRegistration = ():void => {
+  isVoiceModalOpenLogin.value = false
+  isVoiceModalOpenReg.value = true
+}
+
+const onBack = ():void => {
+  isVoiceModalOpenRecovery.value = false
+  isVoiceModalOpenLogin.value = true
+}
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/style/colors.scss";
+.icon-ava:deep(path) {
+  stroke: $gray-400;
+}
+
 .header-container {
   display: flex;
   align-items: center;

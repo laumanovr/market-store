@@ -1,5 +1,6 @@
 <template>
     <svg
+        :style="height ? { height: height } : null"
         :class="$attrs.class || 'icon'"
         :viewBox="viewBox || '0 0 16 16'"
         fill="none"
@@ -16,6 +17,7 @@ import icons from './icons'
 interface Props {
     name: keyof typeof icons;
     viewBox?: string;
+    height?:string;
 }
 
 const { name, viewBox } = defineProps<Props>()

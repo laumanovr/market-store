@@ -1,9 +1,6 @@
 <template>
   <div class="main">
     <div class="main__container">
-      <button @click="isVoiceModalOpenLogin = true">Вход</button>
-      <button @click="isVoiceModalOpenRecovery = true">Восстановление</button>
-      <button @click="isVoiceModalOpenReg = true">Регистрация</button>
       <div class="main__content">
         <div class="main__slider">
           <Slider :sliderItems='sliderItems'/>
@@ -90,15 +87,6 @@
         </div>
       </div>
     </div>
-    <teleport to="body">
-      <TheModalLogin v-if="isVoiceModalOpenLogin" @close="isVoiceModalOpenLogin = false"/>
-    </teleport>
-    <teleport to="body">
-      <TheModalRecovery v-if="isVoiceModalOpenRecovery" @close="isVoiceModalOpenRecovery = false"/>
-    </teleport>
-    <teleport to="body">
-      <TheModalRegistration v-if="isVoiceModalOpenReg" @close="isVoiceModalOpenReg = false"/>
-    </teleport>
   </div>
 </template>
 
@@ -109,13 +97,6 @@ import { Promotions } from '~/widgets/promotions'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 import Button from '~/shared/components/button/button.vue';
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
-import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
-import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
-import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
-
-const isVoiceModalOpenLogin = ref(false)
-const isVoiceModalOpenReg = ref(false)
-const isVoiceModalOpenRecovery = ref(false)
 
 const sliderItems = ref<{ id: number; name: string; img: string; }[]>([
   {

@@ -38,7 +38,7 @@ interface Props {
 
 const { text, withBackButton = false } = defineProps<Props>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close','onBack'])
 
 const modalFocus = ref(null)
 const isOpen = ref(true)
@@ -48,7 +48,7 @@ onMounted(() => {
 })
 
 const back = () => {
-  alert('Назад!')
+  emit('onBack')
 }
 
 const close = () => {

@@ -26,7 +26,7 @@
           </div>
         </SForm>
         <div class="modal__reset-password">
-          <span>Забыли пароль?</span>
+          <span @click="$emit('onResetPassword')">Забыли пароль?</span>
         </div>
         <div class="modal__login">
           <SButton color="violet" size="large" :disabled="numberModified.length !== 12">
@@ -34,7 +34,7 @@
           </SButton>
         </div>
         <div class="modal__registration">
-          <SButton color="gray" size="large" class="">
+          <SButton color="gray" size="large" @click="$emit('onRegistration')">
             Зарегистрироваться
           </SButton>
         </div>
@@ -45,12 +45,11 @@
 
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
-import {
-  SButton,
-  SInput,
-  SForm
-} from "@tumarsoft/ogogo-ui";
+import { SButton, SInput, SForm } from "@tumarsoft/ogogo-ui";
 import { computed, ref } from 'vue'
+
+
+const emit = defineEmits(['onResetPassword', 'onRegistration'])
 
 const number = ref('')
 const validateWarning = ref(true)
@@ -111,6 +110,7 @@ const numberModified = computed(() => {
     font-weight: 600;
     letter-spacing: 0.056px;
     color: $violet-600;
+    cursor: pointer;
   }
   &__login {
     margin-bottom: 8px;

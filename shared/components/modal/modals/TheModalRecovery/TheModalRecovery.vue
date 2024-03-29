@@ -1,5 +1,5 @@
 <template>
-    <BaseModal text="Восстановление" withBackButton>
+    <BaseModal text="Восстановление" withBackButton @onBack="onBack">
       <Recovery v-if="step == 0" @number="handlerNumber"/>
       <ReceivingMessage v-else-if="step == 1"/>
       <PasswordConfirmation v-else-if="step == 2"/>
@@ -19,6 +19,8 @@
   import BaseModal from '../../BaseModal.vue';
   import { SButton } from "@tumarsoft/ogogo-ui";
 
+  const emit = defineEmits(['onBack'])
+
   const step = ref(0)
   const number = ref('')
 
@@ -30,6 +32,10 @@
 
   const handlerNumber = (e:string):void => {
     number.value = e
+  }
+
+  const onBack = () => {
+      emit('onBack')
   }
   </script>
 
