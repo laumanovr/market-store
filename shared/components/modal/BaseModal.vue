@@ -17,6 +17,7 @@
           :text
           @close="close"
           @back="back"
+          v-if="!header"
         />
       </div>
       <div class="baseModal__body">
@@ -34,11 +35,13 @@ import BaseModalOverlay from './BaseModalOverlay.vue'
 interface Props {
     text: string;
     withBackButton?: boolean;
+    header?: boolean;
 }
 
-const { text, withBackButton = false } = defineProps<Props>()
+const { text, withBackButton = false, header} = defineProps<Props>()
 
 const emit = defineEmits(['close','onBack'])
+
 
 const modalFocus = ref(null)
 const isOpen = ref(true)

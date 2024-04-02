@@ -21,7 +21,7 @@
                             @onSwitch="methodDelivery"
                         />
                         <div v-if="deliveryMethod == 'delivery'" class="delivery-method__add-address">
-                            <Button color="gray" decoration="none">
+                            <Button color="gray" decoration="none" @click="isVoiceModalOpenAddAddress = true">
                                 <template v-slot:leftIcon>
                                     <BaseIcon name="plus" viewBox="0 0 20 15" class="icon-svg"/>
                                 </template>
@@ -29,7 +29,7 @@
                             </Button>
                         </div>
                         <div v-else class="delivery-method__add-address">
-                            <Button color="gray" decoration="none">
+                            <Button color="gray" decoration="none" @click="isVoiceModalOpenAddAddress = true">
                                 Выбрать филиал
                             </Button>
                         </div>
@@ -104,6 +104,12 @@
                 </div>
             </div>
         </div>
+        <teleport to="body">
+            <TheModalAddAddress v-if="isVoiceModalOpenAddAddress" @close="isVoiceModalOpenAddAddress = false" @handlerOpenMap="handlerOpenMap"/>
+        </teleport>
+        <teleport to="body">
+            <TheModalMap v-if="isVoiceModalOpenMap" @close="isVoiceModalOpenMap = false"/>
+        </teleport>
     </div>
 </template>
 
@@ -115,12 +121,16 @@ import OrderPlacingCard from '~/shared/components/OrderPlacingCard/OrderPlacingC
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
 import { PaymentChange } from '~/features/payment-change';
 import { PaymentCard } from '~/features/payment-card';
+import TheModalAddAddress from '~/shared/components/modal/modals/TheModalAddAddress.vue'
+import TheModalMap from '~/shared/components/modal/modals/TheModalMap.vue'
 import { STable } from "@tumarsoft/ogogo-ui";
 
 const totalProductOrder = ref(3)
 
 const paymentMethod = ref('cash')
 const deliveryMethod = ref('delivery')
+const isVoiceModalOpenAddAddress = ref(false)
+const isVoiceModalOpenMap = ref(false)
 const headers = [
                     {title: "Товар", key: "product"},
                     {title: "Кол-во", key: "quantity"},
@@ -177,6 +187,11 @@ const methodDelivery = (el:number):void => {
     } else if (el == 1) {
         deliveryMethod.value = 'pickup'
     }
+}
+
+const handlerOpenMap = () => {
+    isVoiceModalOpenAddAddress.value = false
+    isVoiceModalOpenMap.value = true
 }
 </script>
 
