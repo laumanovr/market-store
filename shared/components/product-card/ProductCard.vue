@@ -1,15 +1,50 @@
 <template>
-  <div class="product-card">
+  <div :class="['product-card', {cardRow: row}]">
     <div class="product-image">
-      <img :src="source" alt="img" />
-      <SIconRender name="FavoriteIcon" color="gray" />
+      <div class="product-image__photo">
+        <img :src="source" alt="img" />
+        <SIconRender name="FavoriteIcon" color="gray" />
+      </div>
+      <div v-if="props.row" class="product-image__info">
+        <div class="product-name">
+          {{ props.productName }}
+        </div>
+        <div class="product-rating">
+          <img src="~/assets/images/star.svg" alt="" />
+          <span>{{ props.rating }}</span>
+        </div>
+        <div class="product-info">
+          <div class="product-info__text">
+            <span class="product-info__title">Экран:</span> <span class="product-info__info">6.1" (2556x1179) OLED 120 Гц</span>
+          </div>
+          <div class="product-info__text">
+            <span class="product-info__title">Память:</span> <span class="product-info__info">встроенная 256 ГБ</span>
+          </div>
+          <div class="product-info__text">
+            <span class="product-info__title">Фото:</span> <span class="product-info__info">3 камеры, основная 48 МП</span>
+          </div>
+          <div class="product-info__text">
+            <span class="product-info__title">Процессор:</span> <span class="product-info__info">02.05.1997</span>
+          </div>
+          <div class="product-info__text">
+            <span class="product-info__title">Sim-карты:</span> <span class="product-info__info">6Dual еSIM</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="product-info">
-      <div class="product-price">{{ props.price }}</div>
-      <div class="product-name">
+    <div class="product-info-price">
+      <div class="product-price">
+        <div class="product-price__after">
+          {{ props.price + ' ' + 'сом' }}
+        </div>
+        <div class="product-price__before">
+          120 000 сом
+        </div>
+      </div>
+      <div v-if="!props.row" class="product-name">
         {{ props.productName }}
       </div>
-      <div class="product-rating">
+      <div v-if="!props.row" class="product-rating">
         <img src="~/assets/images/star.svg" alt="" />
         <span>{{ props.rating }}</span>
       </div>
@@ -17,13 +52,26 @@
         <img :src="sourceBrand" alt="" />
         <span>{{ props.brandName }}</span>
       </div>
-      <SButton color="violet" class="w-100">В корзину</SButton>
+      <div class="product-card__btn">
+        <Button v-if="addedProduct" color="gray">
+          <template v-slot:leftIcon >
+            <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
+          </template>
+          {{ addedProduct }}
+          <template v-slot:rightIcon>
+            <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
+          </template>
+        </Button>
+        <SButton v-else @click="addingProduct" color="violet" class="w-100">В корзину</SButton>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
+import Button from '~/shared/components/button/button.vue'
+import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 const props = defineProps({
   productImageUrl: {
@@ -44,7 +92,22 @@ const props = defineProps({
   brandName: {
     type: String,
   },
+  row: {
+    type: Boolean
+  }
 })
+
+const addedProduct = ref(0)
+
+const addingProduct = (): void => {
+  addedProduct.value += 1
+}
+
+const removeProduct = (): void => {
+  if (addedProduct.value !== 0) {
+    addedProduct.value -= 1
+  }
+}
 
 const source = computed(() => `/_nuxt/assets/${props.productImageUrl}`)
 const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
@@ -54,6 +117,14 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
 @import '~/assets/style/colors.scss';
 .product-card {
   width: 240px;
+  &__btn {
+    &:deep(.button) {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
   .product-image {
     position: relative;
     img {
@@ -67,15 +138,26 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
       right: 16px;
     }
   }
-  .product-info {
+  .product-info-price {
     margin-top: 24px;
   }
   .product-price {
-    font-weight: 700;
-    font-size: 20px;
+    display: flex;
+    align-items: baseline;
+    grid-gap: 8px;
+    &__after {
+      font-weight: 700;
+      font-size: 20px;
+    }
+    &__before {
+      font-weight: 500;
+      font-size: 14px;
+      color: $red-600;
+      text-decoration: line-through;
+    }
   }
   .product-name {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     margin: 8px 0;
     max-height: 35px;
@@ -105,6 +187,51 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
       margin-left: 8px;
       color: $gray-500;
     }
+  }
+}
+
+.product-card.cardRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .product-info {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    &__title {
+      color: $gray-500;
+    }
+    &__info {
+      color: $black;
+    }
+  }
+  .product-info-price {
+    margin: 0;
+    width: 240px;
+  }
+  .product-image {
+    display: flex;
+    &__photo {
+      position: relative;
+    }
+  }
+  .product-rating {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .product-price {
+    &__before {
+      color: $gray-500;
+    }
+  }
+  .product-brand {
+    margin: 12px 0
+  }
+  .product-name {
+    margin: 0 0 8px 0;
   }
 }
 </style>

@@ -122,9 +122,13 @@
             <div class="body-product__popular">
               <SSelect class="w-15" />
             </div>
-            <div class="body-product__grid">
-              <BaseIcon name="grid" viewBox="0 0 22 22" class="icon-grid" />
-              <BaseIcon name="row" viewBox="0 0 24 24" class="icon-grid" />
+            <div class="body-product__grid grid-row">
+                <div class="grid-row__grid">
+                    <BaseIcon name="grid" viewBox="0 0 22 22" :class="['icon-grid', {activeGrid: isActiveGrid}]" @click="isActiveGrid = !isActiveGrid"/>
+                </div>
+                <div class="grid-row__row">
+                    <BaseIcon name="row" viewBox="0 0 24 24" :class="['icon-grid', {activeGrid: !isActiveGrid}]" @click="isActiveGrid = !isActiveGrid"/>
+                </div>
             </div>
           </div>
           <div class="body-product__filter-categories">
@@ -133,7 +137,7 @@
             <STag title="128 ГБ" :index="1" />
             <STag title="Новый" :index="1" />
           </div>
-          <div class="body-product__items">
+          <div :class="{'body-product__items': isActiveGrid}">
             <ProductCard
               v-for="i in 17"
               :key="i"
@@ -143,6 +147,7 @@
               rating="4.6 (356)"
               brandIconUrl="images/shop-logo.png"
               brandName="Мой телефон"
+              :row="!isActiveGrid"
             />
           </div>
         </div>
@@ -160,6 +165,7 @@ import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 
 const isOpen = ref(false)
+const isActiveGrid = ref(true)
 </script>
 
 <style lang="scss" scoped>
@@ -175,6 +181,10 @@ const isOpen = ref(false)
 .icon-grid {
   width: 24px;
   height: 24px;
+  cursor: pointer;
+  &:deep(path) {
+    stroke: $gray-400;
+  }
 }
 .filterProduct {
   &__content {
@@ -277,8 +287,10 @@ const isOpen = ref(false)
     align-items: center;
     justify-content: space-between;
   }
-  &__grid svg {
-    margin-left: 16px;
+  &__grid {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
   }
   &__items {
     grid-gap: 10px;
@@ -289,6 +301,12 @@ const isOpen = ref(false)
   }
   &__filter-categories {
     margin: 16px 0 24px 0;
+  }
+}
+
+.activeGrid {
+    &:deep(path) {
+    stroke: $black;
   }
 }
 </style>

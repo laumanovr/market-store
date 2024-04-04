@@ -6,14 +6,16 @@
       :item="category"
       :categoryName="category.name"
       @close="emit('close')"
+      @itemCategoty="itemCategoty"
     />
   </nav>
 </template>
 
 <script setup>
+import { reactive } from 'vue'
 import SidebarItem from './SidebarItem.vue'
 
-const categoryItems = [
+const categoryItems = reactive([
   {
     name: 'Электроника',
     icon: 'electronic',
@@ -199,12 +201,48 @@ const categoryItems = [
     items: [],
     link: '/test',
   },
-]
+])
 
 const emit = defineEmits(['close'])
 const props = defineProps({
   categoryItems: Array,
 })
+
+const itemCategory = (selectedItem) => {
+  // Функция для рекурсивного поиска и обновления состояния элементов
+  const updateItems = (items, level = 0) => {
+    items.forEach((item) => {
+      if (item === selectedItem) {
+        // Переключаем состояние активности для выбранного элемента
+        item.isActive = !item.isActive;
+      } else if (level === 0) {
+        // Деактивируем элементы только на текущем уровне вложенности
+        item.isActive = false;
+      }
+      // Рекурсивно вызываем функцию для дочерних элементов, увеличивая уровень вложенности
+      if (item.items && item.items.length > 0) {
+        updateItems(item.items, level + 1);
+      }
+    });
+  };
+  // Начинаем обновление элементов с корневого уровня
+  updateItems(categoryItems);
+};
+
+const updateSubItemsActiveState = (items, selectedItem) => {
+  if (items && items.length > 0) {
+    items.forEach((subItem) => {
+      if (subItem === selectedItem) {
+        subItem.isActive = !subItem.isActive;
+      } else {
+        subItem.isActive = false;
+      }
+      updateSubItemsActiveState(subItem.items, selectedItem);
+    });
+  }
+};
+
+provide('itemCategory', itemCategory)
 </script>
 
 <style scoped>

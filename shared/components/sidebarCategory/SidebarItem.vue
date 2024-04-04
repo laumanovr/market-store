@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-item">
-    <div :class="['sidebar-item__list', { active: isOpen }]" @click="toggle">
+    <div :class="['sidebar-item__list', { active: item.isActive }]" @click.stop="toggle(item)">
       <div class="sidebar-item__text">
         <div v-if="item.icon" class="icon-svg">
           <BaseIcon
@@ -15,7 +15,7 @@
         <BaseIcon name="arrow" viewBox="0 -6 20 20" class="icon-svg" />
       </div>
     </div>
-    <div v-show="isOpen" class="sidebar-item__item">
+    <div v-show="item.isActive" class="sidebar-item__item">
       <div class="sidebar-item__title">
         <h4>
           {{ categoryName }}
@@ -40,12 +40,14 @@ const props = defineProps({
   item: Object,
   categoryName: String,
 })
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'itemCategoty'])
 
 const isOpen = ref(false)
 
-const toggle = () => {
-  isOpen.value = !isOpen.value
+const itemCategory = inject('itemCategory')
+
+const toggle = (item) => {
+  itemCategory(item)
 }
 
 const openPages = item => {
