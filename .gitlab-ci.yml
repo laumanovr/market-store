@@ -4,16 +4,16 @@ stages:
   - notify
 
 build_marketplace_front_test:
- stage: build
- before_script:
+  stage: build
+  before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
- script:
-  - docker build -t registry.gitlab.com/tumarsoft/marketplace_front:test$(echo $CI_PIPELINE_ID) .
-  - docker push registry.gitlab.com/tumarsoft/marketplace_front:test$(echo $CI_PIPELINE_ID)
-  - export CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA 
-  - env |grep CI_COMMIT_SHORT_SHA
- only:
-  - test
+  script:
+    - docker build -t registry.gitlab.com/tumarsoft/marketplace_front:test$(echo $CI_PIPELINE_ID) .
+    - docker push registry.gitlab.com/tumarsoft/marketplace_front:test$(echo $CI_PIPELINE_ID)
+    - export CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+    - env |grep CI_COMMIT_SHORT_SHA
+  only:
+    - test
 
 deploy_marketplace_front_test:
   stage: deploy
@@ -29,13 +29,13 @@ deploy_marketplace_front_test:
   script:
     - ssh -i ~/.ssh/id_rsa -p 22 gitlab-runner@192.168.111.103 "docker ps"
     - ssh -i ~/.ssh/id_rsa -p 22 gitlab-runner@192.168.111.103 "TAG=$CI_PIPELINE_ID docker-compose -f /opt/docker/marketplace_front/docker-compose-test.yml up -d"
-  only: 
-   - test
+  only:
+    - test
 
 notify_error:
   stage: notify
   script:
     - apk add --update curl
     - echo "$cinotifyerr" >cinotify.sh
-    - sh cinotify.sh 
+    - sh cinotify.sh
   when: on_failure

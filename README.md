@@ -27,7 +27,7 @@ Build the application for production:
 npm run build
 ```
 
-Deploy the application for production: 
+Deploy the application for production:
 
 ```bash
 node ./.output/server/index.mjs
@@ -41,11 +41,12 @@ npm run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
- ### Todo
- * [] - tailwind
- * [] - pinia
- * [] - vitest
- * [] - i18n
- * [] - robots
- * [] - partytown?
- * [] - vueuse
+### Todo
+
+- [] - tailwind
+- [] - pinia
+- [] - vitest
+- [] - i18n
+- [] - robots
+- [] - partytown?
+- [] - vueuse

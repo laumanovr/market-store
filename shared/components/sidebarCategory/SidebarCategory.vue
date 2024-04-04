@@ -1,8 +1,8 @@
 <template>
   <nav class="sidebar">
-    <SidebarItem 
-      v-for="category in categoryItems" 
-      :key="category.name" 
+    <SidebarItem
+      v-for="category in categoryItems"
+      :key="category.name"
       :item="category"
       :categoryName="category.name"
       @close="emit('close')"
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import SidebarItem from './SidebarItem.vue';
+import SidebarItem from './SidebarItem.vue'
 
 const categoryItems = [
   {
@@ -26,186 +26,185 @@ const categoryItems = [
             items: [
               {
                 name: 'Смартфоны Android',
-                link: '/test'
+                link: '/test',
               },
               {
                 name: 'Смартфоны Apple',
-                link: '/test'
+                link: '/test',
               },
               {
                 name: 'Смартфоны Xiomi',
-                link: '/test'
+                link: '/test',
               },
               {
                 name: 'Смартфоны Samsung',
-                link: '/test'
+                link: '/test',
               },
               {
                 name: 'Смартфоны Pixel',
-                link: '/test'
-              }
+                link: '/test',
+              },
             ],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Кнопочные телефоны',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Умные часы и браслеты',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Аксессуары для телефонов',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Запчасти для смартфонов',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'SIM-карты',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Чехлы',
             items: [],
-            link: '/test'
+            link: '/test',
           },
           {
             name: 'Защитные стёкла',
             items: [],
-            link: '/test'
-          }
+            link: '/test',
+          },
         ],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Ноутбуки',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
-
         name: 'Телевизоры',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Видеотехника',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Умные колонки',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Компьютеры и комлпектующие',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Умные часы и браслеты',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Планшеты',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Наушники и аудио техника',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Гейминг',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Фото и видеокамеры',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Сетевое оборудование',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Умный дом',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Автомобильная техника',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Оргтехника',
         items: [],
-        link: '/test'
+        link: '/test',
       },
       {
         name: 'Аксессуары для техники',
         items: [],
-        link: '/test'
+        link: '/test',
       },
     ],
-    link: ''
+    link: '',
   },
   {
     name: 'Бытовая техника',
     icon: 'appliances',
     items: [],
-    link: '/test'
+    link: '/test',
   },
   {
     name: 'Авто',
     icon: 'auto',
     items: [],
-    link: '/test'
+    link: '/test',
   },
   {
     name: 'Строительство и ремонт',
     icon: 'construction',
     items: [],
-    link: '/test'
+    link: '/test',
   },
   {
     name: 'Продукты',
     icon: 'products',
     items: [],
-    link: '/test'
+    link: '/test',
   },
   {
     name: 'Здоровье',
     icon: 'health',
     items: [],
-    link: '/test'
+    link: '/test',
   },
   {
     name: 'Туристические услуги',
     icon: 'map',
     items: [],
-    link: '/test'
-  }
+    link: '/test',
+  },
 ]
 
 const emit = defineEmits(['close'])
 const props = defineProps({
-  categoryItems: Array
-});
+  categoryItems: Array,
+})
 </script>
 
 <style scoped>

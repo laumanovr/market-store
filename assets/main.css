@@ -1,7 +1,7 @@
-@import "@tumarsoft/ogogo-ui/styles";
+@import '@tumarsoft/ogogo-ui/styles';
 
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -9,30 +9,28 @@ body {
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 400;
   src:
-    local("Montserrat"),
-    url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
+    local('Montserrat'),
+    url('../assets/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 500;
   src:
-    local("Montserrat"),
-    url("../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+    local('Montserrat'),
+    url('../assets/fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 700;
   src:
-    local("Montserrat"),
-    url("../assets/fonts/Montserrat-Bold.ttf") format("truetype");
+    local('Montserrat'),
+    url('../assets/fonts/Montserrat-Bold.ttf') format('truetype');
 }
-
-
 
 .layout {
   /* padding: 40px 160px 80px 160px; */
@@ -101,7 +99,7 @@ body {
   padding-bottom: 20px;
 }
 
-.home-info> :not(:last-child) {
+.home-info > :not(:last-child) {
   margin-bottom: 8px;
 }
 
@@ -116,7 +114,7 @@ body {
   background-color: transparent;
   border: none;
   font-size: 14px;
-  color: #7B818C;
+  color: #7b818c;
   padding: 4px;
   cursor: pointer;
 }
@@ -135,6 +133,10 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
 }

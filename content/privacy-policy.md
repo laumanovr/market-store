@@ -1,5 +1,5 @@
 ---
-title: "privacy-policy"
+title: 'privacy-policy'
 ---
 
 #### **1. СБОР И ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ**

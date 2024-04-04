@@ -58,9 +58,14 @@
                 <span>Итого:</span><span>150 480 сом</span>
               </div>
             </div>
-                <SButton color="violet" size="large" class="w-100" @click="router.push({ path: '/order-placing' })">
-                  Перейти к оформлению
-                </SButton>
+            <SButton
+              color="violet"
+              size="large"
+              class="w-100"
+              @click="router.push({ path: '/order-placing' })"
+            >
+              Перейти к оформлению
+            </SButton>
             <SButton color="gray" size="large" class="w-100">
               Оформить кредит
             </SButton>
@@ -82,14 +87,14 @@
 </template>
 
 <script lang="ts" setup>
-import { SButton, SIconRender } from "@tumarsoft/ogogo-ui";
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 
 const router = useRouter()
-const hasOrders = ref(true);
+const hasOrders = ref(true)
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .cart-container {
   .cart-empty {
     display: flex;

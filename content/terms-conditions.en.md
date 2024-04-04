@@ -1,32 +1,33 @@
 ---
-title: "terms-conditions"
+title: 'terms-conditions'
 ---
 
 ### **Chapter 1. Terms and definitions.**
 
 1. For the purpose of proper interpretation of the terms of the user agreement, the following terms are used in the following meaning:
-* **Owner of the Trading Platform** – Limited Liability Company “OGOGO” registered in the State Register of Legal Entities dated October 09, 2023, Registration number 223021-3301-LLC, OKPO code 32201071, INN 00910202310316, located at the address: Kyrgyz Republic, Bishkek city, 12-mkr, 57/2, apt. 17, which is the sole copyright holder of the Trading Platform software.
-* **User Agreement** - a public offer of the Owner of the Trading Platform, addressed to a potential User, to conclude an agreement with him and/or with the Partners (Sellers) of the Owner of the Trading Platform on the existing conditions contained in this User Agreement, including all its annexes.
-* **Marketplace** - a mobile application and Website which is a personal non-property intellectual property right of the Owner of the Marketplace - https://ogogo.kg/ intended for the sale of Products of Partners (Sellers) by placing Publications and/or advertisements, and in other ways in accordance with functionality of the software https://ogogo.kg/.
-* **Software -** is a set of software and documentary tools of the Trading Platform, data processing systems using computer technology, developed and owned by the Owner of the Trading Platform.
-* **Source code -** the text of the Software in any programming language.
-* **Partner (Seller)** - an individual entrepreneur or legal entity that has entered into a partnership agreement with the Owner of the Marketplace, carries out its activities in the sale (sale) of goods and offers the User (Buyer) to enter into a purchase and sale agreement by placing Goods on the Marketplace - Online trading.
-* **Potential user (Potential buyer)** - any individual and/or legal entity with full legal capacity.
-* **User (Buyer)** – a potential user (Potential Buyer) who has entered into a User Agreement with the Owner of the Trading Platform on the terms and conditions contained in this User Agreement.
-* **Parties** – User (Buyer), Partner (Seller), Owner of the Trading Platform.
-* **Services** – The trading platform is provided to the User (Buyer) on the terms of the right of use and only on the terms provided for in this User Agreement and other regulatory legal acts of the copyright holder.
-* **Technical support** – an employee of the Owner of the Trading Platform who provides communication on issues related to the Trading Platform between the User (Buyer) and the Partner (Seller).
-* **Product** - is the subject of a purchase and sale agreement concluded between the User (Buyer) and the Partner (Seller). All relationships related to the purchase and sale of Goods arise between them. The Partner (Seller) is the owner of the Goods being sold.
-* **Digital goods -** intangible goods that exist only in digital form and are sold on the Marketplace.
-* **Acceptance** - full and unconditional acceptance by the Potential User (Potential Buyer) of the terms of this User Agreement.
-* **Account** - a set of data about the user stored in a computer system, necessary for his identification (authentication) and providing access to his personal data and settings.
-* **Personal Account** is a page (section) that is available only to the User (Buyer) who has registered in accordance with the terms of this User Agreement, thereby confirming his identity.
-* **Online trading** – carrying out trade and purchasing activities via the Internet. The concept of online trading includes: Transfer of information, products or services through online resources; Providing services electronically; Organizing online using regular trading methods.
-* **Order** – the implementation by the User (Buyer) of his own free will of actions aimed at concluding a purchase and sale agreement with the Partner (Seller) on the terms determined by the functionality of the Trading Platform.
-* **Delivery** – the process of transporting goods from the original location (Partner’s (Seller’s) warehouse) to a predetermined destination specified by the User (Buyer) when placing an Order.
-* **Parcel** – Goods sent using the service - Delivery.
-* **Warranty card** is a document certified by the Partner (Seller) confirming warranty obligations.
-* **Warranty period** - obligations to ensure the quality of the product during the period of time specified in the Warranty Card.
+
+- **Owner of the Trading Platform** – Limited Liability Company “OGOGO” registered in the State Register of Legal Entities dated October 09, 2023, Registration number 223021-3301-LLC, OKPO code 32201071, INN 00910202310316, located at the address: Kyrgyz Republic, Bishkek city, 12-mkr, 57/2, apt. 17, which is the sole copyright holder of the Trading Platform software.
+- **User Agreement** - a public offer of the Owner of the Trading Platform, addressed to a potential User, to conclude an agreement with him and/or with the Partners (Sellers) of the Owner of the Trading Platform on the existing conditions contained in this User Agreement, including all its annexes.
+- **Marketplace** - a mobile application and Website which is a personal non-property intellectual property right of the Owner of the Marketplace - https://ogogo.kg/ intended for the sale of Products of Partners (Sellers) by placing Publications and/or advertisements, and in other ways in accordance with functionality of the software https://ogogo.kg/.
+- **Software -** is a set of software and documentary tools of the Trading Platform, data processing systems using computer technology, developed and owned by the Owner of the Trading Platform.
+- **Source code -** the text of the Software in any programming language.
+- **Partner (Seller)** - an individual entrepreneur or legal entity that has entered into a partnership agreement with the Owner of the Marketplace, carries out its activities in the sale (sale) of goods and offers the User (Buyer) to enter into a purchase and sale agreement by placing Goods on the Marketplace - Online trading.
+- **Potential user (Potential buyer)** - any individual and/or legal entity with full legal capacity.
+- **User (Buyer)** – a potential user (Potential Buyer) who has entered into a User Agreement with the Owner of the Trading Platform on the terms and conditions contained in this User Agreement.
+- **Parties** – User (Buyer), Partner (Seller), Owner of the Trading Platform.
+- **Services** – The trading platform is provided to the User (Buyer) on the terms of the right of use and only on the terms provided for in this User Agreement and other regulatory legal acts of the copyright holder.
+- **Technical support** – an employee of the Owner of the Trading Platform who provides communication on issues related to the Trading Platform between the User (Buyer) and the Partner (Seller).
+- **Product** - is the subject of a purchase and sale agreement concluded between the User (Buyer) and the Partner (Seller). All relationships related to the purchase and sale of Goods arise between them. The Partner (Seller) is the owner of the Goods being sold.
+- **Digital goods -** intangible goods that exist only in digital form and are sold on the Marketplace.
+- **Acceptance** - full and unconditional acceptance by the Potential User (Potential Buyer) of the terms of this User Agreement.
+- **Account** - a set of data about the user stored in a computer system, necessary for his identification (authentication) and providing access to his personal data and settings.
+- **Personal Account** is a page (section) that is available only to the User (Buyer) who has registered in accordance with the terms of this User Agreement, thereby confirming his identity.
+- **Online trading** – carrying out trade and purchasing activities via the Internet. The concept of online trading includes: Transfer of information, products or services through online resources; Providing services electronically; Organizing online using regular trading methods.
+- **Order** – the implementation by the User (Buyer) of his own free will of actions aimed at concluding a purchase and sale agreement with the Partner (Seller) on the terms determined by the functionality of the Trading Platform.
+- **Delivery** – the process of transporting goods from the original location (Partner’s (Seller’s) warehouse) to a predetermined destination specified by the User (Buyer) when placing an Order.
+- **Parcel** – Goods sent using the service - Delivery.
+- **Warranty card** is a document certified by the Partner (Seller) confirming warranty obligations.
+- **Warranty period** - obligations to ensure the quality of the product during the period of time specified in the Warranty Card.
 
 ### **Chapter 2. General provisions, subject of the agreement.**
 
@@ -73,32 +74,37 @@ title: "terms-conditions"
 ### **Chapter 6. Rights and obligations of the parties.**
 
 1. **The owner of the Trading Platform has the right:**
-       - 1.1. Without agreement with the User (Buyer), transfer your rights and obligations to fulfill obligations to the Buyer to third parties.
-       - 1.2. Cancel an Order with a non-cash payment method after 10 minutes from the moment of placing, if payment has not been received.
-       - 1.3. Send advertising and informational messages to the Buyer via e-mail and SMS with information about discounts, promotions, new arrivals, etc. The frequency of mailings is determined by the Owner of the Marketplace independently, unilaterally.
+
+   - 1.1. Without agreement with the User (Buyer), transfer your rights and obligations to fulfill obligations to the Buyer to third parties.
+   - 1.2. Cancel an Order with a non-cash payment method after 10 minutes from the moment of placing, if payment has not been received.
+   - 1.3. Send advertising and informational messages to the Buyer via e-mail and SMS with information about discounts, promotions, new arrivals, etc. The frequency of mailings is determined by the Owner of the Marketplace independently, unilaterally.
 
 2. **The owner of the Trading Platform undertakes:**
-       - 2.1. Fulfill your obligations in accordance with this user agreement and the legislation of the Kyrgyz Republic.
-       - 2.2. Transfer to the buyer the goods free from any rights of third parties, unless the buyer has agreed to accept the goods encumbered by the rights of third parties.
+
+   - 2.1. Fulfill your obligations in accordance with this user agreement and the legislation of the Kyrgyz Republic.
+   - 2.2. Transfer to the buyer the goods free from any rights of third parties, unless the buyer has agreed to accept the goods encumbered by the rights of third parties.
 
 3. **The User (Buyer) has the right:**
-       - 3.1. Request the Product in accordance with the description on the Marketplace.
-       - 3.2. Exercise your rights in accordance with the legislation of the Kyrgyz Republic.
+
+   - 3.1. Request the Product in accordance with the description on the Marketplace.
+   - 3.2. Exercise your rights in accordance with the legislation of the Kyrgyz Republic.
 
 4. **The User (Buyer) undertakes:**
-       - 4.1. Before concluding the Agreement, familiarize yourself with the contents and terms of this User Agreement, prices for Goods offered on the Marketplace, as well as the procedure and conditions for delivery of Goods.
-       - 4.2. In fulfillment of its obligations under this User Agreement, the User (Buyer) undertakes to assist and fulfill its obligations.
-       - 4.3. Pay for the Ordered Product and its delivery in accordance with the terms of this User Agreement.
-       - 4.4. The User (Buyer) is obliged to accept the Goods transferred to him by the Partner (Seller), except in cases where he has the right to demand replacement of the goods or refuse to fulfill the sales contract.
+   - 4.1. Before concluding the Agreement, familiarize yourself with the contents and terms of this User Agreement, prices for Goods offered on the Marketplace, as well as the procedure and conditions for delivery of Goods.
+   - 4.2. In fulfillment of its obligations under this User Agreement, the User (Buyer) undertakes to assist and fulfill its obligations.
+   - 4.3. Pay for the Ordered Product and its delivery in accordance with the terms of this User Agreement.
+   - 4.4. The User (Buyer) is obliged to accept the Goods transferred to him by the Partner (Seller), except in cases where he has the right to demand replacement of the goods or refuse to fulfill the sales contract.
 
 ### **Chapter 7. Policy regarding the processing of personal data.**
 
 1. This Chapter 7 policy regarding the processing of personal data is drawn up in accordance with the requirements of the Law of the Kyrgyz Republic dated November 29, 2021 No. 142 “On Personal Information” (hereinafter referred to as the Law on Personal Data) and determines the procedure for processing personal data and measures to ensure security of personal data undertaken by the Owner of the Trading Platform OGOGO LLC (hereinafter referred to as the Operator).
+
 - 1.1. Personal data includes biographical and identifying data, personal characteristics, marital status, financial status, health status, etc.
 - 1.2. The operator sets as its most important goal and condition for carrying out its activities the observance of the rights and freedoms of man and citizen when processing his personal data, including the protection of the rights to privacy, personal and family secrets.
 - 1.3. This Operator’s policy regarding the processing of personal data (hereinafter referred to as the Policy) applies to all information that the Operator can receive about visitors to the mobile application and website https://ogogo.kg/.
 
 **2. For the purpose of proper interpretation of the terms of Chapter 7 of this user agreement, the following terms are used in the following meaning:**
+
 - 2.1. Automated processing of personal data – processing of personal data using computer technology.
 - 2.2. Blocking of personal data – temporary cessation of processing of personal data (except for cases where processing is necessary to clarify personal data).
 - 2.3. Website is a collection of graphic and information materials, as well as computer programs and databases that ensure their availability on the Internet at the network address https://ogogo.kg/.
@@ -116,12 +122,14 @@ title: "terms-conditions"
 - 2.15. Confidentiality of personal data is a mandatory requirement for the Operator or any other person who has access to personal data to not allow their distribution without the consent of the subject of personal data or the presence of another legal basis.
 
 **3. Basic rights and obligations of the Operator.**
+
 - **3.1. The operator has the right:**
 - receive from the subject of personal data reliable information and/or documents containing personal data;
 - if the subject of personal data withdraws consent to the processing of personal data, the Operator has the right to continue processing personal data without the consent of the subject of personal data if there are grounds specified in the Law on Personal Data;
 - independently determine the composition and list of measures necessary and sufficient to ensure the fulfillment of the obligations provided for by the Law on Personal Data and regulatory legal acts adopted in accordance with it, unless otherwise provided by the Law on Personal Data or other laws of the Kyrgyz Republic.
 
 **3.2. The operator is obliged:**
+
 - provide the subject of personal data, at his request, with information regarding the processing of his personal data;
 - organize the processing of personal data in the manner established by the current legislation of the Kyrgyz Republic;
 - respond to requests and requests from subjects of personal data and their legal representatives in accordance with the requirements of the Law on Personal Data;
@@ -256,6 +264,7 @@ title: "terms-conditions"
 8.4. The subject of personal data independently decides to provide his personal data and gives consent freely, of his own free will and in his own interest.
 
 **9. Conditions for processing personal data.**
+
 - 9.1. The processing of personal data is carried out with the consent of the subject of personal data to the processing of his personal data.
 - 9.2. The processing of personal data is necessary to achieve the goals provided for by an international treaty of the Kyrgyz Republic or law, to implement the functions, powers and responsibilities assigned to the operator by the legislation of the Kyrgyz Republic.
 - 9.3. The processing of personal data is necessary for the administration of justice, the execution of a judicial act, an act of another body or official, subject to execution in accordance with the legislation of the Kyrgyz Republic on enforcement proceedings.
@@ -265,7 +274,8 @@ title: "terms-conditions"
 - 9.7. The processing of personal data subject to publication or mandatory disclosure in accordance with the law of the Kyrgyz Republic is carried out.
 
 **10. The procedure for collecting, storing, transferring and other types of processing of personal data.**
-       The security of personal data processed by the Operator is ensured by implementing legal, organizational and technical measures necessary to fully comply with the requirements of current legislation in the field of personal data protection.
+The security of personal data processed by the Operator is ensured by implementing legal, organizational and technical measures necessary to fully comply with the requirements of current legislation in the field of personal data protection.
+
 - 10.1. The operator ensures the safety of personal data and takes all possible measures to prevent access to personal data by unauthorized persons.
 - 10.2. The User’s personal data will never, under any circumstances, be transferred to third parties, except in cases related to the implementation of current legislation or in the event that the subject of personal data gives consent to the Operator to transfer data to a third party to fulfill obligations under a civil law contract.
 - 10.3. The period for processing personal data is determined by the achievement of the purposes for which the personal data were collected, unless a different period is provided for by the contract or current legislation. The User may at any time withdraw his consent to the processing of personal data by sending a notification to the Operator via email to the Operator's email address https://ogogo.kg/ with the mark “Withdrawal of consent to the processing of personal data.”
@@ -276,10 +286,12 @@ title: "terms-conditions"
 - 10.8. The condition for terminating the processing of personal data may be the achievement of the purposes of processing personal data, the expiration of the consent of the subject of personal data or the withdrawal of consent by the subject of personal data, as well as the identification of unlawful processing of personal data.
 
 **eleven. List of actions performed by the Operator with received personal data.**
+
 - 11.1. The operator collects, records, systematizes, accumulates, stores, refines (updates, changes), extracts, uses, transfers (distribute, provide, access), depersonalizes, blocks, deletes and destroys personal data.
 - 11.2. The operator carries out automated processing of personal data with or without receiving and/or transmitting the received information via information and telecommunication networks.
 
 **12. Personal data privacy policy.**
+
 - 12.1. The operator and other persons who have access to personal data are obliged not to disclose to third parties or distribute personal data without the consent of the subject of personal data, unless otherwise provided by the law of the Kyrgyz Republic.
 - 12.2. The personal data privacy policy (hereinafter referred to as the Privacy Policy) applies to all information that the service https://ogogo.kg/, located on the domain name ogogo.kg, can receive about the User while using the site, programs and products of the service.
 
@@ -292,9 +304,10 @@ title: "terms-conditions"
 ### **Chapter 9. Disclaimer.**
 
 1. The owner of the Trading Platform does not make any statements or guarantees on the following issues:
-       - 1.1. The services provided by us are completely tailored to your requirements or experience.
-       - 1.2. The Marketplace and the Marketplace Owner are not responsible, have no fault and do not guarantee the consequences of your use of the Services.
-       - 1.3. You agree to bear any losses incurred as a result of unexpected stoppage of the site, delay in operation or transmission, computer virus, network connection failure, unauthorized login, etc.
+
+   - 1.1. The services provided by us are completely tailored to your requirements or experience.
+   - 1.2. The Marketplace and the Marketplace Owner are not responsible, have no fault and do not guarantee the consequences of your use of the Services.
+   - 1.3. You agree to bear any losses incurred as a result of unexpected stoppage of the site, delay in operation or transmission, computer virus, network connection failure, unauthorized login, etc.
 
 2. If a third party initiates legal proceedings or files a claim against our Services for the benefit of the User (Buyer), violates the Agreement, Privacy Policy, Terms or any other relevant law or regulation, the User (Buyer) agrees to compensate the Services for all damages arising, of which , including attorney fees, preservation costs, notary fees and reasonable attorney fees.
 
@@ -383,17 +396,19 @@ title: "terms-conditions"
 2. Cookies are small files that are downloaded to your computer and help ensure that the website functions properly and securely. They allow you to collect information about products that site visitors are interested in, and also take into account the navigation used during the visit. This is done in order to make our online offers more profitable for Users. Such files identify you as a user, but not as an individual, and after the analysis procedure is carried out, they are automatically deleted from the system.
 
 3. What types of cookies are used: Depending on the browser and device you use, different sets of cookies are used, including strictly necessary, performance, functional, analytical and advertising cookies:
-       - 3.1. Strictly necessary: These cookies support website navigation and the provision of requested services, for example to access secure pages. This type of cookie is used during user registration and login. Without them, the services requested by the user become unavailable. Without these cookies the site will not function properly.
-       - 3.2. Performance: These cookies collect information about how users use the site, such as the most visited pages and length of visit. Functionality: These cookies allow the site to remember information about your choices (such as your username, language or country you are in) and provide enhanced and personalized experiences. These cookies may also be used to provide users with the services they have requested. They remember the information you provide, improving your user experience on the site.
-       - 3.3. Analytical: These cookies are used to improve the quality of the site by collecting information about the number of visitors, sources of referrals to the site, and how visitors use the site (for example, which pages visitors go to most often).
-       - 3.4. Advertising: These cookies are used to limit the number of times a user sees the same advertisement and to measure the effectiveness of advertising campaigns. Advertising cookies are used to manage advertising content site-wide.
+
+   - 3.1. Strictly necessary: These cookies support website navigation and the provision of requested services, for example to access secure pages. This type of cookie is used during user registration and login. Without them, the services requested by the user become unavailable. Without these cookies the site will not function properly.
+   - 3.2. Performance: These cookies collect information about how users use the site, such as the most visited pages and length of visit. Functionality: These cookies allow the site to remember information about your choices (such as your username, language or country you are in) and provide enhanced and personalized experiences. These cookies may also be used to provide users with the services they have requested. They remember the information you provide, improving your user experience on the site.
+   - 3.3. Analytical: These cookies are used to improve the quality of the site by collecting information about the number of visitors, sources of referrals to the site, and how visitors use the site (for example, which pages visitors go to most often).
+   - 3.4. Advertising: These cookies are used to limit the number of times a user sees the same advertisement and to measure the effectiveness of advertising campaigns. Advertising cookies are used to manage advertising content site-wide.
 
 4. What cookies may be used for when you visit a site, cookies may be used to:
-       - ensuring the functioning and security of our website;
-       - improving the quality of our website;
-       - registration in your personal account;
-       - providing Customers with information about the Contractor’s products and services.
-       - improvement of products and (or) services and for the development of new products and (or) services.
+
+   - ensuring the functioning and security of our website;
+   - improving the quality of our website;
+   - registration in your personal account;
+   - providing Customers with information about the Contractor’s products and services.
+   - improvement of products and (or) services and for the development of new products and (or) services.
 
 5. A visitor to the Marketplace may disable cookies at any time or set their browser to warn you when they receive such cookies. However, cookies are an important part of the site, so blocking, deleting or limiting their use may result in you not having access to all functions of the site. To learn how to manage cookies with the browser or device you use, you can follow the instructions provided by your browser or device manufacturer.
 

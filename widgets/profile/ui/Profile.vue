@@ -113,7 +113,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted } from 'vue'
 import {
   SButton,
   SInput,
@@ -121,55 +121,55 @@ import {
   SIconRender,
   SCheckbox,
   SSwitch,
-} from "@tumarsoft/ogogo-ui";
-import { useRouter } from "vue-router";
+} from '@tumarsoft/ogogo-ui'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
-const tab = ref("");
-const profileObj = ref({ image: null });
+const router = useRouter()
+const tab = ref('')
+const profileObj = ref({ image: null })
 
 onMounted(() => {
-  changeTab("general");
-});
+  changeTab('general')
+})
 
 const changeTab = (val: string) => {
-  tab.value = val;
-};
+  tab.value = val
+}
 
 const profileImageUrl = computed(() =>
   profileObj.value?.image
     ? profileObj.value?.image
-    : "/_nuxt/assets/images/empty-photo.svg"
-);
+    : '/_nuxt/assets/images/empty-photo.svg'
+)
 
 const convertToBase64 = (file: File) => {
   return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
     fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
-};
+      resolve(fileReader.result)
+    }
+    fileReader.onerror = error => {
+      reject(error)
+    }
+  })
+}
 
 const onSelectFile = async (e: any) => {
-  const file = e.target.files[0];
+  const file = e.target.files[0]
   if (file) {
-    profileObj.value.image = await convertToBase64(file);
+    profileObj.value.image = await convertToBase64(file)
   }
-};
+}
 
 const logout = () => {
-  router.push("/");
-  window.localStorage.removeItem("sessionId");
-};
+  router.push('/')
+  window.localStorage.removeItem('sessionId')
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .profile-content {
   .profile-title {
     font-weight: 700;

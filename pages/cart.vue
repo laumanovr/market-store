@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Cart } from "~/widgets/cart";
+import { Cart } from '~/widgets/cart'
 definePageMeta({
-  layout: "main",
-});
+  layout: 'main',
+})
 </script>

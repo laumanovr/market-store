@@ -1,5 +1,5 @@
 ---
-title: "privacy-policy.en"
+title: 'privacy-policy.en'
 ---
 
 #### **1. COLLECTION AND USE OF INFORMATION**

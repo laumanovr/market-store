@@ -1,2 +1,2 @@
-import toFavorites from "./ui/toFavorites.vue";
-export { toFavorites };
+import toFavorites from './ui/toFavorites.vue'
+export { toFavorites }

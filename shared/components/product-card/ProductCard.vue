@@ -1,7 +1,7 @@
 <template>
   <div class="product-card">
     <div class="product-image">
-      <img :src="props.productImageUrl" alt="img" />
+      <img :src="source" alt="img" />
       <SIconRender name="FavoriteIcon" color="gray" />
     </div>
     <div class="product-info">
@@ -14,7 +14,7 @@
         <span>{{ props.rating }}</span>
       </div>
       <div class="product-brand">
-        <img :src="props.brandIconUrl" alt="" />
+        <img :src="sourceBrand" alt="" />
         <span>{{ props.brandName }}</span>
       </div>
       <SButton color="violet" class="w-100">В корзину</SButton>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { SButton, SIconRender } from "@tumarsoft/ogogo-ui";
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 
 const props = defineProps({
   productImageUrl: {
@@ -44,11 +44,14 @@ const props = defineProps({
   brandName: {
     type: String,
   },
-});
+})
+
+const source = computed(() => `/_nuxt/assets/${props.productImageUrl}`)
+const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .product-card {
   width: 240px;
   .product-image {

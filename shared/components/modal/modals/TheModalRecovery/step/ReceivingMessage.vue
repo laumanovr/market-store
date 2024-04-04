@@ -1,45 +1,46 @@
 <template>
-    <div class="modal">
-      <div class="modal__content">
-          <div class="modal__title">
-            <h5>Введите код из SMS</h5>
-          </div>
-          <div class="modal__code">
-            <InputCode/>
-          </div>
-          <div class="modal__text modal-text" v-if="!timerRestart">
-            <span >Отправить повторно через: <span>{{ timer }}</span></span>
-          </div>
-          <div class="modal__text-restart modal-text" v-else>
-            <span>Отправить повторно</span>
-          </div>
+  <div class="modal">
+    <div class="modal__content">
+      <div class="modal__title">
+        <h5>Введите код из SMS</h5>
+      </div>
+      <div class="modal__code">
+        <InputCode />
+      </div>
+      <div class="modal__text modal-text" v-if="!timerRestart">
+        <span
+          >Отправить повторно через: <span>{{ timer }}</span></span
+        >
+      </div>
+      <div class="modal__text-restart modal-text" v-else>
+        <span>Отправить повторно</span>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 import InputCode from '~/shared/components/input/InputCode.vue'
 
 const timer = ref(59)
 const timerRestart = ref(false)
-
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .modal-text {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.056px;
-    text-align: center;
-    margin: 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.056px;
+  text-align: center;
+  margin: 24px 0;
 }
 .modal {
   &__title {
-      margin: 26px 0 20px 0;
+    margin: 26px 0 20px 0;
   }
-  &__title h5{
+  &__title h5 {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.196px;
@@ -47,13 +48,11 @@ const timerRestart = ref(false)
     text-align: center;
     margin: 0;
   }
-  &__text{
+  &__text {
     color: $gray-500;
   }
-  &__text-restart{
+  &__text-restart {
     color: $violet-600;
   }
 }
-
-
 </style>

@@ -1,2 +1,2 @@
-import Main from "./ui/Main.vue";
-export { Main };
+import Main from './ui/Main.vue'
+export { Main }

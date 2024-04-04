@@ -9,12 +9,13 @@
               placeHolder="+996"
               v-model="number"
               v-maska:[options]
-
             />
           </div>
         </div>
         <SForm ref="form">
-          <div :class="['modal__password', {'modal-validate':validateWarning}]">
+          <div
+            :class="['modal__password', { 'modal-validate': validateWarning }]"
+          >
             <SInput
               label="Пароль"
               placeHolder="Пароль"
@@ -29,7 +30,11 @@
           <span @click="$emit('onResetPassword')">Забыли пароль?</span>
         </div>
         <div class="modal__login">
-          <SButton color="violet" size="large" :disabled="numberModified.length !== 12">
+          <SButton
+            color="violet"
+            size="large"
+            :disabled="numberModified.length !== 12"
+          >
             Войти
           </SButton>
         </div>
@@ -45,9 +50,8 @@
 
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
-import { SButton, SInput, SForm } from "@tumarsoft/ogogo-ui";
+import { SButton, SInput, SForm } from '@tumarsoft/ogogo-ui'
 import { computed, ref } from 'vue'
-
 
 const emit = defineEmits(['onResetPassword', 'onRegistration'])
 
@@ -56,19 +60,19 @@ const validateWarning = ref(true)
 const form = ref()
 
 const options = reactive({
-  mask: "+996 ### ### ###",
+  mask: '+996 ### ### ###',
   eager: true,
-});
+})
 const formObj = reactive({
-          password: "",
-          passwordRestart: ""
-        })
+  password: '',
+  passwordRestart: '',
+})
 const myRule = reactive([
-          {
-            validate: (value:string) => value.length >= 8,
-            message: "Min. length is 8 characters",
-          },
-        ])
+  {
+    validate: (value: string) => value.length >= 8,
+    message: 'Min. length is 8 characters',
+  },
+])
 
 const numberModified = computed(() => {
   return number.value.replace(/[+ ]/g, '')
@@ -79,11 +83,11 @@ const numberModified = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .phone-field {
   display: grid;
   margin-top: 20px;
-  &__code:deep(input){
+  &__code:deep(input) {
     width: 100%;
     height: 40px;
   }
@@ -124,7 +128,7 @@ const numberModified = computed(() => {
 }
 
 .modal-validate:deep(.input-container .input-label)::after {
-  content: " *";
+  content: ' *';
   color: red;
 }
 </style>

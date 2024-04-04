@@ -5,11 +5,11 @@
       <ProductCard
         v-for="i in 8"
         :key="i"
-        productImageUrl="_nuxt/assets/images/iphone-img.jpg"
+        productImageUrl="images/iphone-img.jpg"
         price="105 990"
         productName="Смартфон Apple iPhone 15 Pro 256Gb Natural Titanium 2 SIM HK/CN"
         rating="4.6 (356)"
-        brandIconUrl="_nuxt/assets/images/shop-logo.png"
+        brandIconUrl="images/shop-logo.png"
         brandName="Мой телефон"
       />
     </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import ProductCard from "~/shared/components/product-card/ProductCard.vue";
+import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 </script>
 
 <style lang="scss" scoped>

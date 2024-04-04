@@ -1,1 +1,1 @@
-export {default as StateProduct} from './StateProduct.vue'
+export { default as StateProduct } from './StateProduct.vue'

@@ -1,2 +1,2 @@
-import BrieflyInfo from "./ui/BrieflyInfo.vue";
-export { BrieflyInfo };
+import BrieflyInfo from './ui/BrieflyInfo.vue'
+export { BrieflyInfo }

@@ -69,7 +69,7 @@
 <script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .order-detail {
   &__date {
     font-weight: 500;

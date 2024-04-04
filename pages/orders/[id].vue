@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { OrderDetail } from "~/widgets/orders";
+import { OrderDetail } from '~/widgets/orders'
 definePageMeta({
-  layout: "main",
-});
+  layout: 'main',
+})
 </script>

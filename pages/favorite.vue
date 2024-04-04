@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Favorite } from "~/widgets/favorite";
+import { Favorite } from '~/widgets/favorite'
 definePageMeta({
-  layout: "main",
-});
+  layout: 'main',
+})
 </script>

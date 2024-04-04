@@ -70,24 +70,24 @@
 </template>
 
 <script lang="ts" setup>
-import { STabs, STabItem, SBadge } from "@tumarsoft/ogogo-ui";
-import { ref } from "vue";
+import { STabs, STabItem, SBadge } from '@tumarsoft/ogogo-ui'
+import { ref } from 'vue'
 
-const router = useRouter();
+const router = useRouter()
 
-const tab = ref("one");
+const tab = ref('one')
 
 const selectTab = (value: any) => {
-  tab.value = value;
-};
+  tab.value = value
+}
 
 const openOrderDetail = (id: number) => {
-  router.push(`/orders/${id}`);
-};
+  router.push(`/orders/${id}`)
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .orders-container {
   .order-item {
     margin-top: 20px;

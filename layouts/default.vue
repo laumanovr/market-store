@@ -12,26 +12,26 @@
 </template>
 
 <script lang="ts" setup>
-const { locale } = useI18n();
-const switchLocalePath = useSwitchLocalePath();
-const router = useRouter();
+const { locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+const router = useRouter()
 
 function onLocaleUpdate(event: Event) {
-  const target = event.target as HTMLSelectElement;
-  const value = target.value;
-  router.replace(switchLocalePath(value));
+  const target = event.target as HTMLSelectElement
+  const value = target.value
+  router.replace(switchLocalePath(value))
 }
 
 useHead({
   script: [
     {
       async: true,
-      src: "https://www.googletagmanager.com/gtag/js?id=G-Y134PJRWPV",
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-Y134PJRWPV',
     },
     {
       innerHTML:
         "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-Y134PJRWPV');",
     },
   ],
-});
+})
 </script>

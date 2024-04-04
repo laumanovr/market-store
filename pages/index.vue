@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Main } from "~/widgets/main";
+import { Main } from '~/widgets/main'
 definePageMeta({
-  layout: "main",
-});
+  layout: 'main',
+})
 </script>

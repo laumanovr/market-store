@@ -1,2 +1,2 @@
-import ProductRating from "./ui/ProductRating.vue";
-export { ProductRating };
+import ProductRating from './ui/ProductRating.vue'
+export { ProductRating }

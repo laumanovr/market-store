@@ -1,2 +1,2 @@
-import Profile from "./ui/Profile.vue";
-export { Profile };
+import Profile from './ui/Profile.vue'
+export { Profile }

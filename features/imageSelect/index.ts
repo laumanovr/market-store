@@ -1,1 +1,1 @@
-export {default as ImageSelect} from './ImageSelect.vue'
+export { default as ImageSelect } from './ImageSelect.vue'

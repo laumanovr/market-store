@@ -1,32 +1,32 @@
 <script lang="ts" setup>
 interface Props {
-  color?: 'gray';
-  decoration?: 'default' | 'outline' | 'none';
-  disabled?: boolean;
+  color?: 'gray'
+  decoration?: 'default' | 'outline' | 'none'
+  disabled?: boolean
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 const {
   color = 'gray' | 'violet',
   decoration = 'default',
   disabled = false,
-} = props;
+} = props
 
-const classes = ['button', `decoration_${decoration}`, `color_${color}`];
+const classes = ['button', `decoration_${decoration}`, `color_${color}`]
 </script>
 
 <template>
   <button :class="classes" :disabled="disabled">
     <slot name="leftIcon"></slot>
     <div class="button__text">
-        <slot></slot>
+      <slot></slot>
     </div>
     <slot name="rightIcon"></slot>
   </button>
 </template>
 
 <style scoped lang="scss">
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .button {
   display: flex;
   align-items: center;
@@ -37,12 +37,12 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
   white-space: nowrap;
   padding: 0;
   cursor: pointer;
-  &__text{
+  &__text {
     text-align: center;
   }
 }
 
-.button.color_primary { 
+.button.color_primary {
   background: $gray-150;
 }
 
@@ -50,7 +50,7 @@ const classes = ['button', `decoration_${decoration}`, `color_${color}`];
   color: $black;
 }
 
-.button.color_violet { 
+.button.color_violet {
   background: $violet-600;
 }
 

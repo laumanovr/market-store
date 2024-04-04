@@ -3,26 +3,66 @@
     <div class="header-container">
       <div class="logo">
         <div class="logo-content">
-            <div class="logo__photo">
+          <div class="logo__photo">
             <img src="~/assets/images/Ogogo-logo.png" alt="" class="img" />
           </div>
           <div class="logo__btn">
-            <Button color="violet" @click="categoryOpen = !categoryOpen" :class="{categoryActive: categoryOpen}">
+            <Button
+              color="violet"
+              @click="categoryOpen = !categoryOpen"
+              :class="{ categoryActive: categoryOpen }"
+            >
               Каталог
               <template v-slot:leftIcon v-if="categoryOpen">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.66666 2.66666L13.3333 13.3333" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2.66666 13.3333L13.3333 2.66665" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.66666 2.66666L13.3333 13.3333"
+                    stroke="#6D28D9"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M2.66666 13.3333L13.3333 2.66665"
+                    stroke="#6D28D9"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
                 </svg>
               </template>
               <template v-slot:leftIcon v-else>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.3335 4H14.6668" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M1.3335 8H14.6668" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M1.3335 12H14.6668" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.3335 4H14.6668"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M1.3335 8H14.6668"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M1.3335 12H14.6668"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
                 </svg>
               </template>
-
             </Button>
           </div>
         </div>
@@ -53,11 +93,21 @@
           <span :class="{ active: isActive(MenuItems.Cart) }">Корзина</span>
         </div>
         <div class="menu-item" @click="menuItemChange(MenuItems.Profile)">
-          <BaseIcon name="emptyAva" viewBox="0 0 22 22" height="24" class="icon-ava"/>
+          <BaseIcon
+            name="emptyAva"
+            viewBox="0 0 22 22"
+            height="24"
+            class="icon-ava"
+          />
           <span :class="{ active: isActive(MenuItems.Profile) }">Иван</span>
         </div>
         <div class="menu-item" @click="isVoiceModalOpenLogin = true">
-          <BaseIcon name="emptyAva" viewBox="0 0 22 22" height="24" class="icon-svg"/>
+          <BaseIcon
+            name="emptyAva"
+            viewBox="0 0 22 22"
+            height="24"
+            class="icon-svg"
+          />
           <span>Войти</span>
         </div>
         <teleport to="body">
@@ -76,7 +126,10 @@
           />
         </teleport>
         <teleport to="body">
-          <TheModalRegistration v-if="isVoiceModalOpenReg" @close="isVoiceModalOpenReg = false"/>
+          <TheModalRegistration
+            v-if="isVoiceModalOpenReg"
+            @close="isVoiceModalOpenReg = false"
+          />
         </teleport>
       </div>
     </div>
@@ -92,58 +145,56 @@
 </template>
 
 <script lang="ts" setup>
-import { SIconRender, SInput } from "@tumarsoft/ogogo-ui";
-import { MenuItems } from "~/shared/utils/enums";
-import BaseIcon from "../icons/BaseIcon.vue";
+import { SIconRender, SInput } from '@tumarsoft/ogogo-ui'
+import { MenuItems } from '~/shared/utils/enums'
+import BaseIcon from '../icons/BaseIcon.vue'
 import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
 import SidebarCategory from '~/shared/components/sidebarCategory/SidebarCategory.vue'
 import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
 import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
-import Button from '~/shared/components/button/button.vue';
+import Button from '~/shared/components/button/button.vue'
 
 const isVoiceModalOpenLogin = ref(false)
 const isVoiceModalOpenReg = ref(false)
 const isVoiceModalOpenRecovery = ref(false)
-const router = useRouter();
-const route = useRoute();
-const activeTab = ref("");
+const router = useRouter()
+const route = useRoute()
+const activeTab = ref('')
 const categoryOpen = ref(false)
-
 
 Object.values(MenuItems).forEach((item: any) => {
   if (route.path.includes(item)) {
-    activeTab.value = item;
+    activeTab.value = item
   }
-});
+})
 
 const menuItemChange = (value: string) => {
-  activeTab.value = value;
-  router.push("/" + value);
-};
+  activeTab.value = value
+  router.push('/' + value)
+}
 
 const isActive = (value: string) => {
-  return activeTab.value === value;
-};
+  return activeTab.value === value
+}
 
-const onResetPassword = ():void => {
+const onResetPassword = (): void => {
   isVoiceModalOpenLogin.value = false
   isVoiceModalOpenRecovery.value = true
 }
 
-const onRegistration = ():void => {
+const onRegistration = (): void => {
   isVoiceModalOpenLogin.value = false
   isVoiceModalOpenReg.value = true
 }
 
-const onBack = ():void => {
+const onBack = (): void => {
   isVoiceModalOpenRecovery.value = false
   isVoiceModalOpenLogin.value = true
 }
-
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/colors.scss";
+@import '~/assets/style/colors.scss';
 .icon-ava:deep(path) {
   stroke: $gray-400;
 }

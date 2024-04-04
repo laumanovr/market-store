@@ -1,2 +1,2 @@
-import FilterProduct from "./ui/FilterProduct.vue";
-export { FilterProduct };
+import FilterProduct from './ui/FilterProduct.vue'
+export { FilterProduct }

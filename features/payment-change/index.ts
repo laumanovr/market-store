@@ -1,1 +1,1 @@
-export {default as PaymentChange} from './Payment-change.vue'
+export { default as PaymentChange } from './Payment-change.vue'

@@ -1,29 +1,39 @@
 <template>
   <div class="modal-header">
     <div class="modal-header__icon-back">
-      <BaseIcon v-if="withBackButton" name="arrow" viewBox="0 0 11 12" class="icon-svg" @click="$emit('back')"/>
+      <BaseIcon
+        v-if="withBackButton"
+        name="arrow"
+        viewBox="0 0 11 12"
+        class="icon-svg"
+        @click="$emit('back')"
+      />
     </div>
     <div class="modal-header__title">
-        <h4>
-          {{ text }}
-        </h4>
+      <h4>
+        {{ text }}
+      </h4>
     </div>
     <div class="modal-header__icon-close">
-      <BaseIcon name="close" viewBox="1 -1 22 24" class="icon-close" @click="$emit('close')"/>
+      <BaseIcon
+        name="close"
+        viewBox="1 -1 22 24"
+        class="icon-close"
+        @click="$emit('close')"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue';
+import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 interface Props {
-    text: string;
-    withBackButton: boolean;
+  text: string
+  withBackButton: boolean
 }
 
 const emit = defineEmits(['back', 'close'])
 const { text, withBackButton } = defineProps<Props>()
-
 </script>
 
 <style lang="scss" scoped>
