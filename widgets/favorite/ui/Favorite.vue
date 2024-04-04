@@ -11,6 +11,7 @@
         rating="4.6 (356)"
         brandIconUrl="images/shop-logo.png"
         brandName="Мой телефон"
+        @isOpenRouter="router.push('/product-card')"
       />
     </div>
   </div>
@@ -18,6 +19,7 @@
 
 <script lang="ts" setup>
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>

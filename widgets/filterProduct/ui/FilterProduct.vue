@@ -147,7 +147,7 @@
               rating="4.6 (356)"
               brandIconUrl="images/shop-logo.png"
               brandName="Мой телефон"
-              :row="!isActiveGrid"
+              @isOpenRouter="router.push('/product-card')"
             />
           </div>
         </div>
@@ -163,6 +163,7 @@ import SliderPrice from '~/shared/components/sliderPrice/sliderPrice.vue'
 import { SInput, SSelect, SButton, STag } from '@tumarsoft/ogogo-ui'
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
+const router = useRouter()
 
 const isOpen = ref(false)
 const isActiveGrid = ref(true)

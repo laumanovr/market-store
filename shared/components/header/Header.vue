@@ -4,7 +4,7 @@
       <div class="logo">
         <div class="logo-content">
           <div class="logo__photo">
-            <img src="~/assets/images/Ogogo-logo.png" alt="" class="img" />
+            <img src="~/assets/images/Ogogo-logo.png" alt="" class="img" @click="router.push('/')"/>
           </div>
           <div class="logo__btn">
             <Button
@@ -210,6 +210,7 @@ const onBack = (): void => {
     margin-right: 24px;
     .img {
       margin-right: 24px;
+      cursor: pointer;
     }
   }
   .menu-items {

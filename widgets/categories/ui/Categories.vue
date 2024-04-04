@@ -31,6 +31,7 @@
             rating="4.6 (356)"
             brandIconUrl="images/shop-logo.png"
             brandName="Мой телефон"
+            @isOpenRouter="router.push('/product-card')"
           />
         </div>
       </div>

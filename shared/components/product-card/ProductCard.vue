@@ -41,7 +41,7 @@
           120 000 сом
         </div>
       </div>
-      <div v-if="!props.row" class="product-name">
+      <div v-if="!props.row" class="product-name" @click="emit('isOpenRouter')">
         {{ props.productName }}
       </div>
       <div v-if="!props.row" class="product-rating">
@@ -96,6 +96,8 @@ const props = defineProps({
     type: Boolean
   }
 })
+
+const emit = defineEmits(['isOpenRouter'])
 
 const addedProduct = ref(0)
 
@@ -162,6 +164,7 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
     margin: 8px 0;
     max-height: 35px;
     overflow: hidden;
+    cursor: pointer;
   }
   .product-rating {
     display: flex;

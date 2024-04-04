@@ -31,6 +31,7 @@
                 rating="4.6 (356)"
                 brandIconUrl="images/shop-logo.png"
                 brandName="Мой телефон"
+                @isOpenRouter="router.push('/product-card')"
               />
             </div>
           </div>
@@ -56,6 +57,7 @@
                 rating="4.6 (356)"
                 brandIconUrl="images/shop-logo.png"
                 brandName="Мой телефон"
+                @isOpenRouter="router.push('/product-card')"
               />
             </div>
           </div>
@@ -81,6 +83,7 @@
                 rating="4.6 (356)"
                 brandIconUrl="images/shop-logo.png"
                 brandName="Мой телефон"
+                @isOpenRouter="router.push('/product-card')"
               />
             </div>
           </div>
@@ -97,6 +100,7 @@ import { Promotions } from '~/widgets/promotions'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 import Button from '~/shared/components/button/button.vue'
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+const router = useRouter()
 
 const sliderItems = ref<{ id: number; name: string; img: string }[]>([
   {

@@ -12,7 +12,7 @@
         <div>{{ item.name }}</div>
       </div>
       <div v-if="item.items">
-        <BaseIcon name="arrow" viewBox="0 -6 20 20" class="icon-svg" />
+        <BaseIcon name="arrow" viewBox="0 -6 20 20" class="icon-svg" @click.stop="openPages(item)"/>
       </div>
     </div>
     <div v-show="item.isActive" class="sidebar-item__item">
@@ -50,7 +50,7 @@ const toggle = (item) => {
   itemCategory(item)
 }
 
-const openPages = item => {
+const openPages = (item) => {
   router.push(`/categories/${item.name}`)
   emit('close')
 }
