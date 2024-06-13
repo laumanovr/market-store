@@ -45,7 +45,7 @@
       <SButton
         v-if="(!addedProduct && size == 'small') || size == 'default'"
         color="violet"
-        class="w-100"
+        class="wp-100"
         @click="addingProduct"
         >В корзину</SButton
       >

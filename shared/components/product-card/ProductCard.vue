@@ -1,5 +1,5 @@
 <template>
-  <div :class="['product-card', {cardRow: row}]">
+  <div :class="['product-card', { cardRow: row }]">
     <div class="product-image">
       <div class="product-image__photo">
         <img :src="source" alt="img" />
@@ -15,19 +15,24 @@
         </div>
         <div class="product-info">
           <div class="product-info__text">
-            <span class="product-info__title">Экран:</span> <span class="product-info__info">6.1" (2556x1179) OLED 120 Гц</span>
+            <span class="product-info__title">Экран:</span>
+            <span class="product-info__info">6.1" (2556x1179) OLED 120 Гц</span>
           </div>
           <div class="product-info__text">
-            <span class="product-info__title">Память:</span> <span class="product-info__info">встроенная 256 ГБ</span>
+            <span class="product-info__title">Память:</span>
+            <span class="product-info__info">встроенная 256 ГБ</span>
           </div>
           <div class="product-info__text">
-            <span class="product-info__title">Фото:</span> <span class="product-info__info">3 камеры, основная 48 МП</span>
+            <span class="product-info__title">Фото:</span>
+            <span class="product-info__info">3 камеры, основная 48 МП</span>
           </div>
           <div class="product-info__text">
-            <span class="product-info__title">Процессор:</span> <span class="product-info__info">02.05.1997</span>
+            <span class="product-info__title">Процессор:</span>
+            <span class="product-info__info">02.05.1997</span>
           </div>
           <div class="product-info__text">
-            <span class="product-info__title">Sim-карты:</span> <span class="product-info__info">6Dual еSIM</span>
+            <span class="product-info__title">Sim-карты:</span>
+            <span class="product-info__info">6Dual еSIM</span>
           </div>
         </div>
       </div>
@@ -37,9 +42,7 @@
         <div class="product-price__after">
           {{ props.price + ' ' + 'сом' }}
         </div>
-        <div class="product-price__before">
-          120 000 сом
-        </div>
+        <div class="product-price__before">120 000 сом</div>
       </div>
       <div v-if="!props.row" class="product-name" @click="emit('isOpenRouter')">
         {{ props.productName }}
@@ -52,9 +55,9 @@
         <img :src="sourceBrand" alt="" />
         <span>{{ props.brandName }}</span>
       </div>
-      <div class="product-card__btn">
+      <div class="product-card__btn light">
         <Button v-if="addedProduct" color="gray">
-          <template v-slot:leftIcon >
+          <template v-slot:leftIcon>
             <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
           </template>
           {{ addedProduct }}
@@ -62,7 +65,9 @@
             <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
           </template>
         </Button>
-        <SButton v-else @click="addingProduct" color="violet" class="w-100">В корзину</SButton>
+        <SButton v-else @click="addingProduct" class="wp-100">
+          В корзину
+        </SButton>
       </div>
     </div>
   </div>
@@ -93,8 +98,8 @@ const props = defineProps({
     type: String,
   },
   row: {
-    type: Boolean
-  }
+    type: Boolean,
+  },
 })
 
 const emit = defineEmits(['isOpenRouter'])
@@ -118,7 +123,8 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
 .product-card {
-  width: 240px;
+  max-width: 240px;
+  min-width: 220px;
   &__btn {
     &:deep(.button) {
       height: 40px;
@@ -231,7 +237,7 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
     }
   }
   .product-brand {
-    margin: 12px 0
+    margin: 12px 0;
   }
   .product-name {
     margin: 0 0 8px 0;
