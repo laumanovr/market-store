@@ -144,7 +144,6 @@ const sliderItems = ref<{ id: number; name: string; img: string }[]>([
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
   }
   &__title {
     margin: 64px 0 24px 0;

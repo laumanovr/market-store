@@ -1,74 +1,78 @@
 <template>
   <div :class="['product-card', { cardRow: row }]">
-    <div class="product-image">
-      <div class="product-image__photo">
-        <img :src="source" alt="img" />
-        <SIconRender name="FavoriteIcon" color="gray" />
+    <div class="product-card__body" @click="emit('isOpenRouter')">
+      <div class="product-image">
+        <div class="product-image__photo">
+          <img :src="source" alt="img" />
+          <SIconRender name="FavoriteIcon" color="gray" />
+        </div>
+        <div v-if="props.row" class="product-image__info">
+          <div class="product-name">
+            {{ props.productName }}
+          </div>
+          <div class="product-rating">
+            <img src="~/assets/images/star.svg" alt="" />
+            <span>{{ props.rating }}</span>
+          </div>
+          <div class="product-info">
+            <div class="product-info__text">
+              <span class="product-info__title">Экран:</span>
+              <span class="product-info__info"
+                >6.1" (2556x1179) OLED 120 Гц</span
+              >
+            </div>
+            <div class="product-info__text">
+              <span class="product-info__title">Память:</span>
+              <span class="product-info__info">встроенная 256 ГБ</span>
+            </div>
+            <div class="product-info__text">
+              <span class="product-info__title">Фото:</span>
+              <span class="product-info__info">3 камеры, основная 48 МП</span>
+            </div>
+            <div class="product-info__text">
+              <span class="product-info__title">Процессор:</span>
+              <span class="product-info__info">02.05.1997</span>
+            </div>
+            <div class="product-info__text">
+              <span class="product-info__title">Sim-карты:</span>
+              <span class="product-info__info">6Dual еSIM</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div v-if="props.row" class="product-image__info">
-        <div class="product-name">
+      <div class="product-info-price">
+        <div class="product-price">
+          <div class="product-price__after">
+            {{ props.price + ' ' + 'сом' }}
+          </div>
+          <div class="product-price__before">120 000 сом</div>
+        </div>
+        <div v-if="!props.row" class="product-name">
           {{ props.productName }}
         </div>
-        <div class="product-rating">
+        <div v-if="!props.row" class="product-rating">
           <img src="~/assets/images/star.svg" alt="" />
           <span>{{ props.rating }}</span>
         </div>
-        <div class="product-info">
-          <div class="product-info__text">
-            <span class="product-info__title">Экран:</span>
-            <span class="product-info__info">6.1" (2556x1179) OLED 120 Гц</span>
-          </div>
-          <div class="product-info__text">
-            <span class="product-info__title">Память:</span>
-            <span class="product-info__info">встроенная 256 ГБ</span>
-          </div>
-          <div class="product-info__text">
-            <span class="product-info__title">Фото:</span>
-            <span class="product-info__info">3 камеры, основная 48 МП</span>
-          </div>
-          <div class="product-info__text">
-            <span class="product-info__title">Процессор:</span>
-            <span class="product-info__info">02.05.1997</span>
-          </div>
-          <div class="product-info__text">
-            <span class="product-info__title">Sim-карты:</span>
-            <span class="product-info__info">6Dual еSIM</span>
-          </div>
+        <div class="product-brand">
+          <img :src="sourceBrand" alt="" />
+          <span>{{ props.brandName }}</span>
         </div>
       </div>
     </div>
-    <div class="product-info-price">
-      <div class="product-price">
-        <div class="product-price__after">
-          {{ props.price + ' ' + 'сом' }}
-        </div>
-        <div class="product-price__before">120 000 сом</div>
-      </div>
-      <div v-if="!props.row" class="product-name" @click="emit('isOpenRouter')">
-        {{ props.productName }}
-      </div>
-      <div v-if="!props.row" class="product-rating">
-        <img src="~/assets/images/star.svg" alt="" />
-        <span>{{ props.rating }}</span>
-      </div>
-      <div class="product-brand">
-        <img :src="sourceBrand" alt="" />
-        <span>{{ props.brandName }}</span>
-      </div>
-      <div class="product-card__btn light">
-        <Button v-if="addedProduct" color="gray">
-          <template v-slot:leftIcon>
-            <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
-          </template>
-          {{ addedProduct }}
-          <template v-slot:rightIcon>
-            <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
-          </template>
-        </Button>
-        <SButton v-else @click="addingProduct" class="wp-100">
-          В корзину
-        </SButton>
-      </div>
+    <div class="product-card__btn light">
+      <Button v-if="addedProduct" color="gray">
+        <template v-slot:leftIcon>
+          <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
+        </template>
+        {{ addedProduct }}
+        <template v-slot:rightIcon>
+          <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
+        </template>
+      </Button>
+      <SButton v-else @click="addingProduct" class="wp-100">
+        В корзину
+      </SButton>
     </div>
   </div>
 </template>
@@ -125,6 +129,9 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
 .product-card {
   max-width: 240px;
   min-width: 220px;
+  &__body {
+    cursor: pointer;
+  }
   &__btn {
     &:deep(.button) {
       height: 40px;
