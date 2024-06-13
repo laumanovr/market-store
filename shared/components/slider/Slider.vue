@@ -4,11 +4,7 @@
       class="slider"
       :style="{ 'margin-left': '-' + 100 * currentSlide + '%' }"
     >
-      <div
-        v-for="item in sliderItems"
-        :key="sliderItems.id"
-        class="slider__photo"
-      >
+      <div v-for="item in sliderItems" :key="item" class="slider__photo">
         <img :src="item.img" alt="Main photo" />
         <Transition>
           <div class="slider__content" v-if="currentSlide == 0">
@@ -19,9 +15,7 @@
               <p>С выгодой на геймерские телефоны от магазина SoftTech»</p>
             </div>
             <div class="slider__btn">
-              <SButton color="black" size="large" class="w-100">
-                Смотреть
-              </SButton>
+              <SButton size="large" class="wp-100"> Смотреть </SButton>
             </div>
           </div>
         </Transition>
@@ -71,23 +65,24 @@ const nextSlide = (): void => {
 
 <style lang="scss" scoped>
 .slider {
-  width: 1360px;
+  width: 100%;
   display: flex;
   align-items: center;
   transition: all ease 0.8s;
   &__wrapper {
-    width: 1360px;
+    max-width: 1360px;
     overflow: hidden;
     margin: 0 auto;
     border-radius: 16px;
     position: relative;
   }
   &__photo {
+    min-width: 100%;
     height: 360px;
     position: relative;
   }
   &__photo img {
-    width: 1360px;
+    width: 100%;
     height: 360px;
   }
   &__content {
