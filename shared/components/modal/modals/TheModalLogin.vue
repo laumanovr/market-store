@@ -21,7 +21,6 @@
               placeHolder="Пароль"
               width="100%"
               v-model="formObj.password"
-              :rules="myRule"
               type="password"
             />
           </div>

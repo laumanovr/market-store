@@ -13,9 +13,6 @@
         Продолжить
       </SButton>
     </div>
-    <div class="modal__login">
-      <SButton color="gray" size="large"> Войти </SButton>
-    </div>
   </BaseModal>
 </template>
 <script setup lang="ts">
