@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/eslint-module', '@nuxt/content', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/eslint-module',
+    '@nuxt/content',
+    '@nuxtjs/i18n',
+    '@unocss/nuxt',
+  ],
   css: ['@/assets/main.css'],
   app: {
     head: {
