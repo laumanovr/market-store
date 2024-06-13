@@ -58,17 +58,18 @@
                 <span>Итого:</span><span>150 480 сом</span>
               </div>
             </div>
-            <SButton
-              color="violet"
-              size="large"
-              class="w-100"
-              @click="router.push({ path: '/order-placing' })"
-            >
-              Перейти к оформлению
-            </SButton>
-            <SButton color="gray" size="large" class="w-100">
-              Оформить кредит
-            </SButton>
+            <div class="light">
+              <SButton
+                size="large"
+                class="wp-100"
+                @click="router.push({ path: '/order-placing' })"
+              >
+                Перейти к оформлению
+              </SButton>
+              <SButton type="secondary" size="large" class="wp-100">
+                Оформить кредит
+              </SButton>
+            </div>
           </div>
         </div>
       </div>
