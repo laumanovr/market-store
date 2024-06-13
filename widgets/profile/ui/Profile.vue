@@ -53,11 +53,13 @@
           <div class="data-title">Общие данные</div>
           <div class="field"><SInput label="Имя" width="100%" /></div>
           <div class="field"><SInput label="Фамилия" width="100%" /></div>
-          <div class="field"><SSelect label="Пол" class="w-100" /></div>
+          <div class="field"><SSelect label="Пол" class="wp-100" /></div>
           <div class="data-title">Учетные данные</div>
           <div class="field"><SInput label="Телефон" width="100%" /></div>
           <div class="field"><SInput label="Почта" width="100%" /></div>
-          <SButton color="violet" size="large" class=""> Сохранить </SButton>
+          <div class="light">
+            <SButton size="large" class=""> Сохранить </SButton>
+          </div>
         </div>
 
         <div class="content-block" v-if="tab === 'password'">
@@ -71,7 +73,9 @@
           <div class="field password">
             <SInput label="Еще раз новый пароль" width="100%" />
           </div>
-          <SButton color="violet" size="medium">Изменить</SButton>
+          <div class="light">
+            <SButton size="medium">Изменить</SButton>
+          </div>
         </div>
 
         <div class="content-block" v-if="tab === 'notification'">
@@ -99,7 +103,7 @@
         </div>
 
         <div class="content-block" v-if="tab === 'session'">
-          <div class="data-title mb-20">Последняя сессия</div>
+          <div class="data-title">Последняя сессия</div>
           <div class="session-block">
             <div class="hint">Mac OS X, Mac • Браузер Chrome</div>
             <div class="hint gray">
@@ -139,7 +143,7 @@ const changeTab = (val: string) => {
 const profileImageUrl = computed(() =>
   profileObj.value?.image
     ? profileObj.value?.image
-    : '/_nuxt/assets/images/empty-photo.svg'
+    : '/_nuxt/assets/images/empty-photo.svg',
 )
 
 const convertToBase64 = (file: File) => {
@@ -215,6 +219,9 @@ const logout = () => {
       align-items: center;
       justify-content: space-between;
       margin-top: 16px;
+      .container {
+        width: auto;
+      }
     }
     .data-label {
       font-weight: 500;
