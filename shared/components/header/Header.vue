@@ -4,15 +4,19 @@
       <div class="logo">
         <div class="logo-content">
           <div class="logo__photo">
-            <img src="~/assets/images/Ogogo-logo.png" alt="" class="img" @click="router.push('/')"/>
+            <img
+              src="~/assets/images/Ogogo-logo.png"
+              alt=""
+              class="img"
+              @click="router.push('/')"
+            />
           </div>
-          <div class="logo__btn">
-            <Button
-              color="violet"
+          <div class="logo__btn light">
+            <SSwitchButton
+              title="Каталог"
               @click="categoryOpen = !categoryOpen"
               :class="{ categoryActive: categoryOpen }"
             >
-              Каталог
               <template v-slot:leftIcon v-if="categoryOpen">
                 <svg
                   width="16"
@@ -63,11 +67,11 @@
                   />
                 </svg>
               </template>
-            </Button>
+            </SSwitchButton>
           </div>
         </div>
       </div>
-      <SInput isSearchable placeHolder="Поиск" width="100%" />
+      <SInput isSearchable hide-details placeHolder="Поиск" width="100%" />
       <div class="menu-items">
         <div class="menu-item" @click="menuItemChange(MenuItems.Favorite)">
           <SIconRender
@@ -145,14 +149,13 @@
 </template>
 
 <script lang="ts" setup>
-import { SIconRender, SInput } from '@tumarsoft/ogogo-ui'
+import { SIconRender, SInput, SSwitchButton } from '@tumarsoft/ogogo-ui'
 import { MenuItems } from '~/shared/utils/enums'
 import BaseIcon from '../icons/BaseIcon.vue'
 import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
 import SidebarCategory from '~/shared/components/sidebarCategory/SidebarCategory.vue'
 import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
 import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
-import Button from '~/shared/components/button/button.vue'
 
 const isVoiceModalOpenLogin = ref(false)
 const isVoiceModalOpenReg = ref(false)
