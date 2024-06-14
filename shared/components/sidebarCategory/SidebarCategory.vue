@@ -1,251 +1,297 @@
 <template>
-  <nav class="sidebar">
-    <SidebarItem
-      v-for="category in categoryItems"
-      :key="category.name"
-      :item="category"
-      :categoryName="category.name"
-      @close="emit('close')"
-      @itemCategoty="itemCategoty"
-    />
-  </nav>
+  <div class="sidebar__list">
+    <nav class="sidebar">
+      <SidebarItem
+        v-for="(category, i) in categoryItems"
+        :key="i"
+        :item="category"
+        @click="onSelectParentCategory($event, categoryItems)"
+      />
+    </nav>
+    <nav class="sidebar" v-for="(child, i) in childCategories" :key="i">
+      <SidebarItem
+        v-for="(childItem, index) in child.childItems"
+        :key="index"
+        :item="childItem"
+        @click="onSelectChildCategory($event, child.childItems, i)"
+      />
+    </nav>
+  </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
 import SidebarItem from './SidebarItem.vue'
 
-const categoryItems = reactive([
+const childCategories = ref([])
+
+const categoryItems = ref([
   {
-    name: 'Электроника',
+    categoryName: 'Электроника',
     icon: 'electronic',
-    items: [
+    childMarketplaceCategories: [
       {
-        name: 'Смартфоны и гаджеты',
-        items: [
+        categoryName: 'Смартфоны и гаджеты',
+        childMarketplaceCategories: [
           {
-            name: 'Смартфоны',
-            items: [
+            categoryName: 'Смартфоны',
+            childMarketplaceCategories: [
               {
-                name: 'Смартфоны Android',
+                categoryName: 'Смартфоны Android',
                 link: '/test',
               },
               {
-                name: 'Смартфоны Apple',
+                categoryName: 'Смартфоны Apple',
                 link: '/test',
               },
               {
-                name: 'Смартфоны Xiomi',
+                categoryName: 'Смартфоны Xiomi',
                 link: '/test',
               },
               {
-                name: 'Смартфоны Samsung',
+                categoryName: 'Смартфоны Samsung',
                 link: '/test',
               },
               {
-                name: 'Смартфоны Pixel',
+                categoryName: 'Смартфоны Pixel',
                 link: '/test',
               },
             ],
             link: '/test',
           },
           {
-            name: 'Кнопочные телефоны',
-            items: [],
+            categoryName: 'Кнопочные телефоны',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'Умные часы и браслеты',
-            items: [],
+            categoryName: 'Умные часы и браслеты',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'Аксессуары для телефонов',
-            items: [],
+            categoryName: 'Аксессуары для телефонов',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'Запчасти для смартфонов',
-            items: [],
+            categoryName: 'Запчасти для смартфонов',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'SIM-карты',
-            items: [],
+            categoryName: 'SIM-карты',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'Чехлы',
-            items: [],
+            categoryName: 'Чехлы',
+            childMarketplaceCategories: [],
             link: '/test',
           },
           {
-            name: 'Защитные стёкла',
-            items: [],
+            categoryName: 'Защитные стёкла',
+            childMarketplaceCategories: [],
             link: '/test',
           },
         ],
         link: '/test',
       },
       {
-        name: 'Ноутбуки',
-        items: [],
+        categoryName: 'Ноутбуки',
+        childMarketplaceCategories: [
+          {
+            categoryName: 'Macbook',
+            childMarketplaceCategories: [],
+            link: '/test',
+          },
+          {
+            categoryName: 'Dell',
+            childMarketplaceCategories: [],
+            link: '/test',
+          },
+          {
+            categoryName: 'Redmi-Book',
+            childMarketplaceCategories: [],
+            link: '/test',
+          },
+        ],
         link: '/test',
       },
       {
-        name: 'Телевизоры',
-        items: [],
+        categoryName: 'Телевизоры',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Видеотехника',
-        items: [],
+        categoryName: 'Видеотехника',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Умные колонки',
-        items: [],
+        categoryName: 'Умные колонки',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Компьютеры и комлпектующие',
-        items: [],
+        categoryName: 'Компьютеры и комлпектующие',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Умные часы и браслеты',
-        items: [],
+        categoryName: 'Умные часы и браслеты',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Планшеты',
-        items: [],
+        categoryName: 'Планшеты',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Наушники и аудио техника',
-        items: [],
+        categoryName: 'Наушники и аудио техника',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Гейминг',
-        items: [],
+        categoryName: 'Гейминг',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Фото и видеокамеры',
-        items: [],
+        categoryName: 'Фото и видеокамеры',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Сетевое оборудование',
-        items: [],
+        categoryName: 'Сетевое оборудование',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Умный дом',
-        items: [],
+        categoryName: 'Умный дом',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Автомобильная техника',
-        items: [],
+        categoryName: 'Автомобильная техника',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Оргтехника',
-        items: [],
+        categoryName: 'Оргтехника',
+        childMarketplaceCategories: [],
         link: '/test',
       },
       {
-        name: 'Аксессуары для техники',
-        items: [],
+        categoryName: 'Аксессуары для техники',
+        childMarketplaceCategories: [],
         link: '/test',
       },
     ],
     link: '',
   },
   {
-    name: 'Бытовая техника',
+    categoryName: 'Бытовая техника',
     icon: 'appliances',
-    items: [],
+    childMarketplaceCategories: [
+      {
+        categoryName: 'Автомобильная техника',
+        childMarketplaceCategories: [],
+        link: '/test',
+      },
+      {
+        categoryName: 'Оргтехника',
+        childMarketplaceCategories: [],
+        link: '/test',
+      },
+      {
+        categoryName: 'Аксессуары для техники',
+        childMarketplaceCategories: [],
+        link: '/test',
+      },
+    ],
     link: '/test',
   },
   {
-    name: 'Авто',
+    categoryName: 'Авто',
     icon: 'auto',
-    items: [],
+    childMarketplaceCategories: [],
     link: '/test',
   },
   {
-    name: 'Строительство и ремонт',
+    categoryName: 'Строительство и ремонт',
     icon: 'construction',
-    items: [],
+    childMarketplaceCategories: [],
     link: '/test',
   },
   {
-    name: 'Продукты',
+    categoryName: 'Продукты',
     icon: 'products',
-    items: [],
+    childMarketplaceCategories: [],
     link: '/test',
   },
   {
-    name: 'Здоровье',
+    categoryName: 'Здоровье',
     icon: 'health',
-    items: [],
+    childMarketplaceCategories: [],
     link: '/test',
   },
   {
-    name: 'Туристические услуги',
+    categoryName: 'Туристические услуги',
     icon: 'map',
-    items: [],
+    childMarketplaceCategories: [],
     link: '/test',
   },
 ])
 
-const emit = defineEmits(['close'])
-const props = defineProps({
-  categoryItems: Array,
-})
-
-const itemCategory = (selectedItem) => {
-  // Функция для рекурсивного поиска и обновления состояния элементов
-  const updateItems = (items, level = 0) => {
-    items.forEach((item) => {
-      if (item === selectedItem) {
-        // Переключаем состояние активности для выбранного элемента
-        item.isActive = !item.isActive;
-      } else if (level === 0) {
-        // Деактивируем элементы только на текущем уровне вложенности
-        item.isActive = false;
-      }
-      // Рекурсивно вызываем функцию для дочерних элементов, увеличивая уровень вложенности
-      if (item.items && item.items.length > 0) {
-        updateItems(item.items, level + 1);
-      }
-    });
-  };
-  // Начинаем обновление элементов с корневого уровня
-  updateItems(categoryItems);
-};
-
-const updateSubItemsActiveState = (items, selectedItem) => {
-  if (items && items.length > 0) {
-    items.forEach((subItem) => {
-      if (subItem === selectedItem) {
-        subItem.isActive = !subItem.isActive;
-      } else {
-        subItem.isActive = false;
-      }
-      updateSubItemsActiveState(subItem.items, selectedItem);
-    });
+const onSelectParentCategory = (selectedCategory, categories) => {
+  setActiveState(selectedCategory, categories)
+  if (selectedCategory.childMarketplaceCategories?.length) {
+    childCategories.value = [
+      {
+        childItems: selectedCategory.childMarketplaceCategories,
+      },
+    ]
   }
-};
+}
 
-provide('itemCategory', itemCategory)
+const onSelectChildCategory = (
+  selectedChild,
+  childItems,
+  currentSidebarIndex,
+) => {
+  childCategories.value = childCategories.value.filter(
+    (_, subIndex) => subIndex <= currentSidebarIndex,
+  )
+  setActiveState(selectedChild, childItems)
+  if (selectedChild.childMarketplaceCategories?.length) {
+    childCategories.value.push({
+      childItems: selectedChild.childMarketplaceCategories,
+    })
+  }
+}
+
+const setActiveState = (selectedItem, categories) => {
+  categories.map(category => {
+    category.isActive = false
+    return category
+  })
+  selectedItem.isActive = true
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .sidebar {
+  &__list {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    background: #fff;
+    width: 100%;
+    height: 100vh;
+  }
 }
 </style>
