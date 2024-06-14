@@ -1,59 +1,33 @@
 <template>
-  <div class="sidebar-item">
-    <div :class="['sidebar-item__list', { active: item.isActive }]" @click.stop="toggle(item)">
+  <div class="sidebar-item" @click="emit('click', props.item)">
+    <div :class="['sidebar-item__list', { active: props.item.isActive }]">
       <div class="sidebar-item__text">
-        <div v-if="item.icon" class="icon-svg">
+        <div v-if="props.item.icon" class="icon-svg">
           <BaseIcon
-            :name="item.icon"
+            :name="props.item.icon"
             viewBox="center center 18 22"
             class="icon-svg"
           />
         </div>
-        <div>{{ item.name }}</div>
+        <div>{{ props.item.categoryName }}</div>
       </div>
-      <div v-if="item.items">
-        <BaseIcon name="arrow" viewBox="0 -6 20 20" class="icon-svg" @click.stop="openPages(item)"/>
+      <div v-if="props.item.childMarketplaceCategories?.length">
+        <BaseIcon name="arrow" viewBox="0 -6 20 20" class="icon-svg" />
       </div>
-    </div>
-    <div v-show="item.isActive" class="sidebar-item__item">
-      <div class="sidebar-item__title">
-        <h4>
-          {{ categoryName }}
-        </h4>
-      </div>
-      <SidebarItem
-        v-for="childItem in item.items"
-        :key="childItem.name"
-        :item="childItem"
-        :categoryName="childItem.name"
-      />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
-const router = useRouter()
 const props = defineProps({
-  item: Object,
-  categoryName: String,
+  item: {
+    type: Object,
+    default: () => ({}),
+  },
 })
-const emit = defineEmits(['close', 'itemCategoty'])
-
-const isOpen = ref(false)
-
-const itemCategory = inject('itemCategory')
-
-const toggle = (item) => {
-  itemCategory(item)
-}
-
-const openPages = (item) => {
-  router.push(`/categories/${item.name}`)
-  emit('close')
-}
+const emit = defineEmits(['click'])
 </script>
 
 <style lang="scss" scoped>
