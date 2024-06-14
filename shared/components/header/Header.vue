@@ -138,12 +138,7 @@
       </div>
     </div>
     <div class="sidebar" v-if="categoryOpen">
-      <div class="sidebar__list">
-        <SidebarCategory
-          :categoryItems="categoryItems"
-          @close="categoryOpen = false"
-        />
-      </div>
+      <SidebarCategory @close="categoryOpen = false" />
     </div>
   </div>
 </template>
@@ -238,15 +233,6 @@ const onBack = (): void => {
 
 .sidebar {
   position: relative;
-  &__list {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 5;
-    background: $white;
-    width: 100%;
-    height: 100vh;
-  }
 }
 
 .logo {
