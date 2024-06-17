@@ -7,10 +7,10 @@
         >
           <SInput
             label="Придумайте новый пароль"
-            placeHolder="Новый пароль"
+            place-holder="Новый пароль"
             width="100%"
             v-model="formObj.password"
-            :rules="myRule"
+            :rules="[requiredField]"
             type="password"
           />
         </div>
@@ -22,12 +22,17 @@
         >
           <SInput
             label="Повторите пароль"
-            placeHolder="Повторите пароль"
+            place-holder="Повторите пароль"
             width="100%"
             v-model="formObj.passwordRestart"
-            :rules="myRule"
+            :rules="[requiredField]"
             type="password"
           />
+        </div>
+        <div class="light">
+          <SButton size="large" class="wp-100" @click="onSubmit">
+            Подтвердить
+          </SButton>
         </div>
       </SForm>
     </div>
@@ -36,7 +41,10 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { SInput, SForm } from '@tumarsoft/ogogo-ui'
+import { SInput, SForm, SButton } from '@tumarsoft/ogogo-ui'
+import { requiredField } from '../../../../../utils/rules'
+
+const emit = defineEmits(['submit'])
 
 const validateWarning = ref(true)
 
@@ -45,16 +53,10 @@ const formObj = reactive({
   password: '',
   passwordRestart: '',
 })
-const myRule = reactive([
-  {
-    validate: (value: string) => value.length >= 8,
-    message: 'Min. length is 8 characters',
-  },
-])
 
-// const onSubmit = () => {
-//         console.log(form.value.validateForm());
-//       }
+const onSubmit = () => {
+  emit('submit')
+}
 </script>
 
 <style lang="scss" scoped>
