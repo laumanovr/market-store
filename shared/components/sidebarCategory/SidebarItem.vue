@@ -40,7 +40,7 @@ const emit = defineEmits(['click'])
   font-size: 14px;
   font-weight: 500;
   position: relative;
-  width: 350px;
+  width: 100%;
   &__item {
     position: absolute;
     left: 100%;
