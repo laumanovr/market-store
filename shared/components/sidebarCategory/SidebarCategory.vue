@@ -283,6 +283,7 @@ const setActiveState = (selectedItem, categories) => {
 
 <style lang="scss" scoped>
 .sidebar {
+  min-width: 265px;
   &__list {
     display: flex;
     position: absolute;
@@ -292,6 +293,7 @@ const setActiveState = (selectedItem, categories) => {
     background: #fff;
     width: 100%;
     height: 100vh;
+    gap: 8px;
   }
 }
 </style>
