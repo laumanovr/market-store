@@ -3,12 +3,7 @@
     <div class="modal__content">
       <div class="modal__phone phone-field">
         <div class="phone-field__number">
-          <SInput
-            width="100%"
-            placeHolder="+996"
-            v-maska:[options]
-            @input="updateNumber"
-          />
+          <SInput width="100%" place-holder="+996" v-maska:[options] />
         </div>
       </div>
       <div class="modal__agreement">
@@ -22,24 +17,29 @@
           </SCheckbox>
         </div>
       </div>
+      <div class="light">
+        <SButton size="large" class="wp-100" @click="submitRegistration">
+          Продолжить
+        </SButton>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { SInput, SCheckbox } from '@tumarsoft/ogogo-ui'
+import { SInput, SCheckbox, SButton } from '@tumarsoft/ogogo-ui'
 import { reactive } from 'vue'
 
-const emit = defineEmits(['number'])
-
-const updateNumber = (e: string): void => {
-  emit('number', e.target.value.replace(/[+ ]/g, ''))
-}
+const emit = defineEmits(['next'])
 
 const options = reactive({
   mask: '+996 ### ### ###',
   eager: true,
 })
+
+const submitRegistration = () => {
+  emit('next')
+}
 </script>
 
 <style lang="scss" scoped>
