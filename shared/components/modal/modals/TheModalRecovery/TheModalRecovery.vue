@@ -1,18 +1,8 @@
 <template>
   <BaseModal text="Восстановление" withBackButton @onBack="onBack">
-    <Recovery v-if="step == 0" @number="handlerNumber" />
-    <ReceivingMessage v-else-if="step == 1" />
-    <PasswordConfirmation v-else-if="step == 2" />
-    <div class="modal__send">
-      <SButton
-        color="violet"
-        size="large"
-        @click="handlerStep"
-        :disabled="number.length !== 12"
-      >
-        {{ step === 0 ? 'Отправить' : 'Продолжить' }}
-      </SButton>
-    </div>
+    <Recovery v-if="step == 0" @next="handleStep" />
+    <ReceivingMessage v-else-if="step == 1" @next="handleStep" />
+    <PasswordConfirmation v-else-if="step == 2" @submit="onSubmit" />
   </BaseModal>
 </template>
 
@@ -22,22 +12,18 @@ import Recovery from './step/Recovery.vue'
 import ReceivingMessage from './step/ReceivingMessage.vue'
 import PasswordConfirmation from './step/PasswordConfirmation.vue'
 import BaseModal from '../../BaseModal.vue'
-import { SButton } from '@tumarsoft/ogogo-ui'
 
 const emit = defineEmits(['onBack'])
 
 const step = ref(0)
-const number = ref('')
 
-const handlerStep = () => {
+const handleStep = () => {
   if (step.value < 2) {
     step.value++
   }
 }
 
-const handlerNumber = (e: string): void => {
-  number.value = e
-}
+const onSubmit = () => {}
 
 const onBack = () => {
   emit('onBack')
