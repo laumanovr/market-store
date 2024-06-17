@@ -2,43 +2,50 @@
   <BaseModal text="Вход">
     <div class="modal">
       <div class="modal__content">
-        <div class="modal__phone phone-field">
-          <div class="phone-field__number">
-            <SInput
-              width="100%"
-              placeHolder="+996"
-              v-model="number"
-              v-maska:[options]
-            />
-          </div>
-        </div>
         <SForm ref="form">
+          <div class="modal__phone phone-field">
+            <div class="phone-field__number">
+              <SInput
+                label="Телефон"
+                width="100%"
+                place-holder="+996"
+                :rules="[requiredField]"
+                v-model="phone"
+                v-maska:[options]
+              />
+            </div>
+          </div>
           <div
             :class="['modal__password', { 'modal-validate': validateWarning }]"
           >
             <SInput
               label="Пароль"
-              placeHolder="Пароль"
+              place-holder="Пароль"
               width="100%"
-              v-model="formObj.password"
+              :rules="[requiredField]"
+              v-model="password"
               type="password"
             />
           </div>
+          <div class="modal__reset-password">
+            <span @click="$emit('onResetPassword')">Забыли пароль?</span>
+          </div>
+          <div class="modal__login light">
+            <SButton
+              size="large"
+              :disabled="numberModified.length !== 12"
+              @click="onSubmit"
+            >
+              Войти
+            </SButton>
+          </div>
         </SForm>
-        <div class="modal__reset-password">
-          <span @click="$emit('onResetPassword')">Забыли пароль?</span>
-        </div>
-        <div class="modal__login">
+        <div class="modal__registration light">
           <SButton
-            color="violet"
+            type="secondary"
             size="large"
-            :disabled="numberModified.length !== 12"
+            @click="$emit('onRegistration')"
           >
-            Войти
-          </SButton>
-        </div>
-        <div class="modal__registration">
-          <SButton color="gray" size="large" @click="$emit('onRegistration')">
             Зарегистрироваться
           </SButton>
         </div>
@@ -48,37 +55,34 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref, reactive } from 'vue'
 import BaseModal from '../BaseModal.vue'
 import { SButton, SInput, SForm } from '@tumarsoft/ogogo-ui'
-import { computed, ref } from 'vue'
+import { requiredField } from '../../../utils/rules'
 
-const emit = defineEmits(['onResetPassword', 'onRegistration'])
+defineEmits(['onResetPassword', 'onRegistration'])
 
-const number = ref('')
 const validateWarning = ref(true)
-const form = ref()
+const form = ref(null)
+const phone = ref('')
+const password = ref('')
 
 const options = reactive({
-  mask: '+996 ### ### ###',
+  mask: '+996 ### ## ## ##',
   eager: true,
 })
-const formObj = reactive({
-  password: '',
-  passwordRestart: '',
-})
-const myRule = reactive([
-  {
-    validate: (value: string) => value.length >= 8,
-    message: 'Min. length is 8 characters',
-  },
-])
 
 const numberModified = computed(() => {
-  return number.value.replace(/[+ ]/g, '')
+  return phone.value.replace(/[+ ]/g, '')
 })
-//   const onSubmit = () => {
-//    console.log(form.value.validateForm());
-//   }
+const onSubmit = () => {
+  form.value.validate().then((isValid: boolean) => {
+    if (isValid) {
+      console.log('phone: ', numberModified.value)
+      console.log('passw: ', password.value)
+    }
+  })
+}
 </script>
 
 <style lang="scss" scoped>
