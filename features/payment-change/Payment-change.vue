@@ -2,8 +2,9 @@
   <div class="payment-change">
     <SInput
       label="Подготовить сдачу из суммы"
-      placeHolder="Введите сумму"
+      place-holder="Введите сумму"
       width="100%"
+      hide-details
       :disabled="noChange"
     />
     <div class="payment-change__no-change">
