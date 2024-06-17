@@ -11,10 +11,14 @@
         <SInput
           label="Телефон"
           width="100%"
-          placeHolder="+996"
+          place-holder="+996"
           v-maska:[options]
-          @input="updateNumber"
         />
+      </div>
+      <div class="light">
+        <SButton size="large" class="wp-100" @click="submitPhone">
+          Продолжить
+        </SButton>
       </div>
     </div>
   </div>
@@ -22,17 +26,17 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { SInput } from '@tumarsoft/ogogo-ui'
+import { SInput, SButton } from '@tumarsoft/ogogo-ui'
 
 const options = reactive({
   mask: '+996 ### ### ###',
   eager: true,
 })
 
-const emit = defineEmits(['number'])
+const emit = defineEmits(['next'])
 
-const updateNumber = (e: string): void => {
-  emit('number', e.target.value.replace(/[+ ]/g, ''))
+const submitPhone = () => {
+  emit('next')
 }
 </script>
 
