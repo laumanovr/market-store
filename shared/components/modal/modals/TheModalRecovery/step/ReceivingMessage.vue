@@ -5,15 +5,20 @@
         <h5>Введите код из SMS</h5>
       </div>
       <div class="modal__code">
-        <InputCode />
+        <InputCode ref="inputCode" />
       </div>
       <div class="modal__text modal-text" v-if="!timerRestart">
-        <span
-          >Отправить повторно через: <span>{{ timer }}</span></span
-        >
+        <span>
+          Отправить повторно через: <span>{{ timer }}</span>
+        </span>
       </div>
       <div class="modal__text-restart modal-text" v-else>
         <span>Отправить повторно</span>
+      </div>
+      <div class="light">
+        <SButton size="large" class="wp-100" @click="submitSms">
+          Продолжить
+        </SButton>
       </div>
     </div>
   </div>
@@ -21,10 +26,20 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { SButton } from '@tumarsoft/ogogo-ui'
 import InputCode from '~/shared/components/input/InputCode.vue'
+
+const emit = defineEmits(['next'])
 
 const timer = ref(59)
 const timerRestart = ref(false)
+const inputCode = ref(null)
+
+const submitSms = () => {
+  console.log(inputCode.value)
+  debugger
+  emit('next')
+}
 </script>
 
 <style lang="scss" scoped>
