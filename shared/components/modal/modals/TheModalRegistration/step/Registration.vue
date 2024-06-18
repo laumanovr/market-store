@@ -3,7 +3,12 @@
     <div class="modal__content">
       <div class="modal__phone phone-field">
         <div class="phone-field__number">
-          <SInput width="100%" place-holder="+996" v-maska:[options] />
+          <SInput
+            width="100%"
+            place-holder="+996"
+            v-maska:[options]
+            v-model="phoneNumber"
+          />
         </div>
       </div>
       <div class="modal__agreement">
@@ -18,7 +23,12 @@
         </div>
       </div>
       <div class="light">
-        <SButton size="large" class="wp-100" @click="submitRegistration">
+        <SButton
+          size="large"
+          class="wp-100"
+          :disabled="modifiedNumber.length < 12"
+          @click="submitRegistration"
+        >
           Продолжить
         </SButton>
       </div>
@@ -28,7 +38,7 @@
 
 <script setup lang="ts">
 import { SInput, SCheckbox, SButton } from '@tumarsoft/ogogo-ui'
-import { reactive } from 'vue'
+import { reactive, ref, computed } from 'vue'
 
 const emit = defineEmits(['next'])
 
@@ -37,7 +47,12 @@ const options = reactive({
   eager: true,
 })
 
+const phoneNumber = ref('')
+const modifiedNumber = computed(() => phoneNumber.value.replace(/[ + ]/g, ''))
+
 const submitRegistration = () => {
+  console.log(modifiedNumber.value)
+  // promise.then
   emit('next')
 }
 </script>
