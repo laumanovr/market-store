@@ -13,10 +13,16 @@
           width="100%"
           place-holder="+996"
           v-maska:[options]
+          v-model="phoneNumber"
         />
       </div>
       <div class="light">
-        <SButton size="large" class="wp-100" @click="submitPhone">
+        <SButton
+          size="large"
+          class="wp-100"
+          :disabled="modifiedNumber.length < 12"
+          @click="submitPhone"
+        >
           Продолжить
         </SButton>
       </div>
@@ -25,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import { SInput, SButton } from '@tumarsoft/ogogo-ui'
 
 const options = reactive({
@@ -35,7 +41,12 @@ const options = reactive({
 
 const emit = defineEmits(['next'])
 
+const phoneNumber = ref('')
+const modifiedNumber = computed(() => phoneNumber.value.replace(/[ + ]/g, ''))
+
 const submitPhone = () => {
+  console.log(modifiedNumber.value)
+  // promise.then
   emit('next')
 }
 </script>
