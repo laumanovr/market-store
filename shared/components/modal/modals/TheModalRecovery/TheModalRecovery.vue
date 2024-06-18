@@ -1,8 +1,8 @@
 <template>
-  <BaseModal text="Восстановление" withBackButton @onBack="onBack">
+  <BaseModal text="Восстановление" with-back-button @on-back="onBack">
     <Recovery v-if="step == 0" @next="handleStep" />
     <ReceivingMessage v-else-if="step == 1" @next="handleStep" />
-    <PasswordConfirmation v-else-if="step == 2" @submit="onSubmit" />
+    <PasswordConfirmation v-else-if="step == 2" />
   </BaseModal>
 </template>
 
@@ -22,8 +22,6 @@ const handleStep = () => {
     step.value++
   }
 }
-
-const onSubmit = () => {}
 
 const onBack = () => {
   emit('onBack')
