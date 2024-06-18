@@ -2,7 +2,7 @@
   <BaseModal text="Регистрация">
     <Registration v-if="step == 0" @next="handleStep" />
     <ReceivingMessage v-else-if="step == 1" @next="handleStep" />
-    <PasswordConfirmation v-else-if="step == 2" @submit="onSubmit" />
+    <PasswordConfirmation v-else-if="step == 2" />
   </BaseModal>
 </template>
 <script setup lang="ts">
@@ -19,8 +19,6 @@ const handleStep = (): void => {
     step.value++
   }
 }
-
-const onSubmit = () => {}
 </script>
 
 <style lang="scss" scoped>
