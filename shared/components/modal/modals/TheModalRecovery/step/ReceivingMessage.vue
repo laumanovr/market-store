@@ -5,7 +5,7 @@
         <h5>Введите код из SMS</h5>
       </div>
       <div class="modal__code">
-        <InputCode ref="inputCode" />
+        <InputCode @on-input="onTyping" />
       </div>
       <div class="modal__text modal-text" v-if="!timerRestart">
         <span>
@@ -16,7 +16,12 @@
         <span>Отправить повторно</span>
       </div>
       <div class="light">
-        <SButton size="large" class="wp-100" @click="submitSms">
+        <SButton
+          size="large"
+          class="wp-100"
+          :disabled="inputCode.length < 4"
+          @click="submitSms"
+        >
           Продолжить
         </SButton>
       </div>
@@ -33,11 +38,15 @@ const emit = defineEmits(['next'])
 
 const timer = ref(59)
 const timerRestart = ref(false)
-const inputCode = ref(null)
+const inputCode = ref('')
+
+const onTyping = (smsCode: any) => {
+  inputCode.value = smsCode
+}
 
 const submitSms = () => {
   console.log(inputCode.value)
-  debugger
+  // promise.then
   emit('next')
 }
 </script>
