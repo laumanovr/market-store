@@ -24,7 +24,7 @@
             label="Повторите пароль"
             place-holder="Повторите пароль"
             width="100%"
-            v-model="formObj.passwordRestart"
+            v-model="formObj.passwordRetype"
             :rules="[requiredField]"
             type="password"
           />
@@ -44,18 +44,20 @@ import { ref, reactive } from 'vue'
 import { SInput, SForm, SButton } from '@tumarsoft/ogogo-ui'
 import { requiredField } from '../../../../../utils/rules'
 
-const emit = defineEmits(['submit'])
-
 const validateWarning = ref(true)
 
 const form = ref()
 const formObj = reactive({
   password: '',
-  passwordRestart: '',
+  passwordRetype: '',
 })
 
 const onSubmit = () => {
-  emit('submit')
+  form.value.validate().then((isValid: boolean) => {
+    if (isValid) {
+      console.log(formObj)
+    }
+  })
 }
 </script>
 
