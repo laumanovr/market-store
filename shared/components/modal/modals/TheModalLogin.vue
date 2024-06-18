@@ -63,7 +63,7 @@ import { requiredField } from '../../../utils/rules'
 defineEmits(['onResetPassword', 'onRegistration'])
 
 const validateWarning = ref(true)
-const form = ref(null)
+const form = ref()
 const phone = ref('')
 const password = ref('')
 
