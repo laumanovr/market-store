@@ -36,6 +36,8 @@ const smsCode = ref('')
 const code = ref(new Array(4).fill(''))
 const codeId = ['first', 'second', 'third', 'forth']
 
+const emit = defineEmits(['onInput'])
+
 watch(
   code,
   (newValue: string[], oldValue) => {
@@ -68,9 +70,9 @@ watch(
     if (inputElement) {
       ;(inputElement as HTMLInputElement).focus()
     }
-    console.log(smsCode.value)
+    emit('onInput', smsCode.value)
   },
-  { deep: true }
+  { deep: true },
 )
 </script>
 
