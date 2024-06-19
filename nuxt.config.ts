@@ -1,11 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      API_BASE_URL: 'https://api-pretest.scoring.kg/api',
+    },
+  },
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxt/content',
     '@nuxtjs/i18n',
     '@unocss/nuxt',
+    '@pinia/nuxt',
   ],
   css: ['@/assets/main.css'],
   app: {
