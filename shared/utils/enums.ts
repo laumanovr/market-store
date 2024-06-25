@@ -1,6 +1,7 @@
 export enum MenuItems {
-  Favorite = 'favorite',
-  Orders = 'orders',
-  Cart = 'cart',
-  Profile = 'profile',
+  Favorite = "favorite",
+  Orders = "orders",
+  Cart = "cart",
+  Profile = "profile",
+  Shop = "shops",
 }
