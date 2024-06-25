@@ -73,6 +73,13 @@
       </div>
       <SInput isSearchable hide-details placeHolder="Поиск" width="100%" />
       <div class="menu-items">
+        <div class="menu-item" @click="menuItemChange(MenuItems.Shop)">
+          <SIconRender
+            name="ShopIcon"
+            :color="isActive(MenuItems.Shop) ? 'violet' : 'gray'"
+          />
+          <span :class="{ active: isActive(MenuItems.Shop) }"> Магазины </span>
+        </div>
         <div class="menu-item" @click="menuItemChange(MenuItems.Favorite)">
           <SIconRender
             name="FavoriteIcon"
