@@ -2,11 +2,13 @@
   <div class="main-layout">
     <Header />
     <slot />
+    <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
 import Header from '../shared/components/header/Header.vue'
+import Footer from '~/shared/components/footer/Footer.vue'
 </script>
 
 <style>
