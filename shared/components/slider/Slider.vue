@@ -97,10 +97,11 @@ const nextSlide = (): void => {
     }
   }
   &__content {
-    width: 32%;
+    width: 35%;
+    height: 100%;
     position: absolute;
-    left: 200px;
-    top: 80px;
+    top: 10px;
+    left: 85px;
     @media #{$sm} {
       height: 100%;
       width: 45%;
