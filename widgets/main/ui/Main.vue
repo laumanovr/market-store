@@ -57,30 +57,6 @@
               />
             </div>
           </div>
-          <div class="product-card__cashback">
-            <div class="product-card__title">
-              <h3>Мега Кешбэк</h3>
-              <div class="product-card__btn">
-                <SButton type="secondary" size="small">
-                  <span class="s-mr-2 s-text-tertiary-dark">Все товары</span>
-                  <SIconRender name="ArrowIcon" direction="right" />
-                </SButton>
-              </div>
-            </div>
-            <div class="product-card__content">
-              <ProductCard
-                v-for="i in 5"
-                :key="i"
-                productImageUrl="images/iphone-img.jpg"
-                price="105 990"
-                productName="Смартфон Apple iPhone 15 Pro 256Gb Natural Titanium 2 SIM HK/CN"
-                rating="4.6 (356)"
-                brandIconUrl="images/shop-logo.png"
-                brandName="Мой телефон"
-                @isOpenRouter="router.push('/product-card')"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
