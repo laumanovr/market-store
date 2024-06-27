@@ -5,11 +5,12 @@
         <div class="logo-content">
           <div class="logo__photo">
             <img
-              src="~/assets/images/Ogogo-logo.png"
+              src="~/assets/images/big-logo.svg"
               alt=""
-              class="img"
+              class="desktop"
               @click="router.push('/')"
             />
+            <img src="~/assets/images/small-logo.svg" class="mobile" alt="" />
           </div>
           <div class="logo__btn light">
             <SSwitchButton
@@ -200,6 +201,7 @@ const onBack = (): void => {
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .icon-ava:deep(path) {
   stroke: $gray-400;
 }
@@ -213,9 +215,20 @@ const onBack = (): void => {
     display: flex;
     align-items: center;
     margin-right: 24px;
-    .img {
+    img {
       margin-right: 24px;
       cursor: pointer;
+      &.mobile {
+        display: none;
+      }
+      @media #{$lg} {
+        &.desktop {
+          display: none;
+        }
+        &.mobile {
+          display: block;
+        }
+      }
     }
   }
   .menu-items {
