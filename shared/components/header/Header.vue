@@ -10,7 +10,12 @@
               class="desktop"
               @click="router.push('/')"
             />
-            <img src="~/assets/images/small-logo.svg" class="mobile" alt="" />
+            <img
+              src="~/assets/images/small-logo.svg"
+              class="mobile"
+              alt=""
+              @click="router.push('/')"
+            />
           </div>
           <div class="logo__btn light">
             <SSwitchButton
@@ -227,8 +232,12 @@ const onBack = (): void => {
         }
         &.mobile {
           display: block;
+          margin-right: 8px;
         }
       }
+    }
+    @media #{$sm} {
+      margin-right: 0;
     }
   }
   .menu-items {
@@ -247,6 +256,9 @@ const onBack = (): void => {
           color: $violet-700;
         }
       }
+    }
+    @media #{$sm} {
+      display: none;
     }
   }
 }
@@ -272,6 +284,11 @@ const onBack = (): void => {
   }
   &__btn:deep(.categoryActive.color_violet) {
     background: $violet-100;
+  }
+  &__btn {
+    @media #{$sm} {
+      display: none;
+    }
   }
 }
 </style>
