@@ -46,13 +46,13 @@ const prevSlide = (): void => {
   }
 }
 
-onMounted(() => {
-  if (interval.value > 0) {
-    setInterval(() => {
-      nextSlide()
-    }, interval.value)
-  }
-})
+// onMounted(() => {
+//   if (interval.value > 0) {
+//     setInterval(() => {
+//       nextSlide()
+//     }, interval.value)
+//   }
+// })
 
 const nextSlide = (): void => {
   if (currentSlide.value >= props.sliderItems.length - 1) {
@@ -84,6 +84,9 @@ const nextSlide = (): void => {
     @media #{$lg} {
       height: 220px;
     }
+    @media #{$sm} {
+      height: 140px;
+    }
   }
   &__photo img {
     width: 100%;
@@ -98,6 +101,12 @@ const nextSlide = (): void => {
     position: absolute;
     left: 200px;
     top: 80px;
+    @media #{$sm} {
+      height: 100%;
+      width: 45%;
+      top: 5px;
+      left: 5px;
+    }
   }
   &__title h2 {
     font-size: 44px;
@@ -107,14 +116,26 @@ const nextSlide = (): void => {
     @media #{$lg} {
       font-size: 36px;
     }
+    @media #{$sm} {
+      font-size: 20px;
+    }
   }
   &__text p {
     font-size: 18px;
     font-weight: 500;
     margin: 0;
+    @media #{$sm} {
+      font-size: 14px;
+    }
+    @media #{$xs} {
+      font-size: 10px;
+    }
   }
   &__text {
     margin: 12px 0 24px 0;
+    @media #{$sm} {
+      margin: 5px 0;
+    }
   }
   &__btn {
     width: 30%;
