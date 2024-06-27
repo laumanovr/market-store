@@ -64,6 +64,7 @@ const nextSlide = (): void => {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/style/screens.scss';
 .slider {
   width: 100%;
   display: flex;
@@ -80,10 +81,17 @@ const nextSlide = (): void => {
     min-width: 100%;
     height: 360px;
     position: relative;
+    @media #{$lg} {
+      height: 220px;
+    }
   }
   &__photo img {
     width: 100%;
-    height: 360px;
+    height: 100%;
+    object-fit: cover;
+    @media #{$lg} {
+      object-fit: unset;
+    }
   }
   &__content {
     width: 32%;
