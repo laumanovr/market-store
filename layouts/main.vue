@@ -11,10 +11,14 @@ import Header from '../shared/components/header/Header.vue'
 import Footer from '~/shared/components/footer/Footer.vue'
 </script>
 
-<style>
+<style lang="scss">
+@import '~/assets/style/screens.scss';
 .main-layout {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px 40px;
+  @media #{$lg} {
+    padding: 0 16px 16px;
+  }
 }
 </style>
