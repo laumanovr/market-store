@@ -104,6 +104,9 @@ const nextSlide = (): void => {
     font-weight: 700;
     letter-spacing: 0.44px;
     margin: 0;
+    @media #{$lg} {
+      font-size: 36px;
+    }
   }
   &__text p {
     font-size: 18px;

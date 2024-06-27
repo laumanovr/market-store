@@ -5,8 +5,8 @@
         <div class="main__slider">
           <Slider :sliderItems="sliderItems" />
         </div>
-        <div class="main__promotions">
-          <Promotions v-for="item in 5" :key="item" />
+        <div>
+          <Promotions />
         </div>
         <div class="main__product product-card">
           <div class="product-card__new">
@@ -102,37 +102,28 @@ const sliderItems = ref<{ id: number; name: string; img: string }[]>([
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .main {
   &__slider {
     margin-top: 12px;
   }
-  &__promotions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    grid-gap: 15px;
-    margin-top: 36px;
-  }
 }
 .product-card {
-  &__content {
-    grid-gap: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   &__title {
     margin: 64px 0 24px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  &__title h3 {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 0.32px;
-    margin: 0;
-    text-align: start;
+    h3 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.32px;
+      margin: 0;
+      text-align: start;
+      @media #{$sm} {
+        font-size: 24px;
+      }
+    }
   }
   &__btn {
     width: 140px;

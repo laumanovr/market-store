@@ -126,9 +126,13 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .product-card {
   max-width: 240px;
   min-width: 220px;
+  @media #{$sm} {
+    min-width: 158px;
+  }
   &__body {
     cursor: pointer;
   }
@@ -146,6 +150,9 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
       width: 100%;
       height: 240px;
       object-fit: cover;
+      @media #{$sm} {
+        height: 158px;
+      }
     }
     .favorite {
       position: absolute;
