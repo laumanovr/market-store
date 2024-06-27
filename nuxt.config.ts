@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      API_BASE_URL: 'https://api-pretest.scoring.kg/api',
+      API_BASE_URL: 'https://api-test.scoring.kg/api',
     },
   },
   modules: [
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
   ],
-  css: ['@/assets/main.css'],
+  css: ['@/assets/main.scss'],
   app: {
     head: {
       charset: 'utf-8',
