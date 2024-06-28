@@ -132,6 +132,7 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
   min-width: 220px;
   @media #{$sm} {
     min-width: 158px;
+    max-width: 158px;
   }
   &__body {
     cursor: pointer;
@@ -149,7 +150,7 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
     img {
       width: 100%;
       height: 240px;
-      object-fit: cover;
+      object-fit: contain;
       @media #{$sm} {
         height: 158px;
       }

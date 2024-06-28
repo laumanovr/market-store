@@ -5,6 +5,13 @@
       <span class="product-count">3420 товаров</span>
     </div>
 
+    <div class="shop-catalog">
+      <SButton type="secondary" @click="toggleModal">
+        <SIconRender name="MenuIcon" color="black" />
+        <span>Каталог товаров</span>
+      </SButton>
+    </div>
+
     <div class="flex justify-between">
       <div class="categories-block">
         <div
@@ -12,7 +19,7 @@
           :class="{ active: index === activeIndex }"
           v-for="(category, index) in sampleCategories"
           :key="index"
-          @click="onSelectItem(index, category)"
+          @click="onSelectItem(index, category, false)"
         >
           {{ category.name }}
         </div>
@@ -25,7 +32,7 @@
             <SIconRender name="ArrowIcon" direction="right" />
           </SButton>
         </div>
-        <div class="product-card-list flex flex-wrap justify-between gap-20">
+        <div class="product-card-list flex flex-wrap justify-between">
           <ProductCard
             v-for="i in 6"
             :key="i"
@@ -40,11 +47,22 @@
         </div>
       </div>
     </div>
+    <SModal v-model="isShowModal">
+      <div
+        class="category-item"
+        :class="{ active: index === activeIndex }"
+        v-for="(category, index) in sampleCategories"
+        :key="index"
+        @click="onSelectItem(index, category, true)"
+      >
+        {{ category.name }}
+      </div>
+    </SModal>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
+import { SButton, SIconRender, SModal } from '@tumarsoft/ogogo-ui'
 import { ref, onMounted } from 'vue'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 
@@ -59,21 +77,33 @@ const sampleCategories = ref([
 ])
 
 onMounted(() => {
-  onSelectItem(0, sampleCategories.value[0])
+  onSelectItem(0, sampleCategories.value[0], false)
 })
 
 const activeIndex = ref(0)
 const activeCategory = ref({ id: '', name: '' })
+const isShowModal = ref(false)
 
-const onSelectItem = (index: number, category: any) => {
+const onSelectItem = (index: number, category: any, isMobile: boolean) => {
   activeIndex.value = index
   activeCategory.value.name = category.name
+  if (isMobile) {
+    toggleModal()
+  }
+}
+
+const toggleModal = () => {
+  isShowModal.value = !isShowModal.value
 }
 </script>
 
 <style lang="scss">
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .shop-detail {
+  .head-title {
+    font-size: 24px;
+  }
   .product-count {
     font-weight: 500;
     font-size: 12px;
@@ -83,6 +113,9 @@ const onSelectItem = (index: number, category: any) => {
   }
   .categories-block {
     width: calc(20% - 40px);
+    @media #{$sm} {
+      display: none;
+    }
   }
   .category-item {
     font-weight: 500;
@@ -96,17 +129,44 @@ const onSelectItem = (index: number, category: any) => {
       cursor: default;
     }
   }
+  .shop-catalog {
+    display: none;
+    margin: 12px 0 24px;
+    @media #{$sm} {
+      display: block;
+    }
+    .button {
+      width: 100%;
+      justify-content: flex-start;
+      span {
+        margin-left: 8px;
+      }
+    }
+  }
   .shop-products {
     width: 80%;
+    @media #{$sm} {
+      width: 100%;
+    }
     .category-title {
       font-weight: 700;
       font-size: 32px;
       margin-bottom: 24px;
+      @media #{$sm} {
+        font-size: 20px;
+      }
     }
     .product-card-list {
       &::after {
         content: '';
         flex-grow: 1;
+      }
+      gap: 20px;
+      @media #{$sm} {
+        gap: 15px;
+      }
+      @media #{$xs} {
+        gap: 12px;
       }
     }
   }
