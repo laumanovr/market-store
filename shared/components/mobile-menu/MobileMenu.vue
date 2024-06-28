@@ -1,25 +1,25 @@
 <template>
   <div class="mobile-menu-container">
-    <div class="menu-item">
+    <NuxtLink to="/" class="menu-item">
       <img src="~/assets/icons/home.svg" alt="icon" />
       <div class="menu-item__name">Главная</div>
-    </div>
-    <div class="menu-item">
+    </NuxtLink>
+    <NuxtLink to="/" class="menu-item">
       <img src="~/assets/icons/catalog.svg" alt="icon" />
       <div class="menu-item__name">Каталог</div>
-    </div>
-    <div class="menu-item">
+    </NuxtLink>
+    <NuxtLink to="/cart" class="menu-item">
       <SIconRender name="CartIcon" color="gray" />
       <div class="menu-item__name">Корзина</div>
-    </div>
-    <div class="menu-item">
+    </NuxtLink>
+    <NuxtLink to="/shops" class="menu-item">
       <SIconRender name="ShopIcon" />
       <div class="menu-item__name">Магазины</div>
-    </div>
-    <div class="menu-item">
+    </NuxtLink>
+    <NuxtLink to="/profile" class="menu-item">
       <SIconRender name="ProfileEditIcon" color="gray" />
       <div class="menu-item__name">Профиль</div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -49,6 +49,7 @@ import { SIconRender } from '@tumarsoft/ogogo-ui'
   }
   .menu-item {
     text-align: center;
+    text-decoration: none;
     &__name {
       font-size: 12px;
       font-weight: 500;
