@@ -19,8 +19,8 @@
     <div class="flex flex-wrap items-center justify-center gap-30">
       <NuxtLink class="footer__link" to="/">О нас</NuxtLink>
       <NuxtLink class="footer__link" to="/">Контакты</NuxtLink>
-      <NuxtLink class="footer__link" to="/">Оферты</NuxtLink>
-      <NuxtLink class="footer__link" to="/">Стать партнёром</NuxtLink>
+      <NuxtLink class="footer__link" to="/offer">Оферты</NuxtLink>
+      <NuxtLink class="footer__link" to="/partner">Стать партнёром</NuxtLink>
       <NuxtLink class="footer__link" to="/privacy-policy">
         Политика конфиденциальности
       </NuxtLink>
