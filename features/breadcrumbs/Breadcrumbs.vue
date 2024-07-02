@@ -35,6 +35,7 @@ const { items } = defineProps<Props>()
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .icon-svg {
   width: 8px;
   height: 8px;
@@ -47,6 +48,9 @@ const { items } = defineProps<Props>()
     align-items: center;
     justify-content: flex-start;
     padding: 0;
+    @media #{$sm} {
+      flex-wrap: wrap;
+    }
     li {
       background: $gray-150;
       margin-right: 8px;
