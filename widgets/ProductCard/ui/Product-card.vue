@@ -326,14 +326,27 @@ const handlerOpenCarousel = (): void => {
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .product-card {
   width: 100%;
   display: flex;
+  @media #{$sm} {
+    display: block;
+  }
+  &__container {
+    width: 100%;
+  }
   &__info {
     max-width: 400px;
+    @media #{$sm} {
+      max-width: 100%;
+    }
   }
   &__example-photo {
     margin-right: 14px;
+    @media #{$sm} {
+      display: none;
+    }
   }
   &__photo {
     margin-right: 40px;
@@ -348,6 +361,10 @@ const handlerOpenCarousel = (): void => {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    @media #{$sm} {
+      width: 100%;
+      height: 360px;
+    }
   }
   &__photo img {
     object-fit: cover;
@@ -360,6 +377,9 @@ const handlerOpenCarousel = (): void => {
 
 .info-card {
   margin-right: 40px;
+  @media #{$sm} {
+    margin-right: 0;
+  }
   &__title h3 {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -427,11 +447,18 @@ const handlerOpenCarousel = (): void => {
 }
 .product-card__basket {
   width: 360px;
+  @media #{$sm} {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 
 .breadcrumbs {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media #{$sm} {
+    flex-wrap: wrap;
+  }
 }
 </style>
