@@ -42,13 +42,15 @@
           <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
         </template>
       </Button>
-      <SButton
-        v-if="(!addedProduct && size == 'small') || size == 'default'"
-        color="violet"
-        class="wp-100"
-        @click="addingProduct"
-        >В корзину</SButton
-      >
+      <div class="light wp-100">
+        <SButton
+          v-if="(!addedProduct && size == 'small') || size == 'default'"
+          class="wp-100"
+          @click="addingProduct"
+        >
+          В корзину
+        </SButton>
+      </div>
     </div>
   </div>
 </template>
