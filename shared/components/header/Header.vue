@@ -118,7 +118,7 @@
           />
           <span :class="{ active: isActive(MenuItems.Profile) }">Иван</span>
         </div>
-        <div class="menu-item" @click="isVoiceModalOpenLogin = true">
+        <div class="menu-item" @click="isModalOpenLogin = true">
           <BaseIcon
             name="emptyAva"
             viewBox="0 0 22 22"
@@ -129,23 +129,23 @@
         </div>
         <teleport to="body">
           <TheModalLogin
-            v-if="isVoiceModalOpenLogin"
-            @close="isVoiceModalOpenLogin = false"
+            v-if="isModalOpenLogin"
+            @close="isModalOpenLogin = false"
             @onResetPassword="onResetPassword"
             @onRegistration="onRegistration"
           />
         </teleport>
         <teleport to="body">
           <TheModalRecovery
-            v-if="isVoiceModalOpenRecovery"
-            @close="isVoiceModalOpenRecovery = false"
+            v-if="isModalOpenRecovery"
+            @close="isModalOpenRecovery = false"
             @onBack="onBack"
           />
         </teleport>
         <teleport to="body">
           <TheModalRegistration
-            v-if="isVoiceModalOpenReg"
-            @close="isVoiceModalOpenReg = false"
+            v-if="isModalOpenReg"
+            @close="isModalOpenReg = false"
           />
         </teleport>
       </div>
@@ -157,6 +157,7 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from 'vue'
 import { SIconRender, SInput, SSwitchButton } from '@tumarsoft/ogogo-ui'
 import { MenuItems } from '~/shared/utils/enums'
 import BaseIcon from '../icons/BaseIcon.vue'
@@ -164,10 +165,17 @@ import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
 import SidebarCategory from '~/shared/components/sidebarCategory/SidebarCategory.vue'
 import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
 import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegistration/TheModalRegistration.vue'
+import EventEmitter from '~/shared/utils/EventEmitter'
 
-const isVoiceModalOpenLogin = ref(false)
-const isVoiceModalOpenReg = ref(false)
-const isVoiceModalOpenRecovery = ref(false)
+onMounted(() => {
+  EventEmitter.$on('onLoginMobile', emittedValue => {
+    isModalOpenLogin.value = emittedValue
+  })
+})
+
+const isModalOpenLogin = ref(false)
+const isModalOpenReg = ref(false)
+const isModalOpenRecovery = ref(false)
 const router = useRouter()
 const route = useRoute()
 const activeTab = ref('')
@@ -189,18 +197,18 @@ const isActive = (value: string) => {
 }
 
 const onResetPassword = (): void => {
-  isVoiceModalOpenLogin.value = false
-  isVoiceModalOpenRecovery.value = true
+  isModalOpenLogin.value = false
+  isModalOpenRecovery.value = true
 }
 
 const onRegistration = (): void => {
-  isVoiceModalOpenLogin.value = false
-  isVoiceModalOpenReg.value = true
+  isModalOpenLogin.value = false
+  isModalOpenReg.value = true
 }
 
 const onBack = (): void => {
-  isVoiceModalOpenRecovery.value = false
-  isVoiceModalOpenLogin.value = true
+  isModalOpenRecovery.value = false
+  isModalOpenLogin.value = true
 }
 </script>
 
