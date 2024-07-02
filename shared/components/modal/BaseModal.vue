@@ -7,11 +7,7 @@
     ref="modalFocus"
   >
     <BaseModalOverlay v-if="isOpen" @click="close" />
-    <div
-      v-if="isOpen"
-      class="baseModal__content"
-      style="max-height: calc(100vh - 64px)"
-    >
+    <div v-if="isOpen" class="baseModal__content">
       <div class="baseModal__btn">
         <BaseModalHeader
           :withBackButton
@@ -64,6 +60,7 @@ const close = () => {
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
+@import '~/assets/style/screens.scss';
 .baseModal {
   position: fixed;
   top: 20%;
@@ -78,6 +75,11 @@ const close = () => {
   margin-left: auto;
   margin-right: auto;
   width: 450px;
+  @media #{$xs} {
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
   &__content {
     position: relative;
     background-color: $white;
@@ -87,7 +89,12 @@ const close = () => {
     border-radius: 16px;
     box-shadow: 0px 12px 32px 0px rgba(40, 43, 48, 0.15);
     padding: 24px;
-    width: 450px;
+    min-width: 100%;
+    @media #{$xs} {
+      margin: 0;
+      height: 100%;
+      border-radius: 0;
+    }
   }
   &__footer {
     display: flex;
