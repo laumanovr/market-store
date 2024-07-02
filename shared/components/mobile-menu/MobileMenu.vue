@@ -16,15 +16,20 @@
       <SIconRender name="ShopIcon" />
       <div class="menu-item__name">Магазины</div>
     </NuxtLink>
-    <NuxtLink to="/profile" class="menu-item">
+    <div class="menu-item" @click="showLoginOrProfile">
       <SIconRender name="ProfileEditIcon" color="gray" />
       <div class="menu-item__name">Профиль</div>
-    </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { SIconRender } from '@tumarsoft/ogogo-ui'
+import EventEmitter from '~/shared/utils/EventEmitter'
+
+const showLoginOrProfile = () => {
+  EventEmitter.$emit('onLoginMobile', true)
+}
 </script>
 
 <style lang="scss">
