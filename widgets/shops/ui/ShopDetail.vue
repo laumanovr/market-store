@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <SModal v-model="isShowModal">
+    <SModal v-model="isShowModal" type="mobile-fullscreen">
       <div
         class="category-item"
         :class="{ active: index === activeIndex }"
@@ -63,8 +63,10 @@
 
 <script lang="ts" setup>
 import { SButton, SIconRender, SModal } from '@tumarsoft/ogogo-ui'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, provide } from 'vue'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
+
+provide('theme', 'shop-detail')
 
 const sampleCategories = ref([
   { name: 'Смартфоны' },
