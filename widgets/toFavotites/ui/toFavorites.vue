@@ -4,7 +4,7 @@
       <div class="toFavorites__favorite">
         <Button decoration="none" class="btn" @click="$emit('onFavorites')">
           <template v-slot:leftIcon>
-            <SIconRender name="FavoriteIcon" color="black" class="icon-svg" />
+            <SIconRender name="heart" color="black" class="icon-svg" />
           </template>
           В избранное
         </Button>
