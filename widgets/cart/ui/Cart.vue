@@ -29,8 +29,8 @@
                   Мой телефон
                 </div>
                 <div class="order-actions">
-                  <SIconRender name="FavoriteIcon" />
-                  <SIconRender name="TrashIcon" />
+                  <SIconRender name="heart" />
+                  <SIconRender name="delete" />
                 </div>
               </div>
               <div class="cart-price-count">
