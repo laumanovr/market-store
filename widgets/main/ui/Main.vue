@@ -15,7 +15,7 @@
               <div class="product-card__btn">
                 <SButton type="secondary" size="small">
                   <span class="s-mr-2 s-text-tertiary-dark">Все товары</span>
-                  <SIconRender name="ArrowIcon" direction="right" />
+                  <SIconRender name="chevron-right" />
                 </SButton>
               </div>
             </div>
@@ -39,7 +39,7 @@
               <div class="product-card__btn">
                 <SButton type="secondary" size="small">
                   <span class="s-mr-2 s-text-tertiary-dark">Все товары</span>
-                  <SIconRender name="ArrowIcon" direction="right" />
+                  <SIconRender name="chevron-right" />
                 </SButton>
               </div>
             </div>
