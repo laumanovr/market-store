@@ -4,7 +4,7 @@
       <div class="product-image">
         <div class="product-image__photo">
           <img :src="source" alt="img" />
-          <SIconRender name="FavoriteIcon" color="gray" />
+          <SIconRender name="heart" color="gray" />
         </div>
         <div v-if="props.row" class="product-image__info">
           <div class="product-name">
