@@ -7,7 +7,7 @@
 
     <div class="shop-catalog">
       <SButton type="secondary" @click="toggleModal">
-        <SIconRender name="MenuIcon" color="black" />
+        <SIconRender name="burger" color="black" />
         <span>Каталог товаров</span>
       </SButton>
     </div>
@@ -29,7 +29,7 @@
           <div class="category-title">{{ activeCategory.name }}</div>
           <SButton type="secondary" size="small">
             <span class="s-mr-2 s-text-tertiary-dark">Все товары</span>
-            <SIconRender name="ArrowIcon" direction="right" />
+            <SIconRender name="chevron-right" />
           </SButton>
         </div>
         <div class="product-card-list flex flex-wrap justify-between">
