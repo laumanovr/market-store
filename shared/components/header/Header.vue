@@ -22,134 +22,141 @@
               title="Каталог"
               @click="categoryOpen = !categoryOpen"
               :class="{ categoryActive: categoryOpen }"
-            >
-              <template v-slot:leftIcon v-if="categoryOpen">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2.66666 2.66666L13.3333 13.3333"
-                    stroke="#6D28D9"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M2.66666 13.3333L13.3333 2.66665"
-                    stroke="#6D28D9"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </template>
-              <template v-slot:leftIcon v-else>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.3335 4H14.6668"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M1.3335 8H14.6668"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M1.3335 12H14.6668"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </template>
-            </SSwitchButton>
+            />
           </div>
         </div>
       </div>
-      <SInput isSearchable hide-details placeHolder="Поиск" width="100%" />
-      <div class="menu-items">
-        <div class="menu-item" @click="menuItemChange(MenuItems.Shop)">
+
+      <SInput class="s-mr-3" isSearchable hide-details placeHolder="Поиск" />
+
+      <div class="menu-items s-flex s-items-center s-gap-3">
+        <router-link
+          to="/shops"
+          class="cursor-pointer s-flex s-flex-col s-items-center"
+        >
           <SIconRender
-            name="ShopIcon"
-            :color="isActive(MenuItems.Shop) ? 'violet' : 'gray'"
+            name="shop"
+            :class="[
+              route.name === MenuItems.Shop
+                ? 's-text-violet-700'
+                : 's-text-black',
+            ]"
           />
-          <span :class="{ active: isActive(MenuItems.Shop) }"> Магазины </span>
-        </div>
-        <div class="menu-item" @click="menuItemChange(MenuItems.Favorite)">
+          <span
+            class="s-mt-1"
+            :class="[
+              route.name === MenuItems.Shop
+                ? 's-text-violet-700'
+                : 's-text-gray-500',
+              's-text-body-medium',
+            ]"
+          >
+            Магазины
+          </span>
+        </router-link>
+        <router-link
+          to="/cart"
+          class="cursor-pointer s-flex s-flex-col s-items-center"
+        >
           <SIconRender
-            name="FavoriteIcon"
-            :color="isActive(MenuItems.Favorite) ? 'violet' : 'gray'"
+            name="bag"
+            :class="[
+              route.name === MenuItems.Cart
+                ? 's-text-violet-700'
+                : 's-text-black',
+            ]"
           />
-          <span :class="{ active: isActive(MenuItems.Favorite) }">
+          <span
+            class="s-mt-1"
+            :class="[
+              route.name === MenuItems.Cart
+                ? 's-text-violet-700'
+                : 's-text-gray-500',
+              's-text-body-medium',
+            ]"
+          >
+            Корзина
+          </span>
+        </router-link>
+        <router-link
+          to="/favorite"
+          class="cursor-pointer s-flex s-flex-col s-items-center"
+        >
+          <SIconRender
+            name="heart"
+            :class="[
+              route.name === MenuItems.Favorite
+                ? 's-text-violet-700'
+                : 's-text-black',
+            ]"
+          />
+          <span
+            class="s-mt-1"
+            :class="[
+              route.name === MenuItems.Favorite
+                ? 's-text-violet-700'
+                : 's-text-gray-500',
+              's-text-body-medium',
+            ]"
+          >
             Избранное
           </span>
-        </div>
-        <div class="menu-item" @click="menuItemChange(MenuItems.Orders)">
+        </router-link>
+        <router-link
+          to="/orders"
+          class="cursor-pointer s-flex s-flex-col s-items-center"
+        >
           <SIconRender
-            name="BoxIcon"
-            :color="isActive(MenuItems.Orders) ? 'violet' : ''"
+            name="box"
+            :class="[
+              route.name === MenuItems.Orders
+                ? 's-text-violet-700'
+                : 's-text-black',
+            ]"
           />
-          <span :class="{ active: isActive(MenuItems.Orders) }">Заказы</span>
+          10  
+          <span
+            class="s-mt-1"
+            :class="[
+              route.name === MenuItems.Orders
+                ? 's-text-violet-700'
+                : 's-text-gray-500',
+              's-text-body-medium',
+            ]"
+          >
+            Заказы
+          </span>
+        </router-link>
+        <div
+          class="cursor-pointer s-flex s-items-center s-flex-col"
+          @click="isModalOpenLogin = true"
+        >
+          <SIconRender name="user-round" />
+          <span class="s-mt-1 s-text-body-medium s-text-gray-500">Войти</span>
         </div>
-        <div class="menu-item" @click="menuItemChange(MenuItems.Cart)">
-          <SIconRender
-            name="CartIcon"
-            :color="isActive(MenuItems.Cart) ? 'violet' : 'gray'"
-          />
-          <span :class="{ active: isActive(MenuItems.Cart) }">Корзина</span>
-        </div>
-        <div class="menu-item" @click="menuItemChange(MenuItems.Profile)">
-          <BaseIcon
-            name="emptyAva"
-            viewBox="0 0 22 22"
-            height="24"
-            class="icon-ava"
-          />
-          <span :class="{ active: isActive(MenuItems.Profile) }">Иван</span>
-        </div>
-        <div class="menu-item" @click="isModalOpenLogin = true">
-          <BaseIcon
-            name="emptyAva"
-            viewBox="0 0 22 22"
-            height="24"
-            class="icon-svg"
-          />
-          <span>Войти</span>
-        </div>
-        <teleport to="body">
-          <TheModalLogin
-            v-if="isModalOpenLogin"
-            @close="isModalOpenLogin = false"
-            @onResetPassword="onResetPassword"
-            @onRegistration="onRegistration"
-          />
-        </teleport>
-        <teleport to="body">
-          <TheModalRecovery
-            v-if="isModalOpenRecovery"
-            @close="isModalOpenRecovery = false"
-            @onBack="onBack"
-          />
-        </teleport>
-        <teleport to="body">
-          <TheModalRegistration
-            v-if="isModalOpenReg"
-            @close="isModalOpenReg = false"
-          />
-        </teleport>
       </div>
     </div>
+    <teleport to="body">
+      <TheModalLogin
+        v-if="isModalOpenLogin"
+        @close="isModalOpenLogin = false"
+        @onResetPassword="onResetPassword"
+        @onRegistration="onRegistration"
+      />
+    </teleport>
+    <teleport to="body">
+      <TheModalRecovery
+        v-if="isModalOpenRecovery"
+        @close="isModalOpenRecovery = false"
+        @onBack="onBack"
+      />
+    </teleport>
+    <teleport to="body">
+      <TheModalRegistration
+        v-if="isModalOpenReg"
+        @close="isModalOpenReg = false"
+      />
+    </teleport>
     <div class="sidebar" v-if="categoryOpen">
       <SidebarCategory @close="categoryOpen = false" />
     </div>
@@ -160,7 +167,6 @@
 import { onMounted } from 'vue'
 import { SIconRender, SInput, SSwitchButton } from '@tumarsoft/ogogo-ui'
 import { MenuItems } from '~/shared/utils/enums'
-import BaseIcon from '../icons/BaseIcon.vue'
 import TheModalLogin from '~/shared/components/modal/modals/TheModalLogin.vue'
 import SidebarCategory from '~/shared/components/sidebarCategory/SidebarCategory.vue'
 import TheModalRecovery from '~/shared/components/modal/modals/TheModalRecovery/TheModalRecovery.vue'
@@ -178,23 +184,7 @@ const isModalOpenReg = ref(false)
 const isModalOpenRecovery = ref(false)
 const router = useRouter()
 const route = useRoute()
-const activeTab = ref('')
 const categoryOpen = ref(false)
-
-Object.values(MenuItems).forEach((item: any) => {
-  if (route.path.includes(item)) {
-    activeTab.value = item
-  }
-})
-
-const menuItemChange = (value: string) => {
-  activeTab.value = value
-  router.push('/' + value)
-}
-
-const isActive = (value: string) => {
-  return activeTab.value === value
-}
 
 const onResetPassword = (): void => {
   isModalOpenLogin.value = false
@@ -249,25 +239,12 @@ const onBack = (): void => {
     }
   }
   .menu-items {
-    display: flex;
-    align-items: center;
-    .menu-item {
-      text-align: center;
-      margin-left: 30px;
-      cursor: pointer;
-      span {
-        display: block;
-        font-weight: 500;
-        font-size: 12px;
-        color: $gray-500;
-        &.active {
-          color: $violet-700;
-        }
-      }
-    }
     @media #{$sm} {
       display: none;
     }
+  }
+  a {
+    text-decoration: none;
   }
 }
 
