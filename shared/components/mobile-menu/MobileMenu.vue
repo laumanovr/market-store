@@ -9,15 +9,15 @@
       <div class="menu-item__name">Каталог</div>
     </NuxtLink>
     <NuxtLink to="/cart" class="menu-item">
-      <SIconRender name="CartIcon" color="gray" />
+      <SIconRender name="bag" />
       <div class="menu-item__name">Корзина</div>
     </NuxtLink>
     <NuxtLink to="/shops" class="menu-item">
-      <SIconRender name="ShopIcon" />
+      <SIconRender name="shop" />
       <div class="menu-item__name">Магазины</div>
     </NuxtLink>
     <div class="menu-item" @click="showLoginOrProfile">
-      <SIconRender name="ProfileEditIcon" color="gray" />
+      <SIconRender name="user" />
       <div class="menu-item__name">Профиль</div>
     </div>
   </div>
