@@ -5,33 +5,30 @@
       <div class="profile-tabs">
         <div class="tab" @click="changeTab('general')">
           <SIconRender
-            name="ProfileEditIcon"
+            name="user-edit"
             :color="tab === 'general' ? 'violet' : ''"
           />
           <span :class="{ active: tab === 'general' }">Общие данные</span>
         </div>
         <div class="tab" @click="changeTab('password')">
           <SIconRender
-            name="PasswordIcon"
+            name="lock"
             :color="tab === 'password' ? 'violet' : ''"
           />
           <span :class="{ active: tab === 'password' }">Пароль</span>
         </div>
         <div class="tab" @click="changeTab('notification')">
-          <SIconRender name="BellIcon" />
+          <SIconRender name="notification" />
           <span :class="{ active: tab === 'notification' }">
             Настройки уведомлений
           </span>
         </div>
         <div class="tab" @click="changeTab('session')">
-          <SIconRender
-            name="SessionIcon"
-            :color="tab === 'session' ? 'violet' : ''"
-          />
+          <SIconRender name="tv" :color="tab === 'session' ? 'violet' : ''" />
           <span :class="{ active: tab === 'session' }">Активные сессии</span>
         </div>
         <div class="tab" @click="logout">
-          <SIconRender name="LogoutIcon" />
+          <SIconRender name="logout" />
           <span>Выйти</span>
         </div>
       </div>
