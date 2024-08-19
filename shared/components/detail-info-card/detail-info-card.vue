@@ -14,12 +14,10 @@
         </div>
       </dt>
       <div class="column-detail__text">
-        <div style="max-height: 80px">
-          <div class="text-detail">
-            <dd style="margin: 0">
-              {{ el.text }}
-            </dd>
-          </div>
+        <div class="text-detail">
+          <dd>
+            {{ el.text }}
+          </dd>
         </div>
       </div>
     </dl>
@@ -67,6 +65,7 @@ const { item } = defineProps<Props>()
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAAAAAA+i0toAAAAAnRSTlMA/1uRIrUAAAAMSURBVHheY7j1/z8ABY8C2UtBe8oAAAAASUVORK5CYII=)
       0 0 repeat-x;
   }
+  // TODO: background
   &__title {
     font-size: 16px;
     font-weight: 600;
@@ -96,5 +95,6 @@ const { item } = defineProps<Props>()
   font-weight: 500;
   line-height: 22px;
   color: $black;
+  max-height: 80px;
 }
 </style>
