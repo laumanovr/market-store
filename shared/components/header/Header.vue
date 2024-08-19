@@ -114,7 +114,6 @@
                 : 's-text-black',
             ]"
           />
-          10  
           <span
             class="s-mt-1"
             :class="[
