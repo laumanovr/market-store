@@ -28,7 +28,7 @@ const childCategories = ref([])
 const categoryItems = ref([
   {
     categoryName: 'Электроника',
-    icon: 'electronic',
+    icon: 'mobile',
     childMarketplaceCategories: [
       {
         categoryName: 'Смартфоны и гаджеты',
@@ -193,7 +193,7 @@ const categoryItems = ref([
   },
   {
     categoryName: 'Бытовая техника',
-    icon: 'appliances',
+    icon: 'washing-machine',
     childMarketplaceCategories: [
       {
         categoryName: 'Автомобильная техника',
@@ -215,25 +215,25 @@ const categoryItems = ref([
   },
   {
     categoryName: 'Авто',
-    icon: 'auto',
+    icon: 'car',
     childMarketplaceCategories: [],
     link: '/test',
   },
   {
     categoryName: 'Строительство и ремонт',
-    icon: 'construction',
+    icon: 'charts',
     childMarketplaceCategories: [],
     link: '/test',
   },
   {
     categoryName: 'Продукты',
-    icon: 'products',
+    icon: 'milk',
     childMarketplaceCategories: [],
     link: '/test',
   },
   {
     categoryName: 'Здоровье',
-    icon: 'health',
+    icon: 'heart-beat',
     childMarketplaceCategories: [],
     link: '/test',
   },
