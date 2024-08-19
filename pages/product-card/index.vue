@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card__content">
+  <div>
     <ProductCard />
   </div>
 </template>
