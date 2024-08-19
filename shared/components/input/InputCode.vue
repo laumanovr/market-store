@@ -40,7 +40,7 @@ const emit = defineEmits(['onInput'])
 
 watch(
   code,
-  (newValue: string[], oldValue) => {
+  (newValue: string[], _) => {
     let tempValue = ''
     for (let i = 0; i < newValue.length; i++) {
       if (i === 4) {

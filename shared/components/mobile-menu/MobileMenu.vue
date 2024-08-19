@@ -1,11 +1,11 @@
 <template>
   <div class="mobile-menu-container">
     <NuxtLink to="/" class="menu-item">
-      <img src="~/assets/icons/home.svg" alt="icon" />
+      <SIconRender name="home" />
       <div class="menu-item__name">Главная</div>
     </NuxtLink>
     <NuxtLink to="/" class="menu-item">
-      <img src="~/assets/icons/catalog.svg" alt="icon" />
+      <SIconRender name="catalogue" />
       <div class="menu-item__name">Каталог</div>
     </NuxtLink>
     <NuxtLink to="/cart" class="menu-item">
