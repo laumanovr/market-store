@@ -19,9 +19,7 @@
           <div class="total-order__text">112 715 сом</div>
         </div>
         <div class="order-card__btn">
-          <SButton color="violet" disabled size="large"
-            >Подтвердить заказ</SButton
-          >
+          <SButton size="large">Подтвердить заказ</SButton>
         </div>
       </div>
     </div>
