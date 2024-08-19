@@ -4,7 +4,7 @@
       <div class="product-image">
         <div class="product-image__photo">
           <img :src="source" alt="img" />
-          <SIconRender name="heart" color="gray" />
+          <SIconRender name="heart" class="heart" />
         </div>
         <div v-if="props.row" class="product-image__info">
           <div class="product-name">
@@ -17,9 +17,9 @@
           <div class="product-info">
             <div class="product-info__text">
               <span class="product-info__title">Экран:</span>
-              <span class="product-info__info"
-                >6.1" (2556x1179) OLED 120 Гц</span
-              >
+              <span class="product-info__info">
+                6.1" (2556x1179) OLED 120 Гц
+              </span>
             </div>
             <div class="product-info__text">
               <span class="product-info__title">Память:</span>
@@ -31,11 +31,11 @@
             </div>
             <div class="product-info__text">
               <span class="product-info__title">Процессор:</span>
-              <span class="product-info__info">02.05.1997</span>
+              <span class="product-info__info">Inter core i7</span>
             </div>
             <div class="product-info__text">
               <span class="product-info__title">Sim-карты:</span>
-              <span class="product-info__info">6Dual еSIM</span>
+              <span class="product-info__info">Dual еSIM</span>
             </div>
           </div>
         </div>
@@ -147,6 +147,13 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
   }
   .product-image {
     position: relative;
+    &__photo {
+      .heart {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+      }
+    }
     img {
       width: 100%;
       height: 240px;
@@ -154,11 +161,6 @@ const sourceBrand = computed(() => `/_nuxt/assets/${props.brandIconUrl}`)
       @media #{$sm} {
         height: 158px;
       }
-    }
-    .favorite {
-      position: absolute;
-      top: 16px;
-      right: 16px;
     }
   }
   .product-info-price {
