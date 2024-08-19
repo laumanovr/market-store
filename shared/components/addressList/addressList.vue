@@ -7,32 +7,18 @@
           <div class="header-list__setting select">
             <div class="select-container">
               <button @click="toggleDropdown" class="select-button">
-                <span class="dropdown-icon">
-                  <BaseIcon
-                    name="kebab"
-                    viewBox="0 0 24 24"
-                    :class="['icon-svg', { active: isDropdownOpen }]"
-                  />
-                </span>
+                <SIconRender name="more-horizontal" />
               </button>
               <ul v-if="isDropdownOpen" class="dropdown-list">
                 <li @click="selectOption('один')">
                   <div class="dropdown-list__icon">
-                    <BaseIcon
-                      name="delet"
-                      viewBox="0 0 24 24"
-                      class="icon-list"
-                    />
+                    <SIconRender name="delete" />
                   </div>
                   <div class="dropdown-list__text">Удалить</div>
                 </li>
                 <li @click="selectOption('два')">
                   <div class="dropdown-list__icon">
-                    <BaseIcon
-                      name="pen"
-                      viewBox="0 0 24 24"
-                      class="icon-list"
-                    />
+                    <SIconRender name="pencil" />
                   </div>
                   <div class="dropdown-list__text">Редактировать</div>
                 </li>
@@ -51,8 +37,8 @@
 </template>
 
 <script lang="ts" setup>
+import { SIconRender } from '@tumarsoft/ogogo-ui'
 import { ref } from 'vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 interface Props {
   isActive?: boolean
