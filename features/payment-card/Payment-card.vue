@@ -2,7 +2,7 @@
   <div class="payment-card">
     <div class="payment-card__content">
       <div class="payment-card__icon">
-        <BaseIcon name="card" viewBox="0 0 24 24" class="icon-svg" />
+        <SIconRender name="card-add" />
       </div>
       <div class="payment-card__text">Новой картой</div>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SIconRender } from '@tumarsoft/ogogo-ui'
 </script>
 
 <style lang="scss" scoped>

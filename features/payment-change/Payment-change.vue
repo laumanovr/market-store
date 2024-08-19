@@ -3,7 +3,6 @@
     <SInput
       label="Подготовить сдачу из суммы"
       place-holder="Введите сумму"
-      width="100%"
       hide-details
       :disabled="noChange"
     />
