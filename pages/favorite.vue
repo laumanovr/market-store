@@ -1,5 +1,5 @@
 <template>
-  <div class="favorite">
+  <div>
     <Favorite />
   </div>
 </template>

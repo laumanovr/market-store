@@ -1,5 +1,5 @@
 <template>
-  <div class="order-detail-container">
+  <div>
     <OrderDetail />
   </div>
 </template>
