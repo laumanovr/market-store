@@ -1,6 +1,6 @@
 <template>
   <div class="cart-container">
-    <h2 class="head-title">Корзина</h2>
+    <h2 class="s-text-h-2 s-mb-6 s-mt-6">Корзина</h2>
     <template v-if="hasOrders">
       <div class="cart-order-container" v-for="i in 2" :key="i">
         <div class="cart-head-title">
@@ -58,15 +58,15 @@
                 <span>Итого:</span><span>150 480 сом</span>
               </div>
             </div>
-            <div class="light">
+            <div>
               <SButton
                 size="large"
-                class="wp-100"
+                class="s-w-full"
                 @click="router.push({ path: '/order-placing' })"
               >
                 Перейти к оформлению
               </SButton>
-              <SButton type="secondary" size="large" class="wp-100">
+              <SButton type="secondary" size="large" class="s-w-full">
                 Оформить кредит
               </SButton>
             </div>
@@ -80,7 +80,7 @@
         <div class="empty-block">
           <img src="~/assets/images/cart.png" alt="img" />
           <div class="cart-empty-title">В корзине пока пусто</div>
-          <SButton color="violet" size="large">Перейти на главную</SButton>
+          <SButton size="large">Перейти на главную</SButton>
         </div>
       </div>
     </template>
