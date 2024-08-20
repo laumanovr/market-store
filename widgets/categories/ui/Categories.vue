@@ -13,12 +13,10 @@
         <div class="categories__title-categories">
           <h3>Популярные товары</h3>
           <div class="categories__btn">
-            <Button color="gray">
+            <SButton type="secondary">
               Все товары
-              <template v-slot:rightIcon>
-                <BaseIcon name="arrow" viewBox="0 0 14 11" />
-              </template>
-            </Button>
+              <SIconRender name="chevron-right" class="s-text-gray-600" />
+            </SButton>
           </div>
         </div>
         <div class="categories__popular">
@@ -40,12 +38,11 @@
 </template>
 
 <script setup lang="ts">
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { Promotions } from '~/widgets/promotions'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
-import Button from '~/shared/components/button/button.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -79,20 +76,20 @@ const openPages = () => {
     align-items: center;
     justify-content: space-between;
   }
-  &__btn {
-    width: 140px;
-  }
-  &__btn:deep(.button) {
-    height: 40px;
-    color: $gray-500;
-    display: flex;
-    align-items: center;
-  }
-  &__btn:deep(.button__text) {
-    margin-right: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.056px;
-  }
+  // &__btn {
+  //   width: 140px;
+  // }
+  // &__btn:deep(.button) {
+  //   height: 40px;
+  //   color: $gray-500;
+  //   display: flex;
+  //   align-items: center;
+  // }
+  // &__btn:deep(.button__text) {
+  //   margin-right: 8px;
+  //   font-size: 14px;
+  //   font-weight: 600;
+  //   letter-spacing: 0.056px;
+  // }
 }
 </style>
