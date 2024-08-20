@@ -10,48 +10,45 @@
           />
         </div>
         <div class="detailed-photo__main main-photo">
-          <div class="main-photo__icon-left icon-main">
-            <BaseIcon
-              @click="handlerBackPhoro"
-              name="arrowRoundShadow"
-              viewBox="0 0 88 88"
-              class="icon-svg"
-            />
-          </div>
-          <div class="main-photo__chief chief-image">
+          <SButton
+            type="text"
+            size="small"
+            class="main-photo__icon-left"
+            @click="handlerBackPhoro"
+          >
+            <SIconRender name="chevron-left" />
+          </SButton>
+          <div class="main-photo__chief">
             <div class="chief-image__container">
               <img :src="handlerMainFoto" alt="Main phoro" />
             </div>
           </div>
-          <div class="main-photo__right icon-main">
-            <BaseIcon
-              @click="handlerNextPhoto"
-              name="arrowRoundShadow"
-              viewBox="0 0 88 88"
-              class="icon-svg"
-            />
-          </div>
+          <SButton
+            type="text"
+            size="small"
+            class="main-photo__right"
+            @click="handlerNextPhoto"
+          >
+            <SIconRender name="chevron-right" />
+          </SButton>
         </div>
-        <div
-          class="detailed-photo__close icon-main"
+        <SButton
+          type="text"
+          size="small"
+          class="detailed-photo__close"
           @click="$emit('closeCarousel')"
         >
-          <BaseIcon
-            @click="handlerNextPhoto"
-            name="closeRoundShadow"
-            viewBox="0 0 88 88"
-            class="icon-svg"
-          />
-        </div>
+          <SIconRender name="close" size="large" />
+        </SButton>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { SIconRender, SButton } from '@tumarsoft/ogogo-ui'
 import { ref, computed } from 'vue'
 import { ImageGallary } from '~/features/imageGallary'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 interface Props {
   examplePhoto: {
@@ -121,10 +118,6 @@ const handlerBackPhoro = (): void => {
 </script>
 
 <style lang="scss" scoped>
-.icon-svg {
-  widows: 88px;
-  height: 88px;
-}
 .detailed-photo {
   &__wrapper {
     position: absolute;
@@ -160,31 +153,13 @@ const handlerBackPhoro = (): void => {
   &__chief {
     width: 65%;
   }
-  &__icon-left {
-    transform: rotate(180deg);
-  }
 }
 
-.icon-main {
-  display: flex;
-  cursor: pointer;
-  height: 56px;
-  overflow: hidden;
-  z-index: 10;
-  & svg {
-    width: 56px;
-    height: 56px;
-    z-index: 10;
-  }
-}
-
-.chief-image {
-  &__container {
-    padding-top: 100%;
-    position: relative;
-    width: 100%;
-  }
-  &__container img {
+.chief-image__container {
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+  img {
     position: absolute;
     top: 0;
     left: 0;
