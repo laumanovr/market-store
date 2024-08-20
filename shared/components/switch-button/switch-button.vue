@@ -7,7 +7,6 @@
     </div>
     <div class="switch-button__choice-btn">
       <SButton
-        color="gray"
         size="large"
         :class="{ isActive: activeleft }"
         @click="handlerChange('activeleft')"
@@ -15,7 +14,6 @@
         {{ btnlLeft }}
       </SButton>
       <SButton
-        color="gray"
         size="large"
         :class="{ isActive: activeRight }"
         @click="handlerChange('activeRight')"

@@ -5,24 +5,20 @@
       <div class="info-briefly__text">{{ item.text }}</div>
     </div>
     <div class="info-briefly__btn">
-      <Button
-        decoration="none"
-        color="violet"
-        class="btn"
+      <SButton
+        type="text"
+        class="s-text-violet-600 s-px-0"
         @click="$emit('handlerLink')"
       >
-        <template v-slot:rightIcon>
-          <BaseIcon name="arrowPurple" viewBox="0 0 12 12" class="icon-svg" />
-        </template>
         Все характеристики и описание
-      </Button>
+        <SIconRender name="chevron-right" class="s-text-violet-600" />
+      </SButton>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Button from '~/shared/components/button/button.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 interface Props {
   items: {
     id: number
@@ -37,19 +33,12 @@ const emit = defineEmits(['handlerLink'])
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  margin-left: 8px;
-  width: 12px;
-  height: 12px;
-}
 .info-briefly {
   &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: 22px;
     margin-bottom: 16px;
@@ -59,12 +48,6 @@ const emit = defineEmits(['handlerLink'])
   }
   &__text {
     color: $black;
-  }
-  &__btn:deep(.button) {
-    justify-content: flex-start;
-  }
-  &__btn:deep(.button__text) {
-    margin-bottom: 2px;
   }
 }
 </style>
