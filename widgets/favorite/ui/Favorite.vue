@@ -1,6 +1,6 @@
 <template>
   <div class="favorite-container">
-    <div class="head-title">Избранное</div>
+    <div class="s-text-h-2 s-mb-6 s-mt-6">Избранное</div>
     <div class="favorite-products">
       <ProductCard
         v-for="i in 8"
