@@ -15,25 +15,25 @@
               <p>С выгодой на геймерские телефоны от магазина SoftTech»</p>
             </div>
             <div class="slider__btn">
-              <SButton size="large" class="wp-100"> Смотреть </SButton>
+              <SButton size="large">Смотреть</SButton>
             </div>
           </div>
         </Transition>
       </div>
     </div>
+
     <button class="btn__left btn" @click="prevSlide">
-      <BaseIcon name="arrowRoundLeft" viewBox="0 0 48 48" />
+      <SIconRender name="chevron-left" />
     </button>
     <button class="btn__right btn" @click="nextSlide">
-      <BaseIcon name="arrowRoundRight" viewBox="0 0 48 48" />
+      <SIconRender name="chevron-right" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { SButton } from '@tumarsoft/ogogo-ui'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 
 const props = defineProps(['sliderItems'])
 
@@ -144,14 +144,12 @@ const nextSlide = (): void => {
 }
 
 .btn {
-  border: none;
-  outline: none;
-  background: none;
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
-  & svg {
-    width: 48px;
-    height: 48px;
-  }
   &__left {
     position: absolute;
     left: 24px;
