@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO: delete this component
 import { computed, ref, useAttrs, watch } from 'vue'
 import { v4 as uuid } from 'uuid'
 
@@ -64,7 +65,7 @@ watch(
   newValue => {
     emit('update:modelValue', newValue)
     emit('onChange', newValue)
-  }
+  },
 )
 </script>
 

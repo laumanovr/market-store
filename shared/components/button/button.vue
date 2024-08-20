@@ -4,6 +4,7 @@ interface Props {
   decoration?: 'default' | 'outline' | 'none'
   disabled?: boolean
 }
+// TODO: delete this component
 
 const props = defineProps<Props>()
 const {

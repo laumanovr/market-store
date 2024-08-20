@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts">
+// TODO: delete this component
 import { ref } from 'vue'
 import icons from './icons'
 
