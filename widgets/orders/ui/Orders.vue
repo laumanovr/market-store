@@ -1,6 +1,6 @@
 <template>
   <div class="orders-container">
-    <div class="head-title">Заказы</div>
+    <div class="s-text-h-2 s-py-5">Заказы</div>
     <STabs :tab-mode="'filter-tabs'">
       <STabItem value="one" :active-tab="tab" @changeTab="selectTab">
         Все
