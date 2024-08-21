@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO: delete
 import { ref } from 'vue'
 import { SButton } from '@tumarsoft/ogogo-ui'
 
