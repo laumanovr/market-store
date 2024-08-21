@@ -1,6 +1,6 @@
 <template>
   <div class="order-detail">
-    <div class="head-title">Заказ № 123328423-001</div>
+    <div class="s-text-h-2 s-py-5">Заказ № 123328423-001</div>
     <div class="order-detail__date">от 25 июня 2023</div>
 
     <div class="order-detail__info-block">
