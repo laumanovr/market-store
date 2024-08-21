@@ -1,5 +1,5 @@
 <template>
-  <div class="payment-change">
+  <div class="payment-change s-w-1/2">
     <SInput
       label="Подготовить сдачу из суммы"
       place-holder="Введите сумму"
