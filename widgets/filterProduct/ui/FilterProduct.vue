@@ -1,9 +1,7 @@
 <template>
   <div class="filterProduct">
     <div class="filterProduct__container">
-      <div class="filterProduct__title">
-        <h3>Смартфоны</h3>
-      </div>
+      <div class="s-text-h-2 s-mb-6 s-mt-6">Смартфоны</div>
       <div class="filterProduct__content">
         <div class="filterProduct__filter-product filter-product">
           <div class="filter-product__price price-product">
@@ -22,6 +20,7 @@
             </div>
             <div class="manufacturer-product__content">
               <SInput placeHolder="Поиск" />
+              <!-- TODO: change -->
               <Checkbox> Apple </Checkbox>
               <Checkbox> BQ </Checkbox>
               <Checkbox> Digma </Checkbox>
@@ -31,16 +30,14 @@
               <Checkbox> Land Rover </Checkbox>
               <Checkbox> MAXVI </Checkbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
-                <Button decoration="none">
+                <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
-                  <template v-slot:rightIcon>
-                    <BaseIcon
-                      name="arrow"
-                      viewBox="0 0 12 12"
-                      :class="['icon-svg', { isOpen: isOpen }]"
-                    />
-                  </template>
-                </Button>
+                  <SIconRender
+                    :name="isOpen ? 'chevron-up' : 'chevron-down'"
+                    class="s-text-violet-600"
+                    size="small"
+                  />
+                </SButton>
               </div>
             </div>
           </div>
@@ -64,16 +61,14 @@
               <Checkbox> Apple iPhone 14 </Checkbox>
               <Checkbox> Apple iPhone 14 Pro Max </Checkbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
-                <Button decoration="none">
+                <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
-                  <template v-slot:rightIcon>
-                    <BaseIcon
-                      name="arrow"
-                      viewBox="0 0 12 12"
-                      :class="['icon-svg', { isOpen: isOpen }]"
-                    />
-                  </template>
-                </Button>
+                  <SIconRender
+                    :name="isOpen ? 'chevron-up' : 'chevron-down'"
+                    class="s-text-violet-600"
+                    size="small"
+                  />
+                </SButton>
               </div>
             </div>
           </div>
@@ -88,16 +83,14 @@
               <Checkbox> 1 ТБ </Checkbox>
               <Checkbox> 2 ТБ </Checkbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
-                <Button decoration="none">
+                <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
-                  <template v-slot:rightIcon>
-                    <BaseIcon
-                      name="arrow"
-                      viewBox="0 0 12 12"
-                      :class="['icon-svg', { isOpen: isOpen }]"
-                    />
-                  </template>
-                </Button>
+                  <SIconRender
+                    :name="isOpen ? 'chevron-up' : 'chevron-down'"
+                    class="s-text-violet-600"
+                    size="small"
+                  />
+                </SButton>
               </div>
             </div>
           </div>
@@ -114,21 +107,27 @@
             </div>
           </div>
           <div class="filter-product__btn">
-            <SButton color="gray">Показать все фильтры</SButton>
+            <SButton>Показать все фильтры</SButton>
           </div>
         </div>
         <div class="filterProduct__body body-product">
           <div class="body-product__show">
             <div class="body-product__popular">
-              <SSelect class="w-15" />
+              <SSelect />
             </div>
             <div class="body-product__grid grid-row">
-                <div class="grid-row__grid">
-                    <BaseIcon name="grid" viewBox="0 0 22 22" :class="['icon-grid', {activeGrid: isActiveGrid}]" @click="isActiveGrid = !isActiveGrid"/>
-                </div>
-                <div class="grid-row__row">
-                    <BaseIcon name="row" viewBox="0 0 24 24" :class="['icon-grid', {activeGrid: !isActiveGrid}]" @click="isActiveGrid = !isActiveGrid"/>
-                </div>
+              <div class="grid-row__grid">
+                <SIconRender
+                  name="grid"
+                  @click="isActiveGrid = !isActiveGrid"
+                />
+              </div>
+              <div class="grid-row__row">
+                <SIconRender
+                  name="row-vertical"
+                  @click="isActiveGrid = !isActiveGrid"
+                />
+              </div>
             </div>
           </div>
           <div class="body-product__filter-categories">
@@ -137,7 +136,7 @@
             <STag title="128 ГБ" :index="1" />
             <STag title="Новый" :index="1" />
           </div>
-          <div :class="{'body-product__items': isActiveGrid}">
+          <div :class="{ 'body-product__items': isActiveGrid }">
             <ProductCard
               v-for="i in 17"
               :key="i"
@@ -157,11 +156,16 @@
 </template>
 
 <script lang="ts" setup>
-import Button from '~/shared/components/button/button.vue'
 import Checkbox from '~/shared/components/checkbox/checkbox.vue'
 import SliderPrice from '~/shared/components/sliderPrice/sliderPrice.vue'
-import { SInput, SSelect, SButton, STag } from '@tumarsoft/ogogo-ui'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import {
+  SInput,
+  SSelect,
+  SButton,
+  STag,
+  SCheckbox,
+  SIconRender,
+} from '@tumarsoft/ogogo-ui'
 import ProductCard from '~/shared/components/product-card/ProductCard.vue'
 const router = useRouter()
 
@@ -171,22 +175,6 @@ const isActiveGrid = ref(true)
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  width: 12px;
-  height: 12px;
-  transform: rotate(90deg);
-  &:deep(path) {
-    stroke: $violet-600;
-  }
-}
-.icon-grid {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  &:deep(path) {
-    stroke: $gray-400;
-  }
-}
 .filterProduct {
   &__content {
     display: grid;
@@ -268,18 +256,6 @@ const isActiveGrid = ref(true)
 
 .hide-filter-btn {
   margin-bottom: 20px;
-  &:deep(.button) {
-    justify-content: flex-start;
-    grid-gap: 8px;
-    width: auto;
-  }
-  &:deep(.button__text) {
-    color: $violet-600;
-  }
-}
-
-.isOpen {
-  transform: rotate(270deg);
 }
 
 .body-product {
@@ -306,7 +282,7 @@ const isActiveGrid = ref(true)
 }
 
 .activeGrid {
-    &:deep(path) {
+  &:deep(path) {
     stroke: $black;
   }
 }
