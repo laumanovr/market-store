@@ -1,11 +1,11 @@
 <template>
   <div class="payment-card">
-    <div class="payment-card__content">
+    <button class="payment-card__content">
       <div class="payment-card__icon">
         <SIconRender name="card-add" />
       </div>
       <div class="payment-card__text">Новой картой</div>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import { SIconRender } from '@tumarsoft/ogogo-ui'
 @import '~/assets/style/colors.scss';
 .payment-card {
   &__content {
+    background: transparent;
     border-radius: 8px;
     border: 1.5px solid $gray-200;
     text-align: center;
@@ -27,9 +28,5 @@ import { SIconRender } from '@tumarsoft/ogogo-ui'
     font-size: 12px;
     font-weight: 500;
   }
-}
-.icon-svg {
-  width: 24px;
-  height: 24px;
 }
 </style>
