@@ -2,8 +2,8 @@
   <div class="order-placing">
     <div class="order-placing__container">
       <section class="order-placing__header">
-        <div class="header-order">
-          <h3 class="header-order__title">Оформление заказа</h3>
+        <div class="header-order s-flex s-items-center">
+          <h3 class="s-text-h-2 s-mr-3">Оформление заказа</h3>
           <span class="header-order__total">
             {{ totalProductOrder }} товара
           </span>
@@ -11,52 +11,67 @@
       </section>
       <div class="order-placing__content">
         <div class="order-placing__body">
-          <section class="order-placing__delivery-method delivery-method">
-            <switchButton
-              title="Способ доставки"
-              btnlLeft="Доставка"
-              btnRight="Самовывоз"
-              @onSwitch="methodDelivery"
-            />
-            <div
-              v-if="deliveryMethod == 'delivery'"
-              class="delivery-method__add-address"
+          <div class="s-text-title-3 s-mb-4">Способ доставки</div>
+          <STabs :tab-mode="'filter-tabs'" class="s-mb-4">
+            <STabItem
+              value="one"
+              :active-tab="deliveryTab"
+              @changeTab="deliveryTabChange"
             >
-              <Button
-                color="gray"
-                decoration="none"
-                @click="isVoiceModalOpenAddAddress = true"
-              >
-                <template v-slot:leftIcon>
-                  <BaseIcon name="plus" viewBox="0 0 20 15" class="icon-svg" />
-                </template>
-                Добавить адрес
-              </Button>
-            </div>
-            <div v-else class="delivery-method__add-address">
-              <Button
-                color="gray"
-                decoration="none"
-                @click="isVoiceModalOpenAddAddress = true"
-              >
-                Выбрать филиал
-              </Button>
-            </div>
-          </section>
-          <section class="order-placing__payment-method payment-method">
-            <switchButton
-              title="Способ оплаты"
-              btnlLeft="Наличными"
-              btnRight="Картой на сайте"
-              @onSwitch="methodPayment"
-            />
-            <div v-if="paymentMethod == 'cash'" class="payment-method__cash">
-              <PaymentChange />
-            </div>
-            <div v-else class="payment-method__card">
-              <PaymentCard />
-            </div>
-          </section>
+              Доставка
+            </STabItem>
+            <STabItem
+              value="two"
+              :active-tab="deliveryTab"
+              @changeTab="deliveryTabChange"
+            >
+              Самовывоз
+            </STabItem>
+          </STabs>
+          <STabWindow value="one" :active-tab="deliveryTab">
+            <SButton
+              variant="outlined"
+              type="text"
+              @click="isVoiceModalOpenAddAddress = true"
+            >
+              <SIconRender name="plus" class="s-mr-2" />
+              Добавить адрес
+            </SButton>
+          </STabWindow>
+          <STabWindow value="two" :active-tab="deliveryTab">
+            <SButton
+              variant="outlined"
+              type="text"
+              @click="isVoiceModalOpenAddAddress = true"
+            >
+              Выбрать филиал
+            </SButton>
+          </STabWindow>
+
+          <div class="s-text-title-3 s-mb-4 s-mt-8">Способ оплаты</div>
+          <STabs :tab-mode="'filter-tabs'" class="s-mb-4">
+            <STabItem
+              value="cash"
+              :active-tab="paymentTab"
+              @changeTab="paymentTabChange"
+            >
+              Наличными
+            </STabItem>
+            <STabItem
+              value="card"
+              :active-tab="paymentTab"
+              @changeTab="paymentTabChange"
+            >
+              Картой на сайте
+            </STabItem>
+          </STabs>
+          <STabWindow value="cash" :active-tab="paymentTab">
+            <PaymentChange />
+          </STabWindow>
+          <STabWindow value="card" :active-tab="paymentTab">
+            <PaymentCard />
+          </STabWindow>
+
           <section class="order-placing__list list-table">
             <div class="list-table__title">
               <h3>Ваш заказ</h3>
@@ -131,20 +146,23 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import switchButton from '~/shared/components/switch-button/switch-button.vue'
-import Button from '~/shared/components/button/button.vue'
 import OrderPlacingCard from '~/shared/components/OrderPlacingCard/OrderPlacingCard.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 import { PaymentChange } from '~/features/payment-change'
 import { PaymentCard } from '~/features/payment-card'
 import TheModalAddAddress from '~/shared/components/modal/modals/TheModalAddAddress.vue'
 import TheModalMap from '~/shared/components/modal/modals/TheModalMap.vue'
-import { STable } from '@tumarsoft/ogogo-ui'
+import {
+  STable,
+  SButton,
+  SIconRender,
+  STabs,
+  STabItem,
+  STabWindow,
+} from '@tumarsoft/ogogo-ui'
 
 const totalProductOrder = ref(3)
-
-const paymentMethod = ref('cash')
-const deliveryMethod = ref('delivery')
+const deliveryTab = ref('one')
+const paymentTab = ref('cash')
 const isVoiceModalOpenAddAddress = ref(false)
 const isVoiceModalOpenMap = ref(false)
 const headers = [
@@ -189,37 +207,21 @@ const tableData = [
   { product: '1', quantity: '2', price: '3', pay: '4' },
 ]
 
-const methodPayment = (el: number): void => {
-  if (el == 0) {
-    paymentMethod.value = 'cash'
-  } else if (el == 1) {
-    paymentMethod.value = 'card'
-  }
-}
-
-const methodDelivery = (el: number): void => {
-  if (el == 0) {
-    deliveryMethod.value = 'delivery'
-  } else if (el == 1) {
-    deliveryMethod.value = 'pickup'
-  }
-}
-
 const handlerOpenMap = () => {
   isVoiceModalOpenAddAddress.value = false
   isVoiceModalOpenMap.value = true
+}
+
+const deliveryTabChange = (newTab: string) => {
+  deliveryTab.value = newTab
+}
+const paymentTabChange = (newTab: string) => {
+  paymentTab.value = newTab
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  width: 20px;
-  height: 20px;
-  &:deep(path) {
-    stroke-width: 1;
-  }
-}
 
 .order-placing {
   &__header {
@@ -259,13 +261,6 @@ const handlerOpenMap = () => {
 .delivery-method {
   &__add-address {
     margin-top: 16px;
-  }
-  &__add-address:deep(.button) {
-    padding: 16px 20px;
-    border: 1px solid $gray-200;
-    width: 207px;
-    grid-gap: 8px;
-    height: 52px;
   }
 }
 
