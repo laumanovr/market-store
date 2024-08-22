@@ -2,7 +2,7 @@
   <div class="grade">
     <div class="grade__number number-grade">
       <div class="number-grade__image">
-        <BaseIcon name="star" viewBox="0 0 16 16" />
+        <SIconRender name="star-filled" class="s-text-yellow-400 s-mr-2" />
       </div>
       <div class="number-grade__number">4.6</div>
     </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SIconRender } from '@tumarsoft/ogogo-ui'
 </script>
 
 <style lang="scss" scoped>
@@ -71,15 +71,6 @@ import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 }
 
 .number-grade {
-  &__image {
-    margin-right: 8px;
-    display: flex;
-  }
-  &__image svg {
-    width: 16px;
-    height: 16px;
-    margin-bottom: 2px;
-  }
   &__number {
     color: $black;
     font-size: 12px;
