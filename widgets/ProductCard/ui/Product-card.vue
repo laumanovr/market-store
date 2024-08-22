@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card__container">
+  <div class="product-card__container s-mt-4">
     <div class="product-card__detailed detailed-photo" v-show="openModel">
       <Carousel
         :examplePhoto="examplePhoto"
@@ -10,7 +10,7 @@
       <Breadcrumbs :items="BreadcrumbsItems" />
       <toFavorites @onFavorites="onFavorites" @onShare="onShare" />
     </section>
-    <section v-show="!openModel" class="product-card">
+    <section v-show="!openModel" class="product-card s-mt-5">
       <div class="product-card__example-photo">
         <ImageGallary
           :items="examplePhoto"
@@ -45,40 +45,41 @@
         <div class="info-card__photo">
           <ImageSelect :items="ImageSelectItems" />
         </div>
-        <div class="info-card__configuration configuration">
+
+        <div class="info-card__configuration configuration s-mb-5">
           <div class="configuration__title card-subtitle">
-            Конфигурация памяти: <span>256 ГБ</span>
+            Конфигурация памяти:
           </div>
-          <div class="configuration__info">
-            <ul class="configuration__list">
-              <li
-                :class="['configuration__link', { isActive: item.isActive }]"
-                v-for="item in configurationProduct"
-                :key="item.id"
-                @click="handlerConfigurationActive(item)"
-              >
-                <StateProduct text="ГБ">{{ item.configuration }}</StateProduct>
-              </li>
-            </ul>
-          </div>
+          <STabs :tab-mode="'filter-tabs'">
+            <STabItem
+              :value="item.id"
+              :active-tab="configTab"
+              v-for="item in configurationTypes"
+              :key="item.id"
+              @changeTab="configTabChange"
+            >
+              {{ item.name }} ГБ
+            </STabItem>
+          </STabs>
         </div>
-        <div class="info-card__state state-product">
+
+        <div class="info-card__state state-product s-mb-5">
           <div class="state-product__title card-subtitle">
-            Состояние товара: <span>Новый</span>
+            Состояние товара:
           </div>
-          <div class="state-product__info">
-            <ul class="state-product__list">
-              <li
-                :class="['state-product__link', { isActive: item.isActive }]"
-                v-for="item in stateProduct"
-                :key="item.id"
-                @click="handlerStateActive(item)"
-              >
-                <StateProduct>{{ item.text }}</StateProduct>
-              </li>
-            </ul>
-          </div>
+          <STabs :tab-mode="'filter-tabs'">
+            <STabItem
+              :value="item.id"
+              :active-tab="stateTab"
+              v-for="item in productStates"
+              :key="item.id"
+              @changeTab="stateTabChange"
+            >
+              {{ item.name }}
+            </STabItem>
+          </STabs>
         </div>
+
         <div class="info-card__description description-product">
           <div class="description-product__title card-subtitle">
             Коротко о товаре
@@ -99,11 +100,11 @@
 </template>
 
 <script lang="ts" setup>
+import { STabs, STabItem } from '@tumarsoft/ogogo-ui'
 import { reactive, computed } from 'vue'
 import { Breadcrumbs } from '~/features/breadcrumbs'
 import { ImageGallary } from '~/features/imageGallary'
 import { ImageSelect } from '~/features/imageSelect'
-import { StateProduct } from '~/features/stateProduct'
 import { BrieflyInfo } from '~/widgets/brieflyInfo'
 import { Basket } from '~/features/basket'
 import Carousel from '~/shared/components/carousel/carousel.vue'
@@ -126,35 +127,37 @@ const openCardDetail = () => {
 
 const mainFoto = ref('')
 const openModel = ref(false)
+const configTab = ref(1)
+const stateTab = ref(1)
 
-const configurationProduct = reactive<
-  { id: number; configuration: string; isActive?: boolean }[]
+const configurationTypes = reactive<
+  { id: number; name: string; isActive?: boolean }[]
 >([
   {
-    id: 0,
-    configuration: '128',
-    isActive: true,
-  },
-  {
     id: 1,
-    configuration: '256',
+    name: '128',
+    isActive: true,
   },
   {
     id: 2,
-    configuration: '512',
+    name: '256',
+  },
+  {
+    id: 3,
+    name: '512',
   },
 ])
-const stateProduct = reactive<
-  { id: number; text: string; isActive?: boolean }[]
+const productStates = reactive<
+  { id: number; name: string; isActive?: boolean }[]
 >([
   {
-    id: 0,
-    text: 'Новый',
+    id: 1,
+    name: 'Новый',
     isActive: true,
   },
   {
-    id: 1,
-    text: 'БУ',
+    id: 2,
+    name: 'БУ',
   },
 ])
 const BreadcrumbsItems = reactive<{ name: string; link: string }[]>([
@@ -273,6 +276,14 @@ const productBrieflyInfo = reactive<
   },
 ])
 
+const configTabChange = (newTab: number) => {
+  configTab.value = newTab
+}
+
+const stateTabChange = (newTab: number) => {
+  stateTab.value = newTab
+}
+
 const handlerMainFoto = computed((): string => {
   if (!mainFoto.value) {
     return examplePhoto[0].url
@@ -287,36 +298,6 @@ const onItemFoto = (item: {
   isActive?: boolean
 }): void => {
   mainFoto.value = item.url
-}
-
-const handlerConfigurationActive = (item: {
-  id: number
-  configuration: string
-  isActive?: boolean
-}): void => {
-  item.isActive = true
-  configurationProduct.filter(el => {
-    if (item.id !== el.id) {
-      el.isActive = false
-    } else {
-      el.isActive = true
-    }
-  })
-}
-
-const handlerStateActive = (item: {
-  id: number
-  text: string
-  isActive?: boolean
-}): void => {
-  item.isActive = true
-  stateProduct.filter(el => {
-    if (item.id !== el.id) {
-      el.isActive = false
-    } else {
-      el.isActive = true
-    }
-  })
 }
 
 const handlerOpenCarousel = (): void => {
@@ -382,9 +363,7 @@ const handlerOpenCarousel = (): void => {
   }
   &__title h3 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
-    font-style: normal;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0.24px;
@@ -400,40 +379,8 @@ const handlerOpenCarousel = (): void => {
   }
 }
 
-.configuration {
-  &__info {
-    margin: 12px 0 24px 0;
-  }
-  &__list {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    list-style: none;
-  }
-  &__link {
-    color: $gray-500;
-  }
-}
-
-.state-product {
-  &__list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  &__link {
-    color: $gray-500;
-  }
-  &__info {
-    margin: 12px 0 40px 0;
-  }
-}
-
 .card-subtitle {
-  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
   line-height: 18px;
   letter-spacing: 0.056px;
