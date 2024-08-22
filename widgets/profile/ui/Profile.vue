@@ -1,6 +1,6 @@
 <template>
   <div class="profile-content">
-    <div class="head-title">Личный кабинет</div>
+    <div class="s-text-h-2 s-mb-6 s-mt-6">Личный кабинет</div>
     <div class="profile-info-block">
       <div class="profile-tabs">
         <div class="tab" @click="changeTab('general')">
@@ -41,34 +41,31 @@
                 Формат: jpg, png. Максимальный размер файла: 2Mb. <br />
                 Рекомендованный размер 200х200px.
               </div>
-              <label for="file">
-                <input type="file" id="file" @change="onSelectFile" />
-                <span class="upload-btn">Загрузить</span>
-              </label>
+              <SFileInput mode="button" @change="onSelectFile" />
             </div>
           </div>
           <div class="data-title">Общие данные</div>
-          <div class="field"><SInput label="Имя" width="100%" /></div>
-          <div class="field"><SInput label="Фамилия" width="100%" /></div>
-          <div class="field"><SSelect label="Пол" class="wp-100" /></div>
+          <div class="field"><SInput label="Имя" /></div>
+          <div class="field"><SInput label="Фамилия" /></div>
+          <div class="field"><SSelect label="Пол" /></div>
           <div class="data-title">Учетные данные</div>
-          <div class="field"><SInput label="Телефон" width="100%" /></div>
-          <div class="field"><SInput label="Почта" width="100%" /></div>
+          <div class="field"><SInput label="Телефон" /></div>
+          <div class="field"><SInput label="Почта" /></div>
           <div class="light">
-            <SButton size="large" class=""> Сохранить </SButton>
+            <SButton size="large"> Сохранить </SButton>
           </div>
         </div>
 
         <div class="content-block" v-if="tab === 'password'">
           <div class="data-title">Изменить пароль</div>
-          <div class="field password">
+          <!-- <div class="field password">
             <SInput label="Старый пароль" width="100%" />
+          </div> -->
+          <div class="field password">
+            <SInput label="Новый пароль" />
           </div>
           <div class="field password">
-            <SInput label="Новый пароль" width="100%" />
-          </div>
-          <div class="field password">
-            <SInput label="Еще раз новый пароль" width="100%" />
+            <SInput label="Еще раз новый пароль" />
           </div>
           <div class="light">
             <SButton size="medium">Изменить</SButton>
@@ -122,12 +119,13 @@ import {
   SIconRender,
   SCheckbox,
   SSwitch,
+  SFileInput,
 } from '@tumarsoft/ogogo-ui'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const tab = ref('')
-const profileObj = ref({ image: null })
+const profileObj = ref({ image: '' })
 
 onMounted(() => {
   changeTab('general')
@@ -156,10 +154,9 @@ const convertToBase64 = (file: File) => {
   })
 }
 
-const onSelectFile = async (e: any) => {
-  const file = e.target.files[0]
+const onSelectFile = async (file: File) => {
   if (file) {
-    profileObj.value.image = await convertToBase64(file)
+    profileObj.value.image = (await convertToBase64(file)) as string
   }
 }
 
