@@ -1,13 +1,13 @@
 <template>
   <div class="shop-detail">
     <div class="flex items-center">
-      <div class="head-title">Мой телефон</div>
+      <div class="s-text-h-4 s-py-5">Мой телефон</div>
       <span class="product-count">3420 товаров</span>
     </div>
 
     <div class="shop-catalog">
       <SButton type="secondary" @click="toggleModal">
-        <SIconRender name="burger" color="black" />
+        <SIconRender name="burger" />
         <span>Каталог товаров</span>
       </SButton>
     </div>
@@ -29,7 +29,7 @@
           <div class="category-title">{{ activeCategory.name }}</div>
           <SButton type="secondary" size="small">
             <span class="s-mr-2 s-text-tertiary-dark">Все товары</span>
-            <SIconRender name="chevron-right" />
+            <SIconRender name="chevron-right" class="s-text-gray-400" />
           </SButton>
         </div>
         <div class="product-card-list flex flex-wrap justify-between">
