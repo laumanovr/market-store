@@ -2,52 +2,37 @@
   <div class="toFavorites">
     <div class="toFavorites__container">
       <div class="toFavorites__favorite">
-        <Button decoration="none" class="btn" @click="$emit('onFavorites')">
-          <template v-slot:leftIcon>
-            <SIconRender name="heart" color="black" class="icon-svg" />
-          </template>
+        <SButton type="text" @click="$emit('onFavorites')">
+          <SIconRender name="heart" class="s-mr-2" />
           В избранное
-        </Button>
+        </SButton>
       </div>
       <div class="toFavorites__share">
-        <Button decoration="none" class="btn" @click="$emit('onShare')">
-          <template v-slot:leftIcon>
-            <BaseIcon name="share" viewBox="0 0 22 22" class="icon-svg" />
-          </template>
+        <SButton type="text" @click="$emit('onShare')">
+          <SIconRender name="export" class="s-mr-2" />
           Поделиться
-        </Button>
+        </SButton>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Button from '~/shared/components/button/button.vue'
-import { SIconRender } from '@tumarsoft/ogogo-ui'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SIconRender, SButton } from '@tumarsoft/ogogo-ui'
 
 defineEmits(['onFavorites', 'onShare'])
 </script>
 
 <style scoped lang="scss">
-.icon-svg {
-  width: 23px;
-  height: 23px;
-  margin-right: 8px;
-}
-.btn:deep(.button__text) {
-  font-size: 14px;
-  font-weight: 500;
-}
 .toFavorites {
   &__container {
     display: flex;
     align-items: center;
-    grid-gap: 16px;
   }
-  &__favorite,
-  &__share {
-    width: 128px;
+  &__favorite {
+    button {
+      white-space: nowrap;
+    }
   }
 }
 </style>
