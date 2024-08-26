@@ -24,7 +24,11 @@
 
       <div class="shop-info__rating rating-info">
         <div class="rating-info__svg">
-          <BaseIcon name="star" viewBox="0 0 16 16" />
+          <SIconRender
+            name="star-filled"
+            class="s-text-yellow-400"
+            size="small"
+          />
         </div>
         <div class="rating-info__value">
           {{ item.rating }}
@@ -33,19 +37,15 @@
       <div class="shop-info__model">•••</div>
     </div>
     <div :class="['basket__btn', `basket__btn_${size}`]">
-      <Button color="gray" v-if="addedProduct">
-        <template v-slot:leftIcon>
-          <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
-        </template>
+      <SButton type="secondary" v-if="addedProduct">
+        <SIconRender name="minus" @click="removeProduct" />
         {{ addedProduct }}
-        <template v-slot:rightIcon>
-          <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
-        </template>
-      </Button>
-      <div class="light wp-100">
+        <SIconRender name="plus" @click="addingProduct" />
+      </SButton>
+      <div class="s-w-full">
         <SButton
-          v-if="(!addedProduct && size == 'small') || size == 'default'"
-          class="wp-100"
+          v-if="(!addedProduct && size === 'small') || size == 'default'"
+          class="s-w-full"
           @click="addingProduct"
         >
           В корзину
@@ -57,9 +57,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { SButton, SBadge } from '@tumarsoft/ogogo-ui'
-import Button from '~/shared/components/button/button.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SButton, SBadge, SIconRender } from '@tumarsoft/ogogo-ui'
 
 interface Props {
   size?: 'default'
