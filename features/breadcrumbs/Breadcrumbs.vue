@@ -7,12 +7,15 @@
             v-if="itemIndex !== items.length - 1"
             :to="item.link"
             :title="item.name"
-            class="bc-link"
+            class="bc-link s-flex items-center"
           >
             <span>{{ item.name }}</span>
-            <span v-if="items[itemIndex + 1]" class="bc-separator">
-              <BaseIcon name="arrowBold" viewBox="0 0 8 8" class="icon-svg" />
-            </span>
+            <SIconRender
+              name="chevron-right"
+              size="x-small"
+              v-if="items[itemIndex + 1]"
+              class="s-ml-2"
+            />
           </NuxtLink>
           <span v-else class="bc-name">{{ item.name }}</span>
         </li>
@@ -22,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SIconRender } from '@tumarsoft/ogogo-ui'
 interface Props {
   items: {
     name: string
@@ -36,10 +39,6 @@ const { items } = defineProps<Props>()
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
 @import '~/assets/style/screens.scss';
-.icon-svg {
-  width: 8px;
-  height: 8px;
-}
 
 .my-breadcrumbs {
   ul {
@@ -64,9 +63,6 @@ const { items } = defineProps<Props>()
       .bc-link {
         text-decoration: none;
         color: $black;
-      }
-      .bc-separator {
-        margin-left: 8px;
       }
     }
   }
