@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import Header from '../shared/components/header/Header.vue'
+import Header from '~/shared/components/header/Header.vue'
 import Footer from '~/shared/components/footer/Footer.vue'
 import MobileMenu from '~/shared/components/mobile-menu/MobileMenu.vue'
 </script>
