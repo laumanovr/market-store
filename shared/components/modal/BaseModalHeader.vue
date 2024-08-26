@@ -1,12 +1,10 @@
 <template>
   <div class="modal-header">
     <div class="modal-header__icon-back">
-      <BaseIcon
-        v-if="withBackButton"
-        name="arrow"
-        viewBox="0 0 11 12"
-        class="icon-svg"
+      <SIconRender
+        name="chevron-left"
         @click="$emit('back')"
+        v-if="withBackButton"
       />
     </div>
     <div class="modal-header__title">
@@ -15,18 +13,13 @@
       </h4>
     </div>
     <div class="modal-header__icon-close">
-      <BaseIcon
-        name="close"
-        viewBox="1 -1 22 24"
-        class="icon-close"
-        @click="$emit('close')"
-      />
+      <SIconRender name="close" @click="$emit('close')" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
+import { SIconRender } from '@tumarsoft/ogogo-ui'
 interface Props {
   text: string
   withBackButton: boolean

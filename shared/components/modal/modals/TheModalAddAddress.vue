@@ -14,14 +14,12 @@
           </div>
         </div>
         <div class="modal__btn">
-          <SButton color="violet" size="large">Привезсти сюда</SButton>
-          <div class="modal__btn-add-address" @click="$emit('handlerOpenMap')">
-            <Button color="gray" decoration="none">
-              <template v-slot:leftIcon>
-                <BaseIcon name="plus" viewBox="0 0 20 15" class="icon-svg" />
-              </template>
+          <SButton type="secondary">Привезти сюда</SButton>
+          <div class="modal__btn-add-address">
+            <SButton type="secondary" @click="$emit('handlerOpenMap')">
+              <SIconRender name="plus" class="s-mr-2" />
               Добавить новый
-            </Button>
+            </SButton>
           </div>
         </div>
       </div>
@@ -32,20 +30,11 @@
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
 import AddressList from '~/shared/components/addressList/addressList.vue'
-import Button from '~/shared/components/button/button.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
-import { SButton } from '@tumarsoft/ogogo-ui'
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  width: 20px;
-  height: 20px;
-  &:deep(path) {
-    stroke-width: 1;
-  }
-}
 
 .modal {
   &__title h3 {
@@ -57,7 +46,6 @@ import { SButton } from '@tumarsoft/ogogo-ui'
     margin-bottom: 24px;
   }
   &__btn-add-address {
-    border: 1px solid $gray-200;
     padding: 16px 0;
     border-radius: 8px;
     width: 272px;
