@@ -1,17 +1,10 @@
 <template>
-  <div class="detail-card">
-    <div class="detail-card__nav">
-      <Button
-        decoration="none"
-        color="violet"
-        class="btn"
-        @click="$router.back()"
-      >
-        <template v-slot:leftIcon>
-          <BaseIcon name="arrowPurple" viewBox="0 0 12 12" class="icon-svg" />
-        </template>
+  <div class="detail-card s-mt-4">
+    <div class="s-flex s-justify-between s-items-center">
+      <SButton type="text" class="s-text-violet-500">
+        <SIconRender name="chevron-left" class="s-text-violet-500" />
         К товару
-      </Button>
+      </SButton>
       <toFavorites @onFavorites="onFavorites" @onShare="onShare" />
     </div>
     <div class="detail-card__main">
@@ -87,13 +80,12 @@
 </template>
 
 <script setup lang="ts">
+import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
 import { reactive } from 'vue'
 import { toFavorites } from '~/widgets/toFavotites'
-import Button from '~/shared/components/button/button.vue'
 import { ProductRating } from '~/widgets/ProductRating'
 import { Basket } from '~/features/basket'
 import DetailInfoCard from '~/shared/components/detail-info-card/detail-info-card.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 interface ItemsDetail {
   item: {
@@ -248,23 +240,8 @@ const onShare = (): void => {
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  transform: rotate(180deg);
-  margin-right: 8px;
-  width: 16px;
-  height: 16px;
-}
+
 .detail-card {
-  &__nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__nav:deep(.button) {
-    justify-content: flex-start;
-    font-size: 14px;
-    font-weight: 600;
-  }
   &__title h3 {
     font-size: 24px;
     font-weight: 700;
