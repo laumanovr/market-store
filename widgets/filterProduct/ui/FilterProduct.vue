@@ -20,15 +20,10 @@
             </div>
             <div class="manufacturer-product__content">
               <SInput placeHolder="Поиск" />
-              <!-- TODO: change -->
-              <Checkbox> Apple </Checkbox>
-              <Checkbox> BQ </Checkbox>
-              <Checkbox> Digma </Checkbox>
-              <Checkbox> F+ </Checkbox>
-              <Checkbox> INOI </Checkbox>
-              <Checkbox> Itel </Checkbox>
-              <Checkbox> Land Rover </Checkbox>
-              <Checkbox> MAXVI </Checkbox>
+              <SCheckbox>Samsung</SCheckbox>
+              <SCheckbox>Apple</SCheckbox>
+              <SCheckbox>Xiaomi</SCheckbox>
+              <SCheckbox>Redmi</SCheckbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
                 <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
@@ -46,8 +41,8 @@
               Состояние товара
             </div>
             <div class="product-condition__content">
-              <Checkbox> Новый </Checkbox>
-              <Checkbox> БУ </Checkbox>
+              <SCheckbox>Новый</SCheckbox>
+              <SCheckbox>БУ</SCheckbox>
             </div>
           </div>
           <div class="filter-product__device-model device-model">
@@ -55,11 +50,8 @@
               Модель устройства
             </div>
             <div class="device-model__content">
-              <Checkbox> Apple iPhone 15 Pro </Checkbox>
-              <Checkbox> Apple iPhone 13 </Checkbox>
-              <Checkbox> Apple iPhone 15 Pro Max </Checkbox>
-              <Checkbox> Apple iPhone 14 </Checkbox>
-              <Checkbox> Apple iPhone 14 Pro Max </Checkbox>
+              <SCheckbox> Apple iPhone 15 Pro </SCheckbox>
+              <SCheckbox> Apple iPhone 13 </SCheckbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
                 <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
@@ -77,11 +69,8 @@
               Встроенная память
             </div>
             <div class="built-memory__content">
-              <Checkbox> 64 ГБ </Checkbox>
-              <Checkbox> 128 ГБ </Checkbox>
-              <Checkbox> 512 ГБ </Checkbox>
-              <Checkbox> 1 ТБ </Checkbox>
-              <Checkbox> 2 ТБ </Checkbox>
+              <SCheckbox> 64 ГБ </SCheckbox>
+              <SCheckbox> 128 ГБ </SCheckbox>
               <div class="hide-filter-btn" @click="isOpen = !isOpen">
                 <SButton type="text" class="s-px-0 s-text-violet-600">
                   {{ isOpen ? 'Скрыть' : 'Показать всё' }}
@@ -99,11 +88,8 @@
               Оперативная память
             </div>
             <div class="ram-product__content">
-              <Checkbox> 8 ГБ </Checkbox>
-              <Checkbox> 6 ГБ </Checkbox>
-              <Checkbox> 4 ГБ </Checkbox>
-              <Checkbox> 3 ГБ </Checkbox>
-              <Checkbox> 2 ГБ </Checkbox>
+              <SCheckbox> 8 ГБ </SCheckbox>
+              <SCheckbox> 6 ГБ </SCheckbox>
             </div>
           </div>
           <div class="filter-product__btn">
@@ -156,7 +142,6 @@
 </template>
 
 <script lang="ts" setup>
-import Checkbox from '~/shared/components/checkbox/checkbox.vue'
 import SliderPrice from '~/shared/components/sliderPrice/sliderPrice.vue'
 import {
   SInput,
