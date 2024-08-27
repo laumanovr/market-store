@@ -5,14 +5,11 @@
         <div class="modal__content">
           <div class="modal__add-address">
             <div>
-              <div class="modal__title">
-                <switchButton
-                  title="Способ доставки"
-                  btnlLeft="Наличными"
-                  btnRight="Картой на сайте"
-                  @onSwitch="methodPayment"
-                />
-              </div>
+              <div class="s-text-title-3 s-mb-3">Способ доставки</div>
+              <STabs :tab-mode="'filter-tabs'">
+                <STabItem>Наличными</STabItem>
+                <STabItem>Картой на сайте</STabItem>
+              </STabs>
               <div class="modal__street">
                 <SInput placeHolder="Улица, номер дома" />
               </div>
@@ -26,7 +23,7 @@
               </div>
             </div>
             <div class="modal__btn">
-              <SButton color="violet" size="large">Привезсти сюда</SButton>
+              <SButton size="large">Привезти сюда</SButton>
             </div>
           </div>
           <div class="modal__map">
@@ -40,29 +37,17 @@
 
 <script setup lang="ts">
 import BaseModal from '../BaseModal.vue'
-import switchButton from '~/shared/components/switch-button/switch-button.vue'
-import { SButton, SInput, STextArea } from '@tumarsoft/ogogo-ui'
-
-const paymentMethod = ref('cash')
-
-const methodPayment = (el: number): void => {
-  if (el == 0) {
-    paymentMethod.value = 'cash'
-  } else if (el == 1) {
-    paymentMethod.value = 'card'
-  }
-}
+import {
+  SButton,
+  SInput,
+  STextArea,
+  STabs,
+  STabItem,
+} from '@tumarsoft/ogogo-ui'
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/style/colors.scss';
-.icon-svg {
-  width: 20px;
-  height: 20px;
-  &:deep(path) {
-    stroke-width: 1;
-  }
-}
 
 .modal {
   &__add-address {
