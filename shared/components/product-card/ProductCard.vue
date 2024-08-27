@@ -60,17 +60,17 @@
         </div>
       </div>
     </div>
-    <div class="product-card__btn light">
-      <Button v-if="addedProduct" color="gray">
-        <template v-slot:leftIcon>
-          <BaseIcon @click="removeProduct" name="minus" viewBox="0 0 16 2" />
-        </template>
+    <div class="product-card__btn">
+      <SButton
+        type="secondary"
+        class="s-w-full s-text-gray-300"
+        v-if="addedProduct"
+      >
+        <SIconRender name="minus" @click="removeProduct" />
         {{ addedProduct }}
-        <template v-slot:rightIcon>
-          <BaseIcon @click="addingProduct" name="plus" viewBox="0 0 16 16" />
-        </template>
-      </Button>
-      <SButton v-else @click="addingProduct" class="wp-100">
+        <SIconRender name="plus" @click="addingProduct" />
+      </SButton>
+      <SButton v-else @click="addingProduct" class="s-w-full">
         В корзину
       </SButton>
     </div>
@@ -79,8 +79,6 @@
 
 <script lang="ts" setup>
 import { SButton, SIconRender } from '@tumarsoft/ogogo-ui'
-import Button from '~/shared/components/button/button.vue'
-import BaseIcon from '~/shared/components/icons/BaseIcon.vue'
 
 const props = defineProps({
   productImageUrl: {
