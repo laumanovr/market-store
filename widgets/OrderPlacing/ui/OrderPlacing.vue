@@ -32,7 +32,7 @@
             <SButton
               variant="outlined"
               type="text"
-              @click="isVoiceModalOpenAddAddress = true"
+              @click="modalAddress.open()"
             >
               <SIconRender name="plus" class="s-mr-2" />
               Добавить адрес
@@ -128,19 +128,8 @@
         </div>
       </div>
     </div>
-    <teleport to="body">
-      <TheModalAddAddress
-        v-if="isVoiceModalOpenAddAddress"
-        @close="isVoiceModalOpenAddAddress = false"
-        @handlerOpenMap="handlerOpenMap"
-      />
-    </teleport>
-    <teleport to="body">
-      <TheModalMap
-        v-if="isVoiceModalOpenMap"
-        @close="isVoiceModalOpenMap = false"
-      />
-    </teleport>
+    <TheModalAddAddress ref="modalAddress" @onOpenMap="openMapModal" />
+    <TheModalMap ref="modalMap" />
   </div>
 </template>
 
@@ -163,8 +152,9 @@ import {
 const totalProductOrder = ref(3)
 const deliveryTab = ref('one')
 const paymentTab = ref('cash')
-const isVoiceModalOpenAddAddress = ref(false)
-const isVoiceModalOpenMap = ref(false)
+const modalAddress = ref<any>({})
+const modalMap = ref<any>({})
+
 const headers = [
   { title: 'Товар', key: 'product' },
   { title: 'Кол-во', key: 'quantity' },
@@ -207,9 +197,9 @@ const tableData = [
   { product: '1', quantity: '2', price: '3', pay: '4' },
 ]
 
-const handlerOpenMap = () => {
-  isVoiceModalOpenAddAddress.value = false
-  isVoiceModalOpenMap.value = true
+const openMapModal = () => {
+  modalAddress.value.close()
+  modalMap.value.open()
 }
 
 const deliveryTabChange = (newTab: string) => {
