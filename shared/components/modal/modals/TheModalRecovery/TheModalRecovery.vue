@@ -1,21 +1,32 @@
 <template>
-  <BaseModal text="Восстановление" with-back-button @on-back="onBack">
+  <SModal v-model="isOpen" class="modal-recovery">
+    <SIconRender name="chevron-left" class="back" @click="onBack" />
+    <div class="s-text-title-1 s-text-center">Восстановление</div>
     <Recovery v-if="step == 0" @next="handleStep" />
     <ReceivingMessage v-else-if="step == 1" @next="handleStep" />
     <PasswordConfirmation v-else-if="step == 2" />
-  </BaseModal>
+  </SModal>
 </template>
 
 <script setup lang="ts">
+import { SModal, SIconRender } from '@tumarsoft/ogogo-ui'
 import { ref } from 'vue'
 import Recovery from './step/Recovery.vue'
 import ReceivingMessage from './step/ReceivingMessage.vue'
 import PasswordConfirmation from './step/PasswordConfirmation.vue'
-import BaseModal from '../../BaseModal.vue'
 
 const emit = defineEmits(['onBack'])
 
+const isOpen = ref(false)
 const step = ref(0)
+
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
 
 const handleStep = () => {
   if (step.value < 2) {
@@ -26,28 +37,25 @@ const handleStep = () => {
 const onBack = () => {
   emit('onBack')
 }
+
+defineExpose({
+  open,
+  close,
+})
 </script>
 
-<style lang="scss" scoped>
-@import '~/assets/style/colors.scss';
-.modal {
-  &__send {
-    margin-bottom: 8px;
+<style lang="scss">
+.modal-recovery {
+  position: relative;
+  .modal-container {
+    max-width: 400px;
   }
-  &__send:deep(.button) {
-    width: 100%;
-  }
-  &__text {
-    margin: 12px 0 16px 0;
-  }
-  &__text p {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    color: $black;
-  }
-  &__phone {
-    margin-bottom: 36px;
+  .back {
+    position: absolute;
+    top: 28px;
+    left: 18px;
+    cursor: pointer;
   }
 }
+
 </style>

@@ -1,113 +1,61 @@
 <template>
-  <BaseModal text="Адрес доставки" header class="modal-map">
-    <div class="modal">
-      <div class="modal__container">
-        <div class="modal__content">
-          <div class="modal__add-address">
-            <div>
-              <div class="s-text-title-3 s-mb-3">Способ доставки</div>
-              <STabs :tab-mode="'filter-tabs'">
-                <STabItem>Наличными</STabItem>
-                <STabItem>Картой на сайте</STabItem>
-              </STabs>
-              <div class="modal__street">
-                <SInput placeHolder="Улица, номер дома" />
-              </div>
-              <div class="modal__house">
-                <SInput placeHolder="Номер д." />
-                <SInput placeHolder="Домофон" />
-                <SInput placeHolder="Этаж" />
-              </div>
-              <div class="modal__comments">
-                <STextArea placeHolder="Комментарии" />
-              </div>
-            </div>
-            <div class="modal__btn">
-              <SButton size="large">Привезти сюда</SButton>
-            </div>
+  <SModal v-model="isOpen">
+    <div class="s-flex s-w-full">
+      <div class="s-w-1/2">
+        <div>
+          <div class="s-text-title-3 s-mb-3">Способ доставки</div>
+          <STabs :tab-mode="'filter-tabs'">
+            <STabItem>Наличными</STabItem>
+            <STabItem>Картой на сайте</STabItem>
+          </STabs>
+          <div class="modal__street s-mt-5">
+            <SInput placeHolder="Улица, номер дома" />
           </div>
-          <div class="modal__map">
-            <img src="~/assets/images/Map.png" alt="" />
+          <div class="modal__house">
+            <SInput placeHolder="Номер д." />
+            <SInput placeHolder="Домофон" />
+            <SInput placeHolder="Этаж" />
+          </div>
+          <div class="modal__comments">
+            <STextArea placeHolder="Комментарии" />
           </div>
         </div>
+        <div class="modal__btn s-mt-3">
+          <SButton size="large">Привезти сюда</SButton>
+        </div>
+      </div>
+      <div class="modal__map s-w-1/2">
+        <img src="~/assets/images/Map.png" class="s-w-full s-h-full" alt="" />
       </div>
     </div>
-  </BaseModal>
+  </SModal>
 </template>
 
 <script setup lang="ts">
-import BaseModal from '../BaseModal.vue'
 import {
   SButton,
   SInput,
   STextArea,
   STabs,
   STabItem,
+  SModal,
 } from '@tumarsoft/ogogo-ui'
+import { ref } from 'vue'
+
+const isOpen = ref(false)
+
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
+
+defineExpose({
+  open,
+  close,
+})
 </script>
 
-<style lang="scss" scoped>
-@import '~/assets/style/colors.scss';
-
-.modal {
-  &__add-address {
-    padding: 24px;
-    z-index: 5;
-    background-color: $white;
-    border-radius: 16px 0px 0 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  &__title h3 {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.224px;
-  }
-  &__content {
-    height: 560px;
-    display: grid;
-    grid-template-columns: 0.6fr 1fr;
-    position: relative;
-  }
-  &__map {
-    width: 100%;
-  }
-  &__map img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-  }
-  &-map {
-    width: 1000px;
-  }
-  &-map:deep(.baseModal__content) {
-    padding: 0;
-    width: 1000px;
-  }
-  &__house {
-    display: flex;
-    align-items: center;
-    grid-gap: 8px;
-    margin: 16px 0;
-  }
-  &__street {
-    margin: 16px 0;
-  }
-  &__street:deep(.input-container) {
-    width: 100%;
-  }
-  &__comments:deep(.textarea-container) {
-    width: 100%;
-  }
-  &__comments:deep(textarea.textarea-field) {
-    width: 100% !important;
-  }
-  &__btn:deep(.button) {
-    width: 100%;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
