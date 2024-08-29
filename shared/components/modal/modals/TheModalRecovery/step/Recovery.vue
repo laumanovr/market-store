@@ -10,16 +10,15 @@
       <div class="modal__phone phone-field">
         <SInput
           label="Телефон"
-          width="100%"
           place-holder="+996"
-          v-maska:[options]
+          v-maska:[maskOptions]
           v-model="phoneNumber"
         />
       </div>
-      <div class="light">
+      <div>
         <SButton
           size="large"
-          class="wp-100"
+          class="s-w-full"
           :disabled="modifiedNumber.length < 12"
           @click="submitPhone"
         >
@@ -31,13 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { SInput, SButton } from '@tumarsoft/ogogo-ui'
-
-const options = reactive({
-  mask: '+996 ### ### ###',
-  eager: true,
-})
+import { maskOptions } from '~/shared/helpers'
 
 const emit = defineEmits(['next'])
 

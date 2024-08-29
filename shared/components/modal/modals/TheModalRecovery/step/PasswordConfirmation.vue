@@ -8,7 +8,6 @@
           <SInput
             label="Придумайте новый пароль"
             place-holder="Новый пароль"
-            width="100%"
             v-model="formObj.password"
             :rules="[requiredField]"
             type="password"
@@ -23,14 +22,13 @@
           <SInput
             label="Повторите пароль"
             place-holder="Повторите пароль"
-            width="100%"
             v-model="formObj.passwordRetype"
             :rules="[requiredField]"
             type="password"
           />
         </div>
-        <div class="light">
-          <SButton size="large" class="wp-100" @click="onSubmit">
+        <div>
+          <SButton size="large" class="s-w-full" @click="onSubmit">
             Подтвердить
           </SButton>
         </div>

@@ -15,10 +15,10 @@
       <div class="modal__text-restart modal-text" v-else>
         <span>Отправить повторно</span>
       </div>
-      <div class="light">
+      <div>
         <SButton
           size="large"
-          class="wp-100"
+          class="s-w-full"
           :disabled="inputCode.length < 4"
           @click="submitSms"
         >
