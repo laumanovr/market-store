@@ -4,9 +4,8 @@
       <div class="modal__phone phone-field">
         <div class="phone-field__number">
           <SInput
-            width="100%"
             place-holder="+996"
-            v-maska:[options]
+            v-maska:[maskOptions]
             v-model="phoneNumber"
           />
         </div>
@@ -22,10 +21,10 @@
           </SCheckbox>
         </div>
       </div>
-      <div class="light">
+      <div>
         <SButton
           size="large"
-          class="wp-100"
+          class="s-w-full"
           :disabled="modifiedNumber.length < 12"
           @click="submitRegistration"
         >
@@ -38,14 +37,10 @@
 
 <script setup lang="ts">
 import { SInput, SCheckbox, SButton } from '@tumarsoft/ogogo-ui'
-import { reactive, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
+import { maskOptions } from '~/shared/helpers'
 
 const emit = defineEmits(['next'])
-
-const options = reactive({
-  mask: '+996 ### ### ###',
-  eager: true,
-})
 
 const phoneNumber = ref('')
 const modifiedNumber = computed(() => phoneNumber.value.replace(/[ + ]/g, ''))
