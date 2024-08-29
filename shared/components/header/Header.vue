@@ -128,34 +128,20 @@
         </router-link>
         <div
           class="cursor-pointer s-flex s-items-center s-flex-col"
-          @click="isModalOpenLogin = true"
+          @click="modalLogin.open()"
         >
           <SIconRender name="user-round" />
           <span class="s-mt-1 s-text-body-medium s-text-gray-500">Войти</span>
         </div>
       </div>
     </div>
-    <teleport to="body">
-      <TheModalLogin
-        v-if="isModalOpenLogin"
-        @close="isModalOpenLogin = false"
-        @onResetPassword="onResetPassword"
-        @onRegistration="onRegistration"
-      />
-    </teleport>
-    <teleport to="body">
-      <TheModalRecovery
-        v-if="isModalOpenRecovery"
-        @close="isModalOpenRecovery = false"
-        @onBack="onBack"
-      />
-    </teleport>
-    <teleport to="body">
-      <TheModalRegistration
-        v-if="isModalOpenReg"
-        @close="isModalOpenReg = false"
-      />
-    </teleport>
+    <TheModalLogin
+      ref="modalLogin"
+      @onResetPassword="onResetPassword"
+      @onRegistration="onRegistration"
+    />
+    <TheModalRecovery ref="modalRecovery" @onBack="backToLogin" />
+    <TheModalRegistration ref="modalRegistration" @onBack="backToLogin" />
     <div class="sidebar" v-if="categoryOpen">
       <SidebarCategory @close="categoryOpen = false" />
     </div>
@@ -173,31 +159,33 @@ import TheModalRegistration from '~/shared/components/modal/modals/TheModalRegis
 import EventEmitter from '~/shared/utils/EventEmitter'
 
 onMounted(() => {
-  EventEmitter.$on('onLoginMobile', emittedValue => {
-    isModalOpenLogin.value = emittedValue
+  EventEmitter.$on('onLoginMobile', () => {
+    modalLogin.value.open()
   })
 })
 
-const isModalOpenLogin = ref(false)
-const isModalOpenReg = ref(false)
-const isModalOpenRecovery = ref(false)
 const router = useRouter()
 const route = useRoute()
 const categoryOpen = ref(false)
 
+const modalLogin = ref<any>({})
+const modalRecovery = ref<any>({})
+const modalRegistration = ref<any>({})
+
 const onResetPassword = (): void => {
-  isModalOpenLogin.value = false
-  isModalOpenRecovery.value = true
+  modalLogin.value.close()
+  modalRecovery.value.open()
 }
 
-const onRegistration = (): void => {
-  isModalOpenLogin.value = false
-  isModalOpenReg.value = true
+const onRegistration = () => {
+  modalLogin.value.close()
+  modalRegistration.value.open()
 }
 
-const onBack = (): void => {
-  isModalOpenRecovery.value = false
-  isModalOpenLogin.value = true
+const backToLogin = () => {
+  modalRegistration.value.close()
+  modalRecovery.value.close()
+  modalLogin.value.open()
 }
 </script>
 
